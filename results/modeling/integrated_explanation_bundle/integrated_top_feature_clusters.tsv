@@ -1,0 +1,21 @@
+cluster_id	n_features	combined_effect	exemplar_feature	exemplar_label	family_Species identity	family_Host life history	family_Host phylogenetic diversity	family_Overlap opportunity	family_Local host prevalence	family_LD / coadaptation	family_UTR structure	family_Tree incongruence	family_Geographic / sampling context	family_Controls / sampling	rank
+8	3	0.9173061802886726	cat__ld_site_M_1135_L_4824_AA	ld site M 1135 L 4824 AA	0.0	0.0	0.0	0.0	0.0	0.9173061802886726	0.0	0.0	0.0	0.0	1
+19	1	0.6458152089677132	num__tree_discordance_score	Tree discordance score	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.6458152089677132	0.0	0.0	2
+2	1	0.4621869123406718	num__overlap_opportunity_local	Overlap opportunity	0.0	0.0	0.0	0.4621869123406718	0.0	0.0	0.0	0.0	0.0	0.0	3
+1	2	0.3712697537630203	cat__ld_site_M_1417_L_5859_GT	ld site M 1417 L 5859 GT	0.0	0.0	0.0	0.0	0.0	0.3712697537630203	0.0	0.0	0.0	0.0	4
+15	2	0.2795785114586782	cat__ld_site_S_687_L_1911_AT	ld site S 687 L 1911 AT	0.0	0.0	0.0	0.0	0.0	0.2795785114586782	0.0	0.0	0.0	0.0	5
+18	1	0.23007544085240006	num__arha_prev_local	Local host prevalence	0.0	0.0	0.0	0.0	0.23007544085240006	0.0	0.0	0.0	0.0	0.0	6
+3	2	0.22305205171157608	cat__ld_site_M_1306_L_1824_TT	ld site M 1306 L 1824 TT	0.0	0.0	0.0	0.0	0.0	0.22305205171157608	0.0	0.0	0.0	0.0	7
+10	1	0.20668986164220604	cat__ld_site_M_865_L_4824_TA	ld site M 865 L 4824 TA	0.0	0.0	0.0	0.0	0.0	0.20668986164220604	0.0	0.0	0.0	0.0	8
+4	2	0.1640685988632	cat__ld_site_M_2491_L_1413_CG	ld site M 2491 L 1413 CG	0.0	0.0	0.0	0.0	0.0	0.1640685988632	0.0	0.0	0.0	0.0	9
+6	1	0.14509471557063766	num__missingindicator_hosttrait_combine_male_maturity_d	Missingness: hosttrait combine male maturity d	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.14509471557063766	10
+5	1	0.12915290332194024	cat__ld_site_S_531_L_4857_TC	ld site S 531 L 4857 TC	0.0	0.0	0.0	0.0	0.0	0.12915290332194024	0.0	0.0	0.0	0.0	11
+12	1	0.12893821537330638	cat__ld_site_M_2119_L_6219_AA	ld site M 2119 L 6219 AA	0.0	0.0	0.0	0.0	0.0	0.12893821537330638	0.0	0.0	0.0	0.0	12
+17	2	0.12887874750247136	cat__ld_site_M_3187_L_3957_TC	ld site M 3187 L 3957 TC	0.0	0.0	0.0	0.0	0.0	0.12887874750247136	0.0	0.0	0.0	0.0	13
+16	2	0.04710856951536563	cat__ld_site_S_687_L_5346_AA	ld site S 687 L 5346 AA	0.0	0.0	0.0	0.0	0.0	0.04710856951536563	0.0	0.0	0.0	0.0	14
+20	1	0.04301658678065709	cat__ld_site_S_531_L_4857_TT	ld site S 531 L 4857 TT	0.0	0.0	0.0	0.0	0.0	0.04301658678065709	0.0	0.0	0.0	0.0	15
+7	1	0.04090012482239684	num__hosttrait_combine_activity_cycle	hosttrait combine activity cycle	0.0	0.04090012482239684	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	16
+14	1	0.035284752232140004	num__hosttrait_combine_age_first_reproduction_d	hosttrait combine age first reproduction d	0.0	0.035284752232140004	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	17
+9	1	0.034446457927778056	cat__ld_site_M_1135_L_4824_CA	ld site M 1135 L 4824 CA	0.0	0.0	0.0	0.0	0.0	0.034446457927778056	0.0	0.0	0.0	0.0	18
+13	1	0.033462670422567044	num__hosttrait_combine_generation_length_d	hosttrait combine generation length d	0.0	0.033462670422567044	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	19
+11	1	0.02335501448038685	cat__ld_site_S_384_L_5778_TC	ld site S 384 L 5778 TC	0.0	0.0	0.0	0.0	0.0	0.02335501448038685	0.0	0.0	0.0	0.0	20

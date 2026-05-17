@@ -1,0 +1,2 @@
+n_rows	oof_roc_auc_unique	oof_average_precision_unique	oof_balanced_accuracy_unique_at_0_5	oof_balanced_accuracy_unique_best	oof_balanced_accuracy_unique_best_threshold	oof_brier_unique
+516	0.8804115469507638	0.7899234757792775	0.795634265454735	0.8196962060515476	0.40024427267810503	0.12282060925972252

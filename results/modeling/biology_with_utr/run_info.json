@@ -1,0 +1,17 @@
+{
+  "dataset": "data/processed/final_sequence_dataset.tsv",
+  "feature_set": "ecology_molecular_biology_with_utr",
+  "ld_encoding": "interaction_only",
+  "model": "lightgbm",
+  "random_state": 42,
+  "repeated_repeats": 3,
+  "repeated_splits": 5,
+  "top_clusters": 10,
+  "top_features": 28,
+  "tree_bayes_iters": 30,
+  "tree_bayes_metric": "average_precision",
+  "tuned_params": null,
+  "tuning_info": {
+    "mode": "disabled"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "dataset": "data/processed/final_sequence_dataset.tsv",
+  "feature_set": "ecology_molecular_lineage_core",
+  "model": "lightgbm",
+  "rows": 516,
+  "positives": 163,
+  "feature_count": 253,
+  "ld_encoding": "interaction_only",
+  "top_features": 28,
+  "top_clusters": 20,
+  "note": "Notebook-compatible Figure 3VB data bundle using the biology-only repeated-stratified feature set."
+}

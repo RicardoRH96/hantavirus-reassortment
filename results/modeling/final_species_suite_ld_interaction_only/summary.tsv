@@ -1,0 +1,2 @@
+cv_scheme	feature_set	model	n_folds	roc_auc_mean	roc_auc_std	average_precision_mean	average_precision_std	balanced_accuracy_mean	balanced_accuracy_std	brier_mean	brier_std	n_rows	oof_roc_auc	oof_average_precision	oof_balanced_accuracy	oof_brier	average_precision_lift_vs_prevalence
+grouped_species	species_only	random_forest_shallow	7	0.5	0.0	0.37886513289199714	0.23550066150290125	0.42857142857142855	0.18898223650461363	0.39657582829448884	0.12025524274421427	516	0.6684335841776882	0.4243757594522316	0.5	0.38740302942621724	1.3434226495543038

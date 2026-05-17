@@ -1,0 +1,8 @@
+species	tree_path	n_rows	n_tip_names	n_assigned_rows	n_lineages	status	lineages
+orthohantavirus_andesense	data/processed/trees/orthohantavirus_andesense/augur/S/S_tree_refined.newick	24	24	0	0	excluded	
+orthohantavirus_dobravaense	data/processed/trees/orthohantavirus_dobravaense/augur/S/S_tree_refined.newick	18	18	18	2	assigned	orthohantavirus_dobravaense::clade_1|orthohantavirus_dobravaense::clade_2
+orthohantavirus_hantanense	data/processed/trees/orthohantavirus_hantanense/augur/S/S_tree_refined.newick	199	199	199	4	assigned	orthohantavirus_hantanense::clade_1|orthohantavirus_hantanense::clade_2|orthohantavirus_hantanense::clade_3|orthohantavirus_hantanense::clade_4
+orthohantavirus_puumalaense	data/processed/trees/orthohantavirus_puumalaense/augur/S/S_tree_refined.newick	69	69	69	4	assigned	orthohantavirus_puumalaense::clade_1|orthohantavirus_puumalaense::clade_2|orthohantavirus_puumalaense::clade_3|orthohantavirus_puumalaense::clade_4
+orthohantavirus_seoulense	data/processed/trees/orthohantavirus_seoulense/augur/S/S_tree_refined.newick	101	101	99	2	assigned	orthohantavirus_seoulense::clade_1|orthohantavirus_seoulense::clade_2
+orthohantavirus_sinnombreense	data/processed/trees/orthohantavirus_sinnombreense/augur/S/S_tree_refined.newick	34	34	32	2	assigned	orthohantavirus_sinnombreense::clade_1|orthohantavirus_sinnombreense::clade_2
+orthohantavirus_tulaense	data/processed/trees/orthohantavirus_tulaense/augur/S/S_tree_refined.newick	71	71	71	4	assigned	orthohantavirus_tulaense::clade_1|orthohantavirus_tulaense::clade_2|orthohantavirus_tulaense::clade_3|orthohantavirus_tulaense::clade_4

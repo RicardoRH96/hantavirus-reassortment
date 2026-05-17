@@ -1,0 +1,523 @@
+feature	feature_label	family	mean_rank	median_rank	mean_abs_contribution
+num__tree_discordance_score	Tree discordance score	Tree incongruence	3.062015503875969	1.0	1.534777135113108
+num__species_feat_utr5_L_retention_rate	UTR5 L retention rate	UTR structure	5.145348837209302	4.0	0.4898882268267194
+num__species_feat_utr5_M_structdist_std	UTR5 M structural distance SD	UTR structure	7.967054263565892	5.0	0.35890427372593264
+num__year	Sampling year	Geographic / sampling context	8.368217054263566	3.0	0.87180260863776
+num__local_longitude	local longitude	Geographic / sampling context	8.800387596899224	6.0	0.541150046672339
+num__hosttrait_has_any_traits	hosttrait has any traits	Controls / sampling	10.614341085271318	9.0	0.29308609747750125
+num__local_latitude	local latitude	Geographic / sampling context	10.837209302325581	7.0	0.3907209869259191
+num__overlap_opportunity_local	Overlap opportunity	Overlap opportunity	13.30232558139535	8.0	0.3769117873204496
+num__arha_prev_local	Local host prevalence	Local host prevalence	14.063953488372093	8.0	0.2883641128745225
+cat__ld_site_L_5835_G	ld site L 5835 G	LD / coadaptation	14.598837209302326	11.0	0.16797119119632442
+cat__ld_site_L_1911_T	ld site L 1911 T	LD / coadaptation	16.170542635658915	12.0	0.1707392860284631
+cat__ld_site_L_5859_T	ld site L 5859 T	LD / coadaptation	16.92829457364341	15.0	0.10148221348936744
+cat__ld_site_L_1824_T	ld site L 1824 T	LD / coadaptation	21.325581395348838	18.5	0.0902776512330952
+cat__ld_site_S_531_L_4857_TC	ld site S 531 L 4857 TC	LD / coadaptation	25.57170542635659	20.0	0.09841432402747717
+cat__ld_site_M_1306_L_1824_TT	ld site M 1306 L 1824 TT	LD / coadaptation	25.703488372093023	27.0	0.0781991439841132
+cat__ld_site_L_1911_C	ld site L 1911 C	LD / coadaptation	28.21124031007752	25.0	0.06239297642873013
+cat__ld_site_M_1162_L_771_GT	ld site M 1162 L 771 GT	LD / coadaptation	28.608527131782946	27.0	0.07431908665323025
+cat__ld_site_M_2701_L_5835_AG	ld site M 2701 L 5835 AG	LD / coadaptation	29.436046511627907	23.0	0.06705491130250649
+cat__ld_site_M_1306_L_1824_TC	ld site M 1306 L 1824 TC	LD / coadaptation	32.01162790697674	35.0	0.0566027744026737
+cat__ld_site_L_4857_C	ld site L 4857 C	LD / coadaptation	33.96705426356589	28.0	0.07246889175364844
+num__species_feat_hostdiv_mntd	species feat hostdiv mntd	Host phylogenetic diversity	35.53488372093023	31.0	0.044689599756220805
+cat__ld_site_L_4857_T	ld site L 4857 T	LD / coadaptation	35.60658914728682	33.0	0.07233417715217924
+num__species_feat_utr3_M_length_mean	species feat utr3 M length mean	UTR structure	35.68798449612403	33.0	0.034990165850804576
+cat__ld_site_L_5859_C	ld site L 5859 C	LD / coadaptation	35.8468992248062	30.0	0.04713244302691679
+cat__ld_site_L_3957_T	ld site L 3957 T	LD / coadaptation	37.94767441860465	32.0	0.08472660464302202
+num__missingindicator_hosttrait_has_direct_any_traits	Missingness: hosttrait has direct any traits	Controls / sampling	38.16860465116279	37.0	0.05850661150020112
+num__missingindicator_hosttrait_combine_activity_cycle	Missingness: hosttrait combine activity cycle	Controls / sampling	39.60852713178294	38.0	0.041698671839566305
+cat__ld_site_S_687_L_1911_AT	ld site S 687 L 1911 AT	LD / coadaptation	39.792635658914726	25.0	0.07553081621153097
+num__hosttrait_combine_adult_body_length_mm	Host adult body length	Host life history	40.195736434108525	34.0	0.04728995745394291
+num__hosttrait_combine_age_first_reproduction_d	hosttrait combine age first reproduction d	Host life history	40.35077519379845	33.0	0.07169017334528062
+cat__ld_site_S_384_L_5778_TT	ld site S 384 L 5778 TT	LD / coadaptation	44.598837209302324	31.0	0.044496353287823434
+cat__ld_site_L_1413_G	ld site L 1413 G	LD / coadaptation	44.81395348837209	38.0	0.03947864980737915
+num__hosttrait_combine_weaning_age_d	hosttrait combine weaning age d	Host life history	46.55232558139535	52.0	0.03623500741535289
+num__missingindicator_hosttrait_combine_male_maturity_d	Missingness: hosttrait combine male maturity d	Controls / sampling	47.29651162790697	37.0	0.0396986700262421
+num__arha_sequence_match_count	ArHa sequence match count	Controls / sampling	49.25387596899225	46.0	0.03820658114271961
+num__missingindicator_hosttrait_combine_home_range_km2	Missingness: hosttrait combine home range km2	Controls / sampling	49.37403100775194	39.5	0.03270805864903702
+cat__ld_site_L_1824_C	ld site L 1824 C	LD / coadaptation	50.751937984496124	45.0	0.034200672068262244
+num__species_feat_utr5_L_seqdist_mean	species feat utr5 L seqdist mean	UTR structure	50.90891472868217	43.0	0.029268828311954737
+num__hosttrait_combine_female_maturity_d	hosttrait combine female maturity d	Host life history	51.184108527131784	53.0	0.03269017369851362
+cat__ld_site_M_1417_L_5859_GT	ld site M 1417 L 5859 GT	LD / coadaptation	51.49031007751938	46.5	0.02956897496532835
+cat__ld_site_L_540_T	ld site L 540 T	LD / coadaptation	51.57751937984496	47.0	0.03058439140426854
+num__missingindicator_hosttrait_combine_adult_body_length_mm	Missingness: Host adult body length	Controls / sampling	52.77131782945737	52.0	0.027549481977485253
+num__species_feat_eco_year_span	Species sampling-year span	Controls / sampling	53.52131782945737	51.0	0.023466127869402536
+num__missingindicator_hosttrait_fill_donor_count	Missingness: hosttrait fill donor count	Controls / sampling	53.565891472868216	50.0	0.035267073067530276
+num__hosttrait_combine_gestation_length_d	Host gestation length	Host life history	55.742248062015506	57.0	0.04925509840659531
+num__missingindicator_hosttrait_combine_neonate_mass_g	Missingness: hosttrait combine neonate mass g	Controls / sampling	55.7906976744186	56.0	0.02738970558038745
+num__hosttrait_combine_activity_cycle	hosttrait combine activity cycle	Host life history	57.213178294573645	54.0	0.024382576538454864
+cat__ld_site_M_2119_L_4557_TG	ld site M 2119 L 4557 TG	LD / coadaptation	58.92248062015504	62.0	0.024862995565787704
+cat__ld_site_M_181_L_5346_TA	ld site M 181 L 5346 TA	LD / coadaptation	59.093023255813954	48.0	0.033329307361691485
+num__species_feat_overlapopp_n_hosts	species feat overlapopp n hosts	Overlap opportunity	61.68023255813954	44.0	0.05917261809110248
+cat__ld_site_M_1135_G	ld site M 1135 G	LD / coadaptation	61.85271317829457	58.0	0.034355769485906386
+cat__ld_site_L_1071_A	ld site L 1071 A	LD / coadaptation	62.757751937984494	51.0	0.03503163230383124
+cat__hosttrait_combine_biogeographical_realm_Palearctic	hosttrait combine biogeographical realm Palearctic	Host life history	62.798449612403104	62.0	0.020138295147030357
+num__species_feat_n_site_pairs_SM	species feat n site pairs SM	LD / coadaptation	63.74031007751938	63.0	0.023757945375233607
+num__species_feat_min_spr_distance	species feat min spr distance	Controls / sampling	63.77131782945737	60.5	0.018899060658490698
+cat__ld_site_M_3166_L_5778_GC	ld site M 3166 L 5778 GC	LD / coadaptation	67.67441860465117	68.0	0.01747054122850363
+num__hosttrait_combine_det_plantother	hosttrait combine det plantother	Host life history	69.38565891472868	70.0	0.02117890259628903
+num__hosttrait_combine_max_longevity_d	hosttrait combine max longevity d	Host life history	69.51356589147287	67.0	0.021643955686214442
+num__species_feat_overlapopp_overlap_max	species feat overlapopp overlap max	Overlap opportunity	73.12596899224806	71.0	0.01928438890271615
+num__species_feat_overlapopp_overlap_q90	species feat overlapopp overlap q90	Overlap opportunity	73.86434108527132	67.0	0.018560341119776235
+num__missingindicator_hosttrait_combine_altitude_breadth_m	Missingness: hosttrait combine altitude breadth m	Controls / sampling	75.51162790697674	66.0	0.0150514118911438
+num__hosttrait_combine_maturity_d	hosttrait combine maturity d	Host life history	76.05813953488372	47.5	0.025999234701175992
+cat__ld_site_M_3187_L_3957_TT	ld site M 3187 L 3957 TT	LD / coadaptation	79.91472868217055	71.0	0.02920471082791618
+cat__ld_site_L_5778_C	ld site L 5778 C	LD / coadaptation	80.43217054263566	77.5	0.013654808722651918
+cat__ld_site_M_865_L_4824_TA	ld site M 865 L 4824 TA	LD / coadaptation	80.68023255813954	86.0	0.016821546849693347
+cat__ld_site_S_531_L_6219_missing	ld site S 531 L 6219 missing	LD / coadaptation	82.53875968992249	83.0	0.01924570396459103
+cat__ld_site_L_3957_C	ld site L 3957 C	LD / coadaptation	82.94573643410853	76.0	0.03244735720735817
+num__hosttrait_elton_BodyMass-Value	hosttrait elton BodyMass-Value	Controls / sampling	83.50968992248062	83.0	0.013913116004280527
+cat__ld_site_M_181_missing	ld site M 181 missing	LD / coadaptation	83.58333333333333	85.0	0.019238651237792954
+cat__ld_site_S_384_L_540_TT	ld site S 384 L 540 TT	LD / coadaptation	83.76356589147287	78.5	0.014578420489935111
+cat__ld_site_S_531_L_4857_missing	ld site S 531 L 4857 missing	LD / coadaptation	84.33333333333333	84.0	0.018084031444767674
+num__hosttrait_combine_male_maturity_d	hosttrait combine male maturity d	Host life history	88.36821705426357	78.5	0.022879378501569046
+cat__ld_site_L_6219_A	ld site L 6219 A	LD / coadaptation	89.3624031007752	96.5	0.01161076214402844
+num__species_feat_n_site_pairs_SL	species feat n site pairs SL	LD / coadaptation	89.54263565891473	94.0	0.014110676349202947
+num__species_feat_n_significant_SM	species feat n significant SM	LD / coadaptation	89.91279069767442	97.0	0.013605127061640623
+cat__ld_site_M_1135_A	ld site M 1135 A	LD / coadaptation	90.51162790697674	92.0	0.011178393232299294
+num__species_feat_overlapopp_number_tested_total	species feat overlapopp number tested total	Overlap opportunity	90.53682170542636	82.0	0.01715499192038794
+num__species_feat_utr3_L_structdist_std	UTR3 L structural distance SD	UTR structure	91.20542635658914	79.0	0.011111363815494296
+cat__ld_site_L_1413_A	ld site L 1413 A	LD / coadaptation	91.7751937984496	88.0	0.0168672788359864
+num__species_feat_utr5_S_manifest_n	species feat utr5 S manifest n	UTR structure	91.92441860465117	89.5	0.01135510717296069
+num__species_feat_median_cramers_v_SM	species feat median cramers v SM	LD / coadaptation	92.73255813953489	88.0	0.010033502092100603
+cat__ld_site_L_6219_G	ld site L 6219 G	LD / coadaptation	93.62015503875969	95.0	0.011246938037488717
+num__hosttrait_combine_habitat_breadth_n	hosttrait combine habitat breadth n	Host life history	96.08720930232558	85.0	0.01657107626038062
+cat__ld_site_S_687_L_1911_AC	ld site S 687 L 1911 AC	LD / coadaptation	96.10852713178295	91.0	0.010016556225287038
+num__hosttrait_combine_adult_mass_g	Host body mass	Host life history	97.54069767441861	85.5	0.025097145736352137
+num__species_feat_overlapopp_number_positive_total	species feat overlapopp number positive total	Overlap opportunity	97.83333333333333	93.0	0.012606579058822199
+num__hosttrait_combine_trophic_level	hosttrait combine trophic level	Host life history	98.48837209302326	110.0	0.012990644281702397
+num__hosttrait_combine_altitude_breadth_m	hosttrait combine altitude breadth m	Host life history	99.01744186046511	94.0	0.021636360530605
+num__hosttrait_combine_dispersal_km	Host dispersal	Host life history	99.35271317829458	107.0	0.012312188444900663
+num__species_feat_overlapopp_overlap_coverage	species feat overlapopp overlap coverage	Overlap opportunity	99.97093023255815	94.0	0.009225344749582708
+cat__ld_site_M_181_L_4557_TG	ld site M 181 L 4557 TG	LD / coadaptation	100.34496124031008	104.5	0.009688533055083486
+cat__ld_site_M_181_T	ld site M 181 T	LD / coadaptation	100.9922480620155	106.0	0.009881725779206
+cat__ld_site_S_531_L_4857_TT	ld site S 531 L 4857 TT	LD / coadaptation	101.6937984496124	100.0	0.014639449668520302
+num__missingindicator_hosttrait_combine_adult_mass_g	Missingness: Host body mass	Controls / sampling	102.1937984496124	95.0	0.008003308901289401
+cat__ld_site_M_181_L_2212_AT	ld site M 181 L 2212 AT	LD / coadaptation	105.26162790697674	107.0	0.008469547742992021
+cat__ld_site_M_3055_L_4824_CA	ld site M 3055 L 4824 CA	LD / coadaptation	105.40310077519379	114.0	0.008498376327475871
+cat__ld_site_M_181_L_2079_TA	ld site M 181 L 2079 TA	LD / coadaptation	105.80232558139535	123.0	0.009608872212242192
+num__species_feat_hostdiv_mpd	species feat hostdiv mpd	Host phylogenetic diversity	106.62403100775194	87.0	0.009675506609071672
+num__hosttrait_combine_dphy_plant	hosttrait combine dphy plant	Host life history	108.30038759689923	112.0	0.00902751412127664
+num__hosttrait_combine_det_seed	hosttrait combine det seed	Host life history	109.61627906976744	108.0	0.008147658538824818
+num__species_feat_utr5_L_seqdist_std	species feat utr5 L seqdist std	UTR structure	109.6453488372093	114.0	0.007203732674936292
+num__hosttrait_elton_Diet-PlantO	hosttrait elton Diet-PlantO	Controls / sampling	111.03682170542636	116.0	0.008518217941949513
+num__hosttrait_combine_generation_length_d	hosttrait combine generation length d	Host life history	111.74418604651163	116.0	0.012660825329151347
+num__species_feat_prop_significant_SM	species feat prop significant SM	LD / coadaptation	112.05038759689923	108.5	0.009258910520569062
+num__species_feat_utr5_overall_seqdist_mean	species feat utr5 overall seqdist mean	UTR structure	112.61821705426357	115.0	0.005911139956969401
+cat__ld_site_M_181_L_4557_missing	ld site M 181 L 4557 missing	LD / coadaptation	113.32751937984496	115.0	0.009867688479163228
+cat__ld_site_M_3055_C	ld site M 3055 C	LD / coadaptation	113.52131782945736	104.0	0.014358847376259804
+num__hosttrait_combine_interbirth_interval_d	hosttrait combine interbirth interval d	Host life history	114.1453488372093	101.0	0.006866261023584169
+num__species_feat_overlapopp_n_host_records	species feat overlapopp n host records	Overlap opportunity	114.56589147286822	106.0	0.008766303078329485
+num__species_feat_prop_significant_ML	species feat prop significant ML	LD / coadaptation	115.00387596899225	111.0	0.008452415288736668
+cat__ld_site_M_3271_A	ld site M 3271 A	LD / coadaptation	116.37403100775194	122.0	0.007038097258971612
+num__hosttrait_combine_brain_mass_g	hosttrait combine brain mass g	Host life history	117.26356589147287	116.0	0.006767018053787988
+cat__ld_site_M_3187_L_3957_TC	ld site M 3187 L 3957 TC	LD / coadaptation	117.38953488372093	115.0	0.007171847263038854
+cat__ld_site_M_2491_L_1413_CG	ld site M 2491 L 1413 CG	LD / coadaptation	117.88953488372093	121.0	0.00804630870198563
+num__missingindicator_hosttrait_combine_weaning_mass_g	Missingness: hosttrait combine weaning mass g	Controls / sampling	119.74806201550388	125.0	0.011327873187848718
+num__species_feat_overlapopp_overlap_mean	Overlap opportunity	Overlap opportunity	121.02131782945736	111.0	0.005551402851261209
+cat__ld_site_M_181_L_5346_TT	ld site M 181 L 5346 TT	LD / coadaptation	121.02713178294573	110.0	0.006966720670444979
+num__species_feat_utr5_L_manifest_n	species feat utr5 L manifest n	UTR structure	121.84883720930233	116.0	0.005193517428432732
+num__species_feat_n_significant_SL	species feat n significant SL	LD / coadaptation	121.91472868217055	115.0	0.005012638031198127
+cat__ld_site_L_5346_T	ld site L 5346 T	LD / coadaptation	122.02325581395348	117.0	0.0075796829346852805
+num__hosttrait_combine_fossoriality	hosttrait combine fossoriality	Host life history	123.78488372093024	128.0	0.008495073959660634
+cat__ld_site_M_1417_L_5859_GC	ld site M 1417 L 5859 GC	LD / coadaptation	123.95736434108527	127.0	0.0064998503420794634
+cat__ld_site_M_1135_C	ld site M 1135 C	LD / coadaptation	124.00581395348837	132.0	0.005520146020488582
+cat__ld_site_M_3055_T	ld site M 3055 T	LD / coadaptation	125.11821705426357	120.5	0.00803433400732256
+cat__ld_site_M_2119_L_2212_TT	ld site M 2119 L 2212 TT	LD / coadaptation	125.2751937984496	130.0	0.006318519006158329
+num__has_arha_host_match	has arha host match	Overlap opportunity	127.21317829457364	130.5	0.005548317827434589
+cat__ld_site_L_3105_C	ld site L 3105 C	LD / coadaptation	127.35658914728683	109.0	0.005416476083395788
+num__species_feat_spr_L_M	species feat spr L M	Tree incongruence	128.32558139534885	134.0	0.006756732772291936
+num__species_feat_utr3_L_seqdist_mean	species feat utr3 L seqdist mean	UTR structure	128.33139534883722	146.0	0.007534163626686524
+cat__ld_site_M_2701_L_5835_CA	ld site M 2701 L 5835 CA	LD / coadaptation	129.95542635658916	130.0	0.004652257907397168
+cat__ld_site_S_687_L_1071_AA	ld site S 687 L 1071 AA	LD / coadaptation	129.9825581395349	130.0	0.006553457123395934
+num__species_feat_overlapopp_overlap_min	species feat overlapopp overlap min	Overlap opportunity	132.95736434108528	136.0	0.005102450645552518
+cat__ld_site_M_181_L_4824_TA	ld site M 181 L 4824 TA	LD / coadaptation	133.9748062015504	141.0	0.007411863213708475
+num__hosttrait_combine_home_range_km2	hosttrait combine home range km2	Host life history	134.6298449612403	143.0	0.004397326676505588
+num__hosttrait_combine_litter_size_n	Host litter size	Host life history	136.39341085271317	137.0	0.008170937466647833
+num__species_feat_utr3_S_seqdist_std	species feat utr3 S seqdist std	UTR structure	136.6375968992248	140.5	0.0048039993257299
+num__species_feat_overlapopp_number_of_hosts_total	species feat overlapopp number of hosts total	Overlap opportunity	137.37596899224806	156.0	0.004815456876023818
+cat__ld_site_M_1135_L_540_GT	ld site M 1135 L 540 GT	LD / coadaptation	138.31589147286823	148.0	0.00496501933652321
+num__species_feat_utr3_M_structdist_mean	UTR3 M structural distance	UTR structure	138.34496124031008	121.0	0.0047609301867555355
+num__species_feat_utr5_S_seqdist_mean	species feat utr5 S seqdist mean	UTR structure	138.37209302325581	151.0	0.005117645104010365
+num__species_feat_std_spr_distance	species feat std spr distance	Controls / sampling	138.56782945736435	138.5	0.003803952374895223
+num__species_feat_overlapopp_coord_coverage	species feat overlapopp coord coverage	Overlap opportunity	139.24031007751938	141.0	0.005346513030827277
+cat__ld_site_M_2491_L_1413_CT	ld site M 2491 L 1413 CT	LD / coadaptation	139.8798449612403	146.0	0.005307056733478382
+cat__ld_site_M_2119_L_6219_AA	ld site M 2119 L 6219 AA	LD / coadaptation	141.2577519379845	157.0	0.004520512431296135
+cat__ld_site_L_5778_T	ld site L 5778 T	LD / coadaptation	141.32751937984497	150.0	0.007137620076995017
+num__species_feat_utr3_L_length_mean	species feat utr3 L length mean	UTR structure	141.99418604651163	147.5	0.0035533634954866664
+num__species_feat_n_significant_ML	species feat n significant ML	LD / coadaptation	142.83139534883722	147.0	0.004194479332959495
+cat__ld_site_S_933_M_2701_TA	ld site S 933 M 2701 TA	LD / coadaptation	143.07558139534885	137.0	0.003385651482398632
+num__species_feat_utr5_S_seqdist_std	species feat utr5 S seqdist std	UTR structure	143.7248062015504	122.0	0.005950859166661848
+cat__ld_site_M_2119_L_2212_AT	ld site M 2119 L 2212 AT	LD / coadaptation	144.02713178294573	142.0	0.006188034047723577
+num__species_feat_hostdiv_n_hosts	species feat hostdiv n hosts	Host phylogenetic diversity	144.72286821705427	143.0	0.0044848643186816434
+cat__ld_site_S_531_L_6219_TG	ld site S 531 L 6219 TG	LD / coadaptation	145.31976744186048	151.0	0.0035794869578184233
+num__missingindicator_hosttrait_combine_density_n_km2	Missingness: hosttrait combine density n km2	Controls / sampling	145.4031007751938	145.5	0.004695293238627919
+cat__ld_site_M_1135_L_4824_AA	ld site M 1135 L 4824 AA	LD / coadaptation	146.05232558139534	139.0	0.0038251646227502084
+cat__ld_site_S_687_L_1071_AC	ld site S 687 L 1071 AC	LD / coadaptation	146.79457364341084	157.0	0.00491515315509829
+cat__ld_site_M_3055_L_4824_TA	ld site M 3055 L 4824 TA	LD / coadaptation	149.1298449612403	149.0	0.00286976943421893
+num__species_feat_cramers_v_variance	species feat cramers v variance	Controls / sampling	149.38953488372093	166.5	0.003933826478450548
+num__species_feat_utr5_M_length_median	species feat utr5 M length median	UTR structure	150.48643410852713	150.0	0.0030373501398121574
+num__species_feat_overlapopp_overlap_median	species feat overlapopp overlap median	Overlap opportunity	150.7829457364341	166.0	0.0038229855726693274
+num__hosttrait_combine_weaning_mass_g	hosttrait combine weaning mass g	Host life history	155.95736434108528	161.5	0.004078919574985769
+num__species_feat_utr5_M_seqdist_max	species feat utr5 M seqdist max	UTR structure	156.47674418604652	173.0	0.003214314430817087
+cat__ld_site_M_3118_L_4824_GA	ld site M 3118 L 4824 GA	LD / coadaptation	156.8875968992248	156.0	0.002347503153495613
+num__hosttrait_combine_litters_per_year_n	hosttrait combine litters per year n	Host life history	157.1918604651163	157.0	0.0035762558821035217
+num__species_feat_utr5_L_structdist_std	UTR5 L structural distance SD	UTR structure	158.24612403100775	176.0	0.0029497020154297567
+num__species_feat_utr5_S_length_mean	species feat utr5 S length mean	UTR structure	158.7093023255814	169.0	0.0026881729380357497
+cat__ld_site_M_2491_L_1413_CA	ld site M 2491 L 1413 CA	LD / coadaptation	159.04651162790697	156.0	0.004025171296478471
+num__species_feat_utr3_overall_retention_rate	species feat utr3 overall retention rate	UTR structure	159.26356589147287	184.5	0.0036353778694049295
+cat__ld_site_M_181_L_4824_missing	ld site M 181 L 4824 missing	LD / coadaptation	159.5794573643411	168.5	0.004003880048917929
+cat__ld_site_M_1135_T	ld site M 1135 T	LD / coadaptation	160.03682170542635	177.5	0.005099190860457949
+num__species_feat_utr5_L_length_mean	species feat utr5 L length mean	UTR structure	160.14147286821705	163.5	0.005740013085855454
+num__missingindicator_hosttrait_combine_glaciation	Missingness: hosttrait combine glaciation	Controls / sampling	161.13953488372093	174.0	0.004097134576955415
+num__species_feat_overlapopp_overlap_std	species feat overlapopp overlap std	Overlap opportunity	161.84883720930233	166.5	0.0033345173069183154
+num__species_feat_prop_significant_SL	species feat prop significant SL	LD / coadaptation	162.47868217054264	169.0	0.0027853935998210823
+cat__ld_site_M_865_T	ld site M 865 T	LD / coadaptation	162.5329457364341	185.0	0.0033800459251784416
+cat__ld_site_L_3105_A	ld site L 3105 A	LD / coadaptation	163.82364341085272	159.0	0.002852552882242691
+num__species_feat_utr3_L_retention_rate	UTR3 L retention rate	UTR structure	163.8624031007752	189.0	0.003320317428800615
+num__species_feat_utr3_M_structdist_std	UTR3 M structural distance SD	UTR structure	164.92248062015503	176.0	0.0022438719284324986
+cat__ld_site_S_384_L_5778_TC	ld site S 384 L 5778 TC	LD / coadaptation	165.2751937984496	153.0	0.00242229997530167
+num__species_feat_max_spr_distance	species feat max spr distance	Controls / sampling	165.9031007751938	165.0	0.002217334356942699
+cat__ld_site_M_1162_G	ld site M 1162 G	LD / coadaptation	166.22868217054264	170.0	0.002092187130270233
+cat__ld_site_M_1135_L_540_TT	ld site M 1135 L 540 TT	LD / coadaptation	168.14922480620154	193.0	0.002761444200269218
+cat__ld_site_M_181_L_3438_TA	ld site M 181 L 3438 TA	LD / coadaptation	168.19767441860466	181.0	0.002217836908470882
+num__missingindicator_arha_prev_local	Missingness: Local host prevalence	Local host prevalence	168.40891472868216	172.0	0.0027209807873232925
+cat__ld_site_M_1162_T	ld site M 1162 T	LD / coadaptation	169.2248062015504	189.0	0.003590211931769486
+num__hosttrait_combine_glaciation	hosttrait combine glaciation	Host life history	169.58333333333334	173.0	0.0026255461760799456
+num__hosttrait_combine_upper_elevation_m	hosttrait combine upper elevation m	Host life history	170.31589147286823	199.5	0.004580735627622185
+num__hosttrait_combine_neonate_mass_g	hosttrait combine neonate mass g	Host life history	170.99612403100775	172.0	0.003370857031959994
+cat__ld_site_M_181_L_4824_CA	ld site M 181 L 4824 CA	LD / coadaptation	171.43992248062017	176.0	0.0026163129387087782
+num__species_feat_utr3_L_structdist_mean	UTR3 L structural distance	UTR structure	171.64341085271317	193.0	0.002743516262533386
+cat__hosttrait_combine_biogeographical_realm_Indomalayan, Palearctic	hosttrait combine biogeographical realm Indomalayan, Palearctic	Host life history	172.06007751937983	184.0	0.001933725107377481
+cat__ld_site_M_2443_L_3105_AC	ld site M 2443 L 3105 AC	LD / coadaptation	173.37403100775194	176.0	0.002101197013509163
+cat__ld_site_L_5346_A	ld site L 5346 A	LD / coadaptation	174.20736434108528	185.0	0.0018542009935039832
+cat__ld_site_M_3271_L_4044_TC	ld site M 3271 L 4044 TC	LD / coadaptation	175.23062015503876	174.0	0.0018339241158769907
+num__species_feat_utr5_M_seqdist_median	species feat utr5 M seqdist median	UTR structure	176.64341085271317	189.0	0.0017661487524397342
+num__hosttrait_combine_det_diet_breadth_n	hosttrait combine det diet breadth n	Host life history	178.34496124031008	196.0	0.0021970452009608993
+cat__ld_site_M_3166_L_5778_GT	ld site M 3166 L 5778 GT	LD / coadaptation	179.33139534883722	192.0	0.0028212483391422067
+cat__ld_site_M_865_L_2079_TA	ld site M 865 L 2079 TA	LD / coadaptation	179.99806201550388	182.0	0.0017066190108495684
+num__hosttrait_combine_det_inv	hosttrait combine det inv	Host life history	181.11046511627907	182.0	0.0014833459753216636
+num__missingindicator_hosttrait_combine_island_dwelling	Missingness: hosttrait combine island dwelling	Controls / sampling	181.40697674418604	183.0	0.0013911666053592895
+num__species_feat_utr5_M_length_mean	species feat utr5 M length mean	UTR structure	181.66860465116278	191.0	0.002414702024764568
+num__species_feat_cramers_v_skewness	species feat cramers v skewness	Controls / sampling	182.40116279069767	200.0	0.0027985970372346207
+cat__ld_site_M_181_C	ld site M 181 C	LD / coadaptation	183.52325581395348	189.0	0.002135036243912256
+num__species_feat_utr5_L_seqdist_median	species feat utr5 L seqdist median	UTR structure	185.00387596899225	194.0	0.0016559978319941422
+num__species_feat_utr3_L_structdist_max	species feat utr3 L structdist max	UTR structure	186.28875968992247	185.0	0.0012205545548526495
+cat__ld_site_L_1071_C	ld site L 1071 C	LD / coadaptation	186.89728682170542	206.0	0.001510655060243731
+num__hosttrait_combine_density_n_km2	hosttrait combine density n km2	Host life history	188.50581395348837	214.0	0.001600274580850104
+cat__ld_site_M_1162_L_771_TT	ld site M 1162 L 771 TT	LD / coadaptation	188.57751937984497	202.0	0.00201190224485257
+num__species_feat_spr_M_S	species feat spr M S	Tree incongruence	188.64147286821705	184.0	0.0011850161764397219
+num__species_feat_utr3_S_seqdist_max	species feat utr3 S seqdist max	UTR structure	192.15116279069767	202.0	0.0013284833848506926
+num__species_feat_overlapopp_overlap_tested_weighted_mean	species feat overlapopp overlap tested weighted mean	Overlap opportunity	192.97868217054264	209.0	0.0018413951264853903
+num__species_feat_utr5_S_seqdist_median	species feat utr5 S seqdist median	UTR structure	193.89922480620154	206.0	0.001190947942735911
+cat__ld_site_L_6219_missing	ld site L 6219 missing	LD / coadaptation	196.94573643410854	197.0	0.0013980315382913426
+cat__ld_site_M_181_L_2212_TT	ld site M 181 L 2212 TT	LD / coadaptation	198.85077519379846	215.0	0.0012248529971737726
+num__species_feat_utr3_L_length_median	species feat utr3 L length median	UTR structure	199.1201550387597	209.0	0.0012029379294597007
+num__species_feat_median_cramers_v_SL	species feat median cramers v SL	LD / coadaptation	199.45348837209303	211.0	0.0009229465874191577
+num__species_feat_utr5_L_structdist_mean	UTR5 L structural distance	UTR structure	200.81976744186048	216.0	0.0013232482573392644
+cat__ld_site_M_1162_L_771_CT	ld site M 1162 L 771 CT	LD / coadaptation	201.29263565891472	211.0	0.0011964488777178495
+cat__ld_site_M_1135_L_4824_TA	ld site M 1135 L 4824 TA	LD / coadaptation	203.02906976744185	228.0	0.001285787483282789
+num__species_feat_utr5_M_seqdist_std	species feat utr5 M seqdist std	UTR structure	204.2829457364341	217.0	0.000750575088422746
+num__species_feat_utr5_overall_length_mean	species feat utr5 overall length mean	UTR structure	204.30232558139534	207.0	0.0008325957019345729
+cat__ld_site_M_181_L_2079_CA	ld site M 181 L 2079 CA	LD / coadaptation	204.92441860465115	208.0	0.0010913607559672137
+cat__ld_site_M_2701_L_5835_missing	ld site M 2701 L 5835 missing	LD / coadaptation	205.7984496124031	210.0	0.0008902132810229658
+cat__ld_site_M_181_L_4557_CG	ld site M 181 L 4557 CG	LD / coadaptation	207.14728682170542	212.0	0.0011755749618654978
+cat__ld_site_L_4839_C	ld site L 4839 C	LD / coadaptation	207.42635658914728	209.0	0.0007138862104473435
+cat__ld_site_L_1071_missing	ld site L 1071 missing	LD / coadaptation	207.76937984496124	207.0	0.0009619189831807978
+cat__ld_site_M_2443_L_3105_AA	ld site M 2443 L 3105 AA	LD / coadaptation	208.26937984496124	217.0	0.0006472807689807868
+num__species_feat_utr3_M_structdist_max	species feat utr3 M structdist max	UTR structure	208.31007751937983	215.0	0.0007286511064494835
+num__hosttrait_elton_Diet-Seed	hosttrait elton Diet-Seed	Controls / sampling	212.1860465116279	219.0	0.0007174768165243363
+num__hosttrait_combine_dphy_invertebrate	hosttrait combine dphy invertebrate	Host life history	213.30620155038758	226.0	0.000692428962761628
+num__species_feat_hostdiv_faith_pd	Host phylogenetic diversity	Host phylogenetic diversity	215.2674418604651	218.0	0.0006456577999081457
+num__species_feat_mean_spr_distance	species feat mean spr distance	Tree incongruence	218.51162790697674	227.0	0.00048403325300750327
+cat__ld_site_M_181_L_3438_missing	ld site M 181 L 3438 missing	LD / coadaptation	218.67441860465115	229.0	0.0004848254177237677
+cat__ld_site_M_3271_L_4044_AC	ld site M 3271 L 4044 AC	LD / coadaptation	218.81782945736435	225.0	0.0005369917281194829
+num__species_feat_utr5_L_length_median	species feat utr5 L length median	UTR structure	219.1298449612403	230.0	0.00045341142196005563
+num__species_feat_utr5_S_structdist_std	UTR5 S structural distance SD	UTR structure	221.3624031007752	225.0	0.0004229710123476971
+cat__ld_site_L_540_missing	ld site L 540 missing	LD / coadaptation	221.6705426356589	229.0	0.0005999261706687459
+num__hosttrait_elton_Diet-Inv	hosttrait elton Diet-Inv	Controls / sampling	223.12209302325581	231.0	0.0003792350946470009
+cat__ld_site_M_1162_C	ld site M 1162 C	LD / coadaptation	228.02713178294573	231.0	0.00029273924328649406
+num__hosttrait_combine_hibernation_torpor	hosttrait combine hibernation torpor	Host life history	230.29263565891472	237.0	0.0003523324490933127
+num__species_feat_overlapopp_overlap_positive_fraction	species feat overlapopp overlap positive fraction	Overlap opportunity	232.2422480620155	236.0	0.00019628053664286132
+cat__ld_site_M_181_L_2079_missing	ld site M 181 L 2079 missing	LD / coadaptation	254.4360465116279	254.0	0.0
+cat__ld_site_M_181_L_2079_infrequent_sklearn	ld site M 181 L 2079 infrequent sklearn	LD / coadaptation	254.75	254.0	0.0
+cat__ld_site_M_181_L_5346_CT	ld site M 181 L 5346 CT	LD / coadaptation	254.94573643410854	253.0	0.0
+cat__ld_site_M_181_L_5346_AA	ld site M 181 L 5346 AA	LD / coadaptation	257.1996124031008	255.0	0.0
+cat__ld_site_M_2119_L_2212_infrequent_sklearn	ld site M 2119 L 2212 infrequent sklearn	LD / coadaptation	258.06976744186045	257.0	0.0
+cat__ld_site_M_2119_L_2212_missing	ld site M 2119 L 2212 missing	LD / coadaptation	259.25581395348837	258.0	0.0
+cat__ld_site_M_2119_A	ld site M 2119 A	LD / coadaptation	259.6782945736434	259.0	0.0
+cat__ld_site_M_2119_T	ld site M 2119 T	LD / coadaptation	260.45348837209303	261.0	0.0
+cat__ld_site_M_181_L_5346_missing	ld site M 181 L 5346 missing	LD / coadaptation	261.29457364341084	253.0	0.0
+cat__ld_site_M_2119_L_4557_AG	ld site M 2119 L 4557 AG	LD / coadaptation	262.37984496124034	264.0	0.0
+cat__ld_site_M_2119_L_4557_missing	ld site M 2119 L 4557 missing	LD / coadaptation	263.52131782945736	264.0	0.0
+cat__ld_site_S_687_L_5346_infrequent_sklearn	ld site S 687 L 5346 infrequent sklearn	LD / coadaptation	264.14728682170545	264.5	0.0
+cat__ld_site_L_771_missing	ld site L 771 missing	LD / coadaptation	264.4922480620155	261.0	0.0
+cat__ld_site_M_181_L_5346_infrequent_sklearn	ld site M 181 L 5346 infrequent sklearn	LD / coadaptation	264.5077519379845	256.0	0.0
+cat__ld_site_L_771_infrequent_sklearn	ld site L 771 infrequent sklearn	LD / coadaptation	264.63759689922483	264.0	0.0
+cat__ld_site_M_1162_L_771_AT	ld site M 1162 L 771 AT	LD / coadaptation	264.9321705426357	264.0	0.0
+cat__ld_site_S_687_L_5346_AA	ld site S 687 L 5346 AA	LD / coadaptation	265.54457364341084	265.5	0.0
+cat__ld_site_S_687_L_5346_AT	ld site S 687 L 5346 AT	LD / coadaptation	265.55232558139534	266.0	0.0
+cat__ld_site_L_5346_infrequent_sklearn	ld site L 5346 infrequent sklearn	LD / coadaptation	265.9282945736434	266.0	0.0
+cat__ld_site_L_2212_T	ld site L 2212 T	LD / coadaptation	266.0717054263566	267.0	0.0
+cat__ld_site_L_2212_missing	ld site L 2212 missing	LD / coadaptation	267.0891472868217	267.0	0.0
+cat__ld_site_L_2212_infrequent_sklearn	ld site L 2212 infrequent sklearn	LD / coadaptation	267.83720930232556	268.0	0.0
+cat__ld_site_M_181_L_2212_infrequent_sklearn	ld site M 181 L 2212 infrequent sklearn	LD / coadaptation	269.0406976744186	269.0	0.0
+cat__ld_site_M_181_L_2212_missing	ld site M 181 L 2212 missing	LD / coadaptation	269.2267441860465	268.0	0.0
+cat__ld_site_M_181_L_2212_CT	ld site M 181 L 2212 CT	LD / coadaptation	269.4573643410853	269.0	0.0
+cat__ld_site_L_771_T	ld site L 771 T	LD / coadaptation	269.7829457364341	260.0	0.0
+cat__ld_site_S_687_L_2212_infrequent_sklearn	ld site S 687 L 2212 infrequent sklearn	LD / coadaptation	280.29457364341084	280.0	0.0
+cat__ld_site_M_181_L_3438_AA	ld site M 181 L 3438 AA	LD / coadaptation	283.73062015503876	280.0	0.0
+cat__ld_site_S_687_L_2212_missing	ld site S 687 L 2212 missing	LD / coadaptation	284.3856589147287	286.0	0.0
+cat__ld_site_M_1126_L_4824_missing	ld site M 1126 L 4824 missing	LD / coadaptation	284.4612403100775	279.0	0.0
+cat__ld_site_M_181_L_3438_CA	ld site M 181 L 3438 CA	LD / coadaptation	284.56007751937983	285.0	0.0
+cat__ld_site_M_3349_L_2212_infrequent_sklearn	ld site M 3349 L 2212 infrequent sklearn	LD / coadaptation	284.7887596899225	285.5	0.0
+cat__ld_site_M_1126_L_4824_infrequent_sklearn	ld site M 1126 L 4824 infrequent sklearn	LD / coadaptation	284.98062015503876	286.0	0.0
+cat__ld_site_M_1126_A	ld site M 1126 A	LD / coadaptation	285.06007751937983	285.0	0.0
+cat__ld_site_M_181_L_3438_infrequent_sklearn	ld site M 181 L 3438 infrequent sklearn	LD / coadaptation	286.22093023255815	289.0	0.0
+cat__ld_site_S_687_L_2212_AT	ld site S 687 L 2212 AT	LD / coadaptation	286.5968992248062	288.0	0.0
+cat__ld_site_M_1162_infrequent_sklearn	ld site M 1162 infrequent sklearn	LD / coadaptation	286.6046511627907	276.0	0.0
+cat__ld_site_M_1126_infrequent_sklearn	ld site M 1126 infrequent sklearn	LD / coadaptation	287.1937984496124	286.0	0.0
+cat__ld_site_M_3349_L_2212_GT	ld site M 3349 L 2212 GT	LD / coadaptation	287.2887596899225	291.0	0.0
+cat__ld_site_M_3349_L_2212_missing	ld site M 3349 L 2212 missing	LD / coadaptation	287.31976744186045	294.0	0.0
+cat__ld_site_M_1126_L_4824_AA	ld site M 1126 L 4824 AA	LD / coadaptation	287.4360465116279	288.0	0.0
+cat__ld_site_M_1135_L_540_missing	ld site M 1135 L 540 missing	LD / coadaptation	289.5406976744186	289.0	0.0
+cat__ld_site_S_531_L_6219_TA	ld site S 531 L 6219 TA	LD / coadaptation	289.8488372093023	290.0	0.0
+cat__ld_site_M_1135_L_540_CT	ld site M 1135 L 540 CT	LD / coadaptation	290.1240310077519	290.0	0.0
+cat__ld_site_M_2119_L_6219_AG	ld site M 2119 L 6219 AG	LD / coadaptation	291.66472868217056	314.0	0.0
+cat__ld_site_L_3105_missing	ld site L 3105 missing	LD / coadaptation	292.23062015503876	294.0	0.0
+cat__ld_site_M_1135_L_540_AT	ld site M 1135 L 540 AT	LD / coadaptation	292.6666666666667	290.0	0.0
+cat__ld_site_L_3105_infrequent_sklearn	ld site L 3105 infrequent sklearn	LD / coadaptation	293.5019379844961	293.0	0.0
+cat__ld_site_M_1135_L_540_AA	ld site M 1135 L 540 AA	LD / coadaptation	294.93798449612405	289.0	0.0
+cat__ld_site_M_2392_L_4839_AC	ld site M 2392 L 4839 AC	LD / coadaptation	295.38178294573646	288.0	0.0
+cat__ld_site_S_933_M_2701_missing	ld site S 933 M 2701 missing	LD / coadaptation	295.52713178294573	290.0	0.0
+cat__ld_site_S_933_M_2701_TC	ld site S 933 M 2701 TC	LD / coadaptation	296.16279069767444	291.0	0.0
+cat__ld_site_M_2392_L_4839_missing	ld site M 2392 L 4839 missing	LD / coadaptation	296.16279069767444	291.0	0.0
+cat__ld_site_M_2701_missing	ld site M 2701 missing	LD / coadaptation	296.38953488372096	293.0	0.0
+cat__ld_site_L_4839_A	ld site L 4839 A	LD / coadaptation	296.48837209302326	288.0	0.0
+cat__ld_site_M_2119_L_6219_TG	ld site M 2119 L 6219 TG	LD / coadaptation	296.76356589147287	316.0	0.0
+cat__ld_site_L_4839_missing	ld site L 4839 missing	LD / coadaptation	296.9341085271318	288.0	0.0
+cat__ld_site_M_2701_A	ld site M 2701 A	LD / coadaptation	297.0174418604651	297.0	0.0
+cat__ld_site_M_2392_L_4839_AA	ld site M 2392 L 4839 AA	LD / coadaptation	297.0329457364341	289.0	0.0
+cat__ld_site_M_2701_C	ld site M 2701 C	LD / coadaptation	298.2325581395349	295.0	0.0
+cat__ld_site_M_2119_L_6219_missing	ld site M 2119 L 6219 missing	LD / coadaptation	298.531007751938	317.0	0.0
+cat__ld_site_M_3118_L_4824_missing	ld site M 3118 L 4824 missing	LD / coadaptation	299.51162790697674	299.0	0.0
+cat__ld_site_M_3118_infrequent_sklearn	ld site M 3118 infrequent sklearn	LD / coadaptation	301.5406976744186	300.0	0.0
+cat__ld_site_M_3118_L_4824_TA	ld site M 3118 L 4824 TA	LD / coadaptation	302.36240310077517	299.0	0.0
+cat__ld_site_M_2443_L_3105_missing	ld site M 2443 L 3105 missing	LD / coadaptation	302.3953488372093	303.0	0.0
+cat__ld_site_M_2119_L_5082_AG	ld site M 2119 L 5082 AG	LD / coadaptation	303.4089147286822	319.0	0.0
+cat__ld_site_M_2443_L_3105_infrequent_sklearn	ld site M 2443 L 3105 infrequent sklearn	LD / coadaptation	304.16472868217056	307.0	0.0
+cat__ld_site_M_3118_T	ld site M 3118 T	LD / coadaptation	304.2596899224806	305.0	0.0
+cat__ld_site_M_1162_A	ld site M 1162 A	LD / coadaptation	304.3468992248062	313.0	0.0
+cat__ld_site_M_2491_L_1413_missing	ld site M 2491 L 1413 missing	LD / coadaptation	304.9341085271318	304.0	0.0
+cat__ld_site_M_3118_G	ld site M 3118 G	LD / coadaptation	305.1434108527132	305.0	0.0
+cat__ld_site_L_1413_infrequent_sklearn	ld site L 1413 infrequent sklearn	LD / coadaptation	305.5891472868217	303.0	0.0
+cat__ld_site_M_2119_L_5082_TG	ld site M 2119 L 5082 TG	LD / coadaptation	306.1782945736434	320.0	0.0
+cat__ld_site_L_5835_infrequent_sklearn	ld site L 5835 infrequent sklearn	LD / coadaptation	306.4166666666667	307.0	0.0
+cat__ld_site_M_2491_L_1413_CC	ld site M 2491 L 1413 CC	LD / coadaptation	306.94573643410854	305.0	0.0
+cat__ld_site_M_3271_infrequent_sklearn	ld site M 3271 infrequent sklearn	LD / coadaptation	307.2926356589147	307.0	0.0
+cat__ld_site_L_1413_T	ld site L 1413 T	LD / coadaptation	307.5639534883721	305.0	0.0
+cat__ld_site_L_1413_C	ld site L 1413 C	LD / coadaptation	307.66279069767444	306.0	0.0
+cat__ld_site_M_2701_L_5835_infrequent_sklearn	ld site M 2701 L 5835 infrequent sklearn	LD / coadaptation	307.765503875969	312.0	0.0
+cat__ld_site_M_3055_L_4824_missing	ld site M 3055 L 4824 missing	LD / coadaptation	308.4108527131783	308.5	0.0
+cat__ld_site_L_5835_A	ld site L 5835 A	LD / coadaptation	308.63953488372096	307.0	0.0
+cat__ld_site_M_2119_L_2265_infrequent_sklearn	ld site M 2119 L 2265 infrequent sklearn	LD / coadaptation	308.81007751937983	315.0	0.0
+cat__ld_site_L_5835_missing	ld site L 5835 missing	LD / coadaptation	308.85271317829455	309.0	0.0
+cat__ld_site_M_3271_T	ld site M 3271 T	LD / coadaptation	309.3565891472868	308.0	0.0
+cat__ld_site_M_3271_L_4044_infrequent_sklearn	ld site M 3271 L 4044 infrequent sklearn	LD / coadaptation	309.6996124031008	308.0	0.0
+cat__ld_site_S_687_L_1071_missing	ld site S 687 L 1071 missing	LD / coadaptation	310.18798449612405	308.0	0.0
+cat__ld_site_L_4857_missing	ld site L 4857 missing	LD / coadaptation	310.36821705426354	311.0	0.0
+cat__ld_site_M_1306_L_1824_infrequent_sklearn	ld site M 1306 L 1824 infrequent sklearn	LD / coadaptation	310.7480620155039	311.0	0.0
+cat__ld_site_M_1306_L_1824_missing	ld site M 1306 L 1824 missing	LD / coadaptation	310.95542635658916	312.0	0.0
+cat__ld_site_M_2119_L_2265_AG	ld site M 2119 L 2265 AG	LD / coadaptation	311.06201550387595	316.0	0.0
+cat__ld_site_M_2119_L_2265_TG	ld site M 2119 L 2265 TG	LD / coadaptation	312.2480620155039	316.0	0.0
+cat__ld_site_L_1824_missing	ld site L 1824 missing	LD / coadaptation	312.48062015503876	314.0	0.0
+cat__ld_site_M_2119_L_5082_missing	ld site M 2119 L 5082 missing	LD / coadaptation	313.5736434108527	320.0	0.0
+cat__ld_site_M_1306_infrequent_sklearn	ld site M 1306 infrequent sklearn	LD / coadaptation	315.734496124031	319.0	0.0
+cat__ld_site_M_1306_T	ld site M 1306 T	LD / coadaptation	316.0736434108527	318.0	0.0
+cat__ld_site_L_5778_missing	ld site L 5778 missing	LD / coadaptation	316.39728682170545	322.0	0.0
+cat__ld_site_M_3166_L_5778_missing	ld site M 3166 L 5778 missing	LD / coadaptation	318.2151162790698	318.0	0.0
+cat__ld_site_S_384_L_5778_missing	ld site S 384 L 5778 missing	LD / coadaptation	321.69767441860466	325.0	0.0
+cat__ld_site_S_687_L_1911_missing	ld site S 687 L 1911 missing	LD / coadaptation	321.83720930232556	322.5	0.0
+cat__ld_site_M_1417_L_5859_missing	ld site M 1417 L 5859 missing	LD / coadaptation	322.781007751938	326.0	0.0
+cat__ld_site_L_1911_missing	ld site L 1911 missing	LD / coadaptation	323.40503875968994	327.0	0.0
+cat__ld_site_L_5859_missing	ld site L 5859 missing	LD / coadaptation	323.68798449612405	324.0	0.0
+num__missingindicator_hosttrait_elton_Activity-Diurnal	Missingness: hosttrait elton Activity-Diurnal	Controls / sampling	343.0	343.0	0.0
+cat__ld_site_M_181_L_4557_infrequent_sklearn	ld site M 181 L 4557 infrequent sklearn	LD / coadaptation	344.0	344.0	0.0
+num__species_feat_utr3_L_structdist_median	species feat utr3 L structdist median	UTR structure	345.0	345.0	0.0
+num__species_feat_utr3_L_structdist_matrix_n	species feat utr3 L structdist matrix n	UTR structure	346.0	346.0	0.0
+num__species_feat_utr3_L_seqdist_max	species feat utr3 L seqdist max	UTR structure	347.0	347.0	0.0
+num__species_feat_utr3_L_seqdist_std	species feat utr3 L seqdist std	UTR structure	348.0	348.0	0.0
+num__species_feat_utr3_L_seqdist_median	species feat utr3 L seqdist median	UTR structure	349.0	349.0	0.0
+num__species_feat_utr3_L_seqdist_matrix_n	species feat utr3 L seqdist matrix n	UTR structure	350.0	350.0	0.0
+num__species_feat_utr3_L_retained_n	species feat utr3 L retained n	UTR structure	351.0	351.0	0.0
+num__species_feat_utr3_L_manifest_n	species feat utr3 L manifest n	UTR structure	352.0	352.0	0.0
+num__species_feat_utr3_M_manifest_n	species feat utr3 M manifest n	UTR structure	353.0	353.0	0.0
+num__species_feat_prop_significant_overall	Fraction significant LD pairs	LD / coadaptation	354.0	354.0	0.0
+num__species_feat_median_cramers_v_overall	species feat median cramers v overall	LD / coadaptation	355.0	355.0	0.0
+num__species_feat_mean_cramers_v_overall	Mean LD burden	LD / coadaptation	356.0	356.0	0.0
+num__species_feat_n_site_pairs_ML	species feat n site pairs ML	LD / coadaptation	357.0	357.0	0.0
+num__species_feat_mean_nmi_ML	species feat mean nmi ML	LD / coadaptation	358.0	358.0	0.0
+num__species_feat_mean_nmi_SL	species feat mean nmi SL	LD / coadaptation	359.0	359.0	0.0
+num__species_feat_mean_nmi_SM	species feat mean nmi SM	LD / coadaptation	360.0	360.0	0.0
+num__species_feat_median_cramers_v_ML	species feat median cramers v ML	LD / coadaptation	361.0	361.0	0.0
+num__species_feat_mean_cramers_v_ML	species feat mean cramers v ML	LD / coadaptation	362.0	362.0	0.0
+num__species_feat_mean_nmi_overall	species feat mean nmi overall	LD / coadaptation	363.0	363.0	0.0
+num__species_feat_utr3_M_retained_n	species feat utr3 M retained n	UTR structure	364.0	364.0	0.0
+num__species_feat_utr3_M_retention_rate	UTR3 M retention rate	UTR structure	365.0	365.0	0.0
+num__species_feat_utr3_M_length_median	species feat utr3 M length median	UTR structure	366.0	366.0	0.0
+num__species_feat_utr3_S_structdist_std	UTR3 S structural distance SD	UTR structure	367.0	367.0	0.0
+num__species_feat_utr3_S_structdist_median	species feat utr3 S structdist median	UTR structure	368.0	368.0	0.0
+num__species_feat_utr3_S_structdist_mean	UTR3 S structural distance	UTR structure	369.0	369.0	0.0
+num__species_feat_utr3_S_structdist_matrix_n	species feat utr3 S structdist matrix n	UTR structure	370.0	370.0	0.0
+num__species_feat_utr3_S_seqdist_median	species feat utr3 S seqdist median	UTR structure	371.0	371.0	0.0
+num__species_feat_utr3_S_seqdist_mean	species feat utr3 S seqdist mean	UTR structure	372.0	372.0	0.0
+num__species_feat_utr3_S_seqdist_matrix_n	species feat utr3 S seqdist matrix n	UTR structure	373.0	373.0	0.0
+num__species_feat_utr3_S_length_median	species feat utr3 S length median	UTR structure	374.0	374.0	0.0
+num__species_feat_utr3_S_length_mean	species feat utr3 S length mean	UTR structure	375.0	375.0	0.0
+num__species_feat_utr3_S_retention_rate	UTR3 S retention rate	UTR structure	376.0	376.0	0.0
+num__species_feat_utr3_S_retained_n	species feat utr3 S retained n	UTR structure	377.0	377.0	0.0
+num__species_feat_utr3_S_manifest_n	species feat utr3 S manifest n	UTR structure	378.0	378.0	0.0
+num__species_feat_utr3_M_structdist_median	species feat utr3 M structdist median	UTR structure	379.0	379.0	0.0
+num__species_feat_utr3_M_structdist_matrix_n	species feat utr3 M structdist matrix n	UTR structure	380.0	380.0	0.0
+num__species_feat_utr3_M_seqdist_max	species feat utr3 M seqdist max	UTR structure	381.0	381.0	0.0
+num__species_feat_utr3_M_seqdist_std	species feat utr3 M seqdist std	UTR structure	382.0	382.0	0.0
+num__species_feat_utr3_M_seqdist_median	species feat utr3 M seqdist median	UTR structure	383.0	383.0	0.0
+num__species_feat_utr3_M_seqdist_mean	species feat utr3 M seqdist mean	UTR structure	384.0	384.0	0.0
+num__species_feat_utr3_M_seqdist_matrix_n	species feat utr3 M seqdist matrix n	UTR structure	385.0	385.0	0.0
+num__species_feat_mean_cramers_v_SL	species feat mean cramers v SL	LD / coadaptation	386.0	386.0	0.0
+num__species_feat_utr3_S_structdist_max	species feat utr3 S structdist max	UTR structure	387.0	387.0	0.0
+num__species_feat_mean_cramers_v_SM	species feat mean cramers v SM	LD / coadaptation	388.0	388.0	0.0
+num__species_feat_utr5_overall_seqdist_std	species feat utr5 overall seqdist std	UTR structure	389.0	389.0	0.0
+num__species_feat_utr5_L_seqdist_max	species feat utr5 L seqdist max	UTR structure	390.0	390.0	0.0
+num__species_feat_utr5_L_seqdist_matrix_n	species feat utr5 L seqdist matrix n	UTR structure	391.0	391.0	0.0
+num__species_feat_utr5_L_retained_n	species feat utr5 L retained n	UTR structure	392.0	392.0	0.0
+num__species_feat_spr_L_S	species feat spr L S	Tree incongruence	393.0	393.0	0.0
+num__species_feat_overlapopp_overlap_hostcount_weighted_mean	species feat overlapopp overlap hostcount weighted mean	Overlap opportunity	394.0	394.0	0.0
+num__hosttrait_elton_Diet-Vunk	hosttrait elton Diet-Vunk	Controls / sampling	395.0	395.0	0.0
+num__hosttrait_elton_Diet-Scav	hosttrait elton Diet-Scav	Controls / sampling	396.0	396.0	0.0
+num__hosttrait_elton_Diet-Fruit	hosttrait elton Diet-Fruit	Controls / sampling	397.0	397.0	0.0
+num__species_feat_utr5_L_structdist_matrix_n	species feat utr5 L structdist matrix n	UTR structure	398.0	398.0	0.0
+num__hosttrait_elton_Activity-Nocturnal	hosttrait elton Activity-Nocturnal	Controls / sampling	399.0	399.0	0.0
+num__hosttrait_elton_Activity-Crepuscular	hosttrait elton Activity-Crepuscular	Controls / sampling	400.0	400.0	0.0
+num__hosttrait_combine_island_dwelling	hosttrait combine island dwelling	Host life history	401.0	401.0	0.0
+num__hosttrait_combine_dphy_vertebrate	hosttrait combine dphy vertebrate	Host life history	402.0	402.0	0.0
+num__hosttrait_combine_det_vunk	hosttrait combine det vunk	Host life history	403.0	403.0	0.0
+num__hosttrait_combine_det_scav	hosttrait combine det scav	Host life history	404.0	404.0	0.0
+num__hosttrait_combine_det_fruit	hosttrait combine det fruit	Host life history	405.0	405.0	0.0
+num__hosttrait_fill_donor_count	hosttrait fill donor count	Controls / sampling	406.0	406.0	0.0
+num__hosttrait_has_direct_any_traits	hosttrait has direct any traits	Controls / sampling	407.0	407.0	0.0
+num__hosttrait_elton_Activity-Diurnal	hosttrait elton Activity-Diurnal	Controls / sampling	408.0	408.0	0.0
+num__species_feat_utr5_L_structdist_median	species feat utr5 L structdist median	UTR structure	409.0	409.0	0.0
+num__species_feat_utr5_L_structdist_max	species feat utr5 L structdist max	UTR structure	410.0	410.0	0.0
+num__species_feat_utr5_M_manifest_n	species feat utr5 M manifest n	UTR structure	411.0	411.0	0.0
+num__species_feat_utr5_overall_structdist_mean	species feat utr5 overall structdist mean	UTR structure	412.0	412.0	0.0
+num__species_feat_utr5_overall_retention_rate	species feat utr5 overall retention rate	UTR structure	413.0	413.0	0.0
+num__species_feat_utr5_S_structdist_max	species feat utr5 S structdist max	UTR structure	414.0	414.0	0.0
+num__species_feat_utr5_S_structdist_median	species feat utr5 S structdist median	UTR structure	415.0	415.0	0.0
+num__species_feat_utr5_S_structdist_mean	UTR5 S structural distance	UTR structure	416.0	416.0	0.0
+num__species_feat_utr5_S_structdist_matrix_n	species feat utr5 S structdist matrix n	UTR structure	417.0	417.0	0.0
+num__species_feat_utr5_S_seqdist_max	species feat utr5 S seqdist max	UTR structure	418.0	418.0	0.0
+num__species_feat_utr5_S_seqdist_matrix_n	species feat utr5 S seqdist matrix n	UTR structure	419.0	419.0	0.0
+num__species_feat_utr5_S_length_median	species feat utr5 S length median	UTR structure	420.0	420.0	0.0
+num__species_feat_utr5_S_retention_rate	UTR5 S retention rate	UTR structure	421.0	421.0	0.0
+num__species_feat_utr5_S_retained_n	species feat utr5 S retained n	UTR structure	422.0	422.0	0.0
+num__species_feat_utr5_M_structdist_max	species feat utr5 M structdist max	UTR structure	423.0	423.0	0.0
+num__species_feat_utr5_M_structdist_median	species feat utr5 M structdist median	UTR structure	424.0	424.0	0.0
+num__species_feat_utr5_M_structdist_mean	UTR5 M structural distance	UTR structure	425.0	425.0	0.0
+num__species_feat_utr5_M_structdist_matrix_n	species feat utr5 M structdist matrix n	UTR structure	426.0	426.0	0.0
+num__species_feat_utr5_M_seqdist_mean	species feat utr5 M seqdist mean	UTR structure	427.0	427.0	0.0
+num__species_feat_utr5_M_seqdist_matrix_n	species feat utr5 M seqdist matrix n	UTR structure	428.0	428.0	0.0
+num__species_feat_utr5_M_retention_rate	UTR5 M retention rate	UTR structure	429.0	429.0	0.0
+num__species_feat_utr5_M_retained_n	species feat utr5 M retained n	UTR structure	430.0	430.0	0.0
+num__species_feat_utr5_overall_structdist_std	species feat utr5 overall structdist std	UTR structure	431.0	431.0	0.0
+cat__ld_site_M_181_L_2079_AA	ld site M 181 L 2079 AA	LD / coadaptation	432.0	432.0	0.0
+num__species_feat_utr3_overall_length_mean	species feat utr3 overall length mean	UTR structure	433.0	433.0	0.0
+num__species_feat_utr3_overall_structdist_mean	species feat utr3 overall structdist mean	UTR structure	434.0	434.0	0.0
+cat__ld_site_L_3957_infrequent_sklearn	ld site L 3957 infrequent sklearn	LD / coadaptation	435.0	435.0	0.0
+cat__ld_site_M_181_L_4824_infrequent_sklearn	ld site M 181 L 4824 infrequent sklearn	LD / coadaptation	436.0	436.0	0.0
+cat__ld_site_M_181_L_4824_AA	ld site M 181 L 4824 AA	LD / coadaptation	437.0	437.0	0.0
+cat__ld_site_M_181_infrequent_sklearn	ld site M 181 infrequent sklearn	LD / coadaptation	438.0	438.0	0.0
+cat__ld_site_M_181_A	ld site M 181 A	LD / coadaptation	439.0	439.0	0.0
+cat__ld_site_S_384_L_540_missing	ld site S 384 L 540 missing	LD / coadaptation	440.0	440.0	0.0
+cat__ld_site_S_384_L_540_TA	ld site S 384 L 540 TA	LD / coadaptation	441.0	441.0	0.0
+cat__ld_site_L_540_A	ld site L 540 A	LD / coadaptation	442.0	442.0	0.0
+cat__ld_site_M_3187_L_3957_infrequent_sklearn	ld site M 3187 L 3957 infrequent sklearn	LD / coadaptation	443.0	443.0	0.0
+cat__hosttrait_combine_biogeographical_realm_infrequent_sklearn	hosttrait combine biogeographical realm infrequent sklearn	Host life history	444.0	444.0	0.0
+cat__hosttrait_combine_biogeographical_realm_Nearctic, Neotropical	hosttrait combine biogeographical realm Nearctic, Neotropical	Host life history	445.0	445.0	0.0
+cat__hosttrait_combine_biogeographical_realm_Afrotropical, Australasian, Indomalayan, Nearctic, Neotropical, Oceanian, Palearctic	hosttrait combine biogeographical realm Afrotropical, Australasian, Indomalayan, Nearctic, Neotropical, Oceanian, Palearctic	Host life history	446.0	446.0	0.0
+cat__species_orthohantavirus_tulaense	Species: tula.	Species identity	447.0	447.0	0.0
+cat__species_orthohantavirus_sinnombreense	Species: sinnombre.	Species identity	448.0	448.0	0.0
+cat__species_orthohantavirus_seoulense	Species: seoul.	Species identity	449.0	449.0	0.0
+cat__species_orthohantavirus_puumalaense	Species: puumala.	Species identity	450.0	450.0	0.0
+cat__species_orthohantavirus_hantanense	Species: hantan.	Species identity	451.0	451.0	0.0
+cat__species_orthohantavirus_dobravaense	Species: dobrava.	Species identity	452.0	452.0	0.0
+cat__hosttrait_combine_biogeographical_realm_missing	hosttrait combine biogeographical realm missing	Host life history	453.0	453.0	0.0
+cat__ld_site_M_865_G	ld site M 865 G	LD / coadaptation	454.0	454.0	0.0
+cat__ld_site_M_865_missing	ld site M 865 missing	LD / coadaptation	455.0	455.0	0.0
+cat__ld_site_M_865_L_4824_GA	ld site M 865 L 4824 GA	LD / coadaptation	456.0	456.0	0.0
+cat__ld_site_M_181_L_4557_AG	ld site M 181 L 4557 AG	LD / coadaptation	457.0	457.0	0.0
+cat__ld_site_M_1135_L_4824_missing	ld site M 1135 L 4824 missing	LD / coadaptation	458.0	458.0	0.0
+cat__ld_site_M_1135_L_4824_GA	ld site M 1135 L 4824 GA	LD / coadaptation	459.0	459.0	0.0
+cat__ld_site_M_1135_L_4824_CA	ld site M 1135 L 4824 CA	LD / coadaptation	460.0	460.0	0.0
+cat__ld_site_M_1135_infrequent_sklearn	ld site M 1135 infrequent sklearn	LD / coadaptation	461.0	461.0	0.0
+cat__ld_site_M_2314_L_4824_infrequent_sklearn	ld site M 2314 L 4824 infrequent sklearn	LD / coadaptation	462.0	462.0	0.0
+cat__ld_site_M_2314_L_4824_missing	ld site M 2314 L 4824 missing	LD / coadaptation	463.0	463.0	0.0
+cat__ld_site_M_2314_L_4824_TA	ld site M 2314 L 4824 TA	LD / coadaptation	464.0	464.0	0.0
+cat__ld_site_M_2314_L_4824_GA	ld site M 2314 L 4824 GA	LD / coadaptation	465.0	465.0	0.0
+cat__ld_site_M_2314_infrequent_sklearn	ld site M 2314 infrequent sklearn	LD / coadaptation	466.0	466.0	0.0
+cat__ld_site_M_2314_T	ld site M 2314 T	LD / coadaptation	467.0	467.0	0.0
+cat__ld_site_M_2314_G	ld site M 2314 G	LD / coadaptation	468.0	468.0	0.0
+cat__ld_site_M_865_L_2079_infrequent_sklearn	ld site M 865 L 2079 infrequent sklearn	LD / coadaptation	469.0	469.0	0.0
+cat__ld_site_M_865_L_2079_missing	ld site M 865 L 2079 missing	LD / coadaptation	470.0	470.0	0.0
+cat__ld_site_M_865_L_2079_GA	ld site M 865 L 2079 GA	LD / coadaptation	471.0	471.0	0.0
+cat__ld_site_L_2079_infrequent_sklearn	ld site L 2079 infrequent sklearn	LD / coadaptation	472.0	472.0	0.0
+cat__ld_site_L_2079_missing	ld site L 2079 missing	LD / coadaptation	473.0	473.0	0.0
+cat__ld_site_L_2079_A	ld site L 2079 A	LD / coadaptation	474.0	474.0	0.0
+cat__ld_site_M_865_L_4824_missing	ld site M 865 L 4824 missing	LD / coadaptation	475.0	475.0	0.0
+cat__species_orthohantavirus_andesense	Species: andes.	Species identity	476.0	476.0	0.0
+num__species_feat_utr3_overall_seqdist_mean	species feat utr3 overall seqdist mean	UTR structure	477.0	477.0	0.0
+num__missingindicator_hosttrait_elton_Diet-Vunk	Missingness: hosttrait elton Diet-Vunk	Controls / sampling	478.0	478.0	0.0
+num__missingindicator_hosttrait_elton_Diet-Scav	Missingness: hosttrait elton Diet-Scav	Controls / sampling	479.0	479.0	0.0
+num__missingindicator_hosttrait_combine_dphy_invertebrate	Missingness: hosttrait combine dphy invertebrate	Controls / sampling	480.0	480.0	0.0
+num__missingindicator_hosttrait_combine_dispersal_km	Missingness: Host dispersal	Controls / sampling	481.0	481.0	0.0
+num__missingindicator_hosttrait_combine_det_vunk	Missingness: hosttrait combine det vunk	Controls / sampling	482.0	482.0	0.0
+num__missingindicator_hosttrait_combine_det_seed	Missingness: hosttrait combine det seed	Controls / sampling	483.0	483.0	0.0
+num__missingindicator_hosttrait_combine_det_scav	Missingness: hosttrait combine det scav	Controls / sampling	484.0	484.0	0.0
+num__missingindicator_hosttrait_combine_det_plantother	Missingness: hosttrait combine det plantother	Controls / sampling	485.0	485.0	0.0
+num__missingindicator_hosttrait_combine_det_inv	Missingness: hosttrait combine det inv	Controls / sampling	486.0	486.0	0.0
+num__missingindicator_hosttrait_combine_det_fruit	Missingness: hosttrait combine det fruit	Controls / sampling	487.0	487.0	0.0
+num__missingindicator_hosttrait_combine_dphy_plant	Missingness: hosttrait combine dphy plant	Controls / sampling	488.0	488.0	0.0
+num__missingindicator_hosttrait_combine_det_diet_breadth_n	Missingness: hosttrait combine det diet breadth n	Controls / sampling	489.0	489.0	0.0
+num__missingindicator_hosttrait_combine_age_first_reproduction_d	Missingness: hosttrait combine age first reproduction d	Controls / sampling	490.0	490.0	0.0
+num__species_feat_eco_geo_richness	species feat eco geo richness	Controls / sampling	491.0	491.0	0.0
+num__species_feat_eco_country_richness	species feat eco country richness	Controls / sampling	492.0	492.0	0.0
+num__species_feat_eco_n_records	Species ecology record count	Controls / sampling	493.0	493.0	0.0
+num__species_feat_matched_isolates	Species matched isolate count	Controls / sampling	494.0	494.0	0.0
+num__species_feat_n_isolates	species feat n isolates	Controls / sampling	495.0	495.0	0.0
+num__species_feat_utr3_overall_structdist_std	species feat utr3 overall structdist std	UTR structure	496.0	496.0	0.0
+num__species_feat_utr3_overall_seqdist_std	species feat utr3 overall seqdist std	UTR structure	497.0	497.0	0.0
+num__missingindicator_hosttrait_combine_brain_mass_g	Missingness: hosttrait combine brain mass g	Controls / sampling	498.0	498.0	0.0
+num__missingindicator_hosttrait_combine_dphy_vertebrate	Missingness: hosttrait combine dphy vertebrate	Controls / sampling	499.0	499.0	0.0
+num__missingindicator_hosttrait_combine_female_maturity_d	Missingness: hosttrait combine female maturity d	Controls / sampling	500.0	500.0	0.0
+num__missingindicator_hosttrait_combine_fossoriality	Missingness: hosttrait combine fossoriality	Controls / sampling	501.0	501.0	0.0
+num__missingindicator_hosttrait_elton_Diet-PlantO	Missingness: hosttrait elton Diet-PlantO	Controls / sampling	502.0	502.0	0.0
+num__missingindicator_hosttrait_elton_Diet-Inv	Missingness: hosttrait elton Diet-Inv	Controls / sampling	503.0	503.0	0.0
+num__missingindicator_hosttrait_elton_Diet-Fruit	Missingness: hosttrait elton Diet-Fruit	Controls / sampling	504.0	504.0	0.0
+num__missingindicator_hosttrait_elton_BodyMass-Value	Missingness: hosttrait elton BodyMass-Value	Controls / sampling	505.0	505.0	0.0
+num__missingindicator_hosttrait_elton_Activity-Nocturnal	Missingness: hosttrait elton Activity-Nocturnal	Controls / sampling	506.0	506.0	0.0
+cat__ld_site_M_1162_L_771_missing	ld site M 1162 L 771 missing	LD / coadaptation	507.0	507.0	0.0
+num__missingindicator_hosttrait_elton_Activity-Crepuscular	Missingness: hosttrait elton Activity-Crepuscular	Controls / sampling	508.0	508.0	0.0
+num__missingindicator_hosttrait_combine_weaning_age_d	Missingness: hosttrait combine weaning age d	Controls / sampling	509.0	509.0	0.0
+num__missingindicator_hosttrait_combine_upper_elevation_m	Missingness: hosttrait combine upper elevation m	Controls / sampling	510.0	510.0	0.0
+num__missingindicator_hosttrait_combine_trophic_level	Missingness: hosttrait combine trophic level	Controls / sampling	511.0	511.0	0.0
+num__missingindicator_hosttrait_combine_max_longevity_d	Missingness: hosttrait combine max longevity d	Controls / sampling	512.0	512.0	0.0
+num__missingindicator_hosttrait_combine_maturity_d	Missingness: hosttrait combine maturity d	Controls / sampling	513.0	513.0	0.0
+num__missingindicator_hosttrait_combine_litters_per_year_n	Missingness: hosttrait combine litters per year n	Controls / sampling	514.0	514.0	0.0
+num__missingindicator_hosttrait_combine_litter_size_n	Missingness: Host litter size	Controls / sampling	515.0	515.0	0.0
+num__missingindicator_hosttrait_combine_interbirth_interval_d	Missingness: hosttrait combine interbirth interval d	Controls / sampling	516.0	516.0	0.0
+num__missingindicator_hosttrait_combine_hibernation_torpor	Missingness: hosttrait combine hibernation torpor	Controls / sampling	517.0	517.0	0.0
+num__missingindicator_hosttrait_combine_habitat_breadth_n	Missingness: hosttrait combine habitat breadth n	Controls / sampling	518.0	518.0	0.0
+num__missingindicator_hosttrait_combine_gestation_length_d	Missingness: Host gestation length	Controls / sampling	519.0	519.0	0.0
+num__missingindicator_hosttrait_combine_generation_length_d	Missingness: hosttrait combine generation length d	Controls / sampling	520.0	520.0	0.0
+num__missingindicator_hosttrait_elton_Diet-Seed	Missingness: hosttrait elton Diet-Seed	Controls / sampling	521.0	521.0	0.0
+cat__ld_site_M_1162_L_771_infrequent_sklearn	ld site M 1162 L 771 infrequent sklearn	LD / coadaptation	522.0	522.0	0.0

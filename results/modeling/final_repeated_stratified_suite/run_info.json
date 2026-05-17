@@ -1,0 +1,58 @@
+{
+  "bayesian_tooling": {
+    "arviz": "available",
+    "bambi": "available",
+    "pymc": "available",
+    "statsmodels": "available"
+  },
+  "clade_sizes": {
+    "new_world_sigmodontinae": 58,
+    "old_world_arvicolinae": 140,
+    "old_world_murinae": 318
+  },
+  "cv_schemes": [
+    "repeated_stratified"
+  ],
+  "dataset": "data/processed/final_sequence_dataset.tsv",
+  "dataset_role": "final explanatory dataset",
+  "evaluated_folds": {
+    "repeated_stratified": 15
+  },
+  "exploratory_codon_composition": false,
+  "exploratory_real_lineage_context": false,
+  "feature_sets": [
+    "ecology_molecular_lineage_plus_context"
+  ],
+  "group_column": "species",
+  "group_sizes": {
+    "orthohantavirus_andesense": 24,
+    "orthohantavirus_dobravaense": 18,
+    "orthohantavirus_hantanense": 199,
+    "orthohantavirus_puumalaense": 69,
+    "orthohantavirus_seoulense": 101,
+    "orthohantavirus_sinnombreense": 34,
+    "orthohantavirus_tulaense": 71
+  },
+  "labeled_rows": 516,
+  "ld_encoding": "full",
+  "models": [
+    "lightgbm"
+  ],
+  "n_clades": 3,
+  "n_groups": 7,
+  "negative_rows": 353,
+  "positive_rate": 0.31589147286821706,
+  "positive_rows": 163,
+  "requested_lineage_experimental": true,
+  "species_effect_fallback": "regularized_fixed_effect_logistic",
+  "target_source_filter": "true_label",
+  "tree_bayes_inner_splits": 4,
+  "tree_bayes_iters": 30,
+  "tree_bayes_metric": "average_precision",
+  "tree_bayes_search": true,
+  "tree_bayes_shared_by_cv": true,
+  "within_species_lineage_groups": 22,
+  "within_species_lineage_molecular_context": false,
+  "within_species_max_clusters": 4,
+  "within_species_min_clade_size": 3
+}

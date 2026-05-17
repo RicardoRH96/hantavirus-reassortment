@@ -1,0 +1,11 @@
+model	term	mean	sd	hdi_3%	hdi_97%	posterior_prob_positive	raw_term
+ecology_over_lineage	overlap_opportunity_local_z	0.094	0.224	-0.324	0.504	0.6516666666666666	overlap_opportunity_local
+ecology_over_lineage	arha_prev_local_z	-0.151	0.255	-0.572	0.389	0.265	arha_prev_local
+ecology_over_lineage	species_feat_hostdiv_faith_pd_z	-0.454	0.309	-1.055	0.08	0.05333333333333334	species_feat_hostdiv_faith_pd
+molecular_over_lineage	species_feat_mean_cramers_v_overall_z	-0.313	0.617	-1.366	0.851	0.30666666666666664	species_feat_mean_cramers_v_overall
+molecular_over_lineage	tree_discordance_score_z	0.419	0.243	-0.001	0.884	0.9566666666666667	tree_discordance_score
+integrated_over_lineage	overlap_opportunity_local_z	0.249	0.244	-0.185	0.704	0.8533333333333334	overlap_opportunity_local
+integrated_over_lineage	arha_prev_local_z	-0.185	0.254	-0.663	0.261	0.23833333333333334	arha_prev_local
+integrated_over_lineage	species_feat_hostdiv_faith_pd_z	-0.67	0.376	-1.357	0.053	0.03666666666666667	species_feat_hostdiv_faith_pd
+integrated_over_lineage	species_feat_mean_cramers_v_overall_z	-0.588	0.608	-1.681	0.552	0.16666666666666666	species_feat_mean_cramers_v_overall
+integrated_over_lineage	tree_discordance_score_z	0.332	0.26	-0.147	0.817	0.9	tree_discordance_score

@@ -1,0 +1,11 @@
+cluster_id	n_features	combined_effect	exemplar_feature	exemplar_label	family_Species identity	family_Host life history	family_Host phylogenetic diversity	family_Overlap opportunity	family_Local host prevalence	family_LD / coadaptation	family_UTR structure	family_Tree incongruence	family_Geographic / sampling context	family_Controls / sampling	rank
+6	3	0.9173061802886723	cat__ld_site_M_1135_L_4824_AA	ld site M 1135 L 4824 AA	0.0	0.0	0.0	0.0	0.0	0.9173061802886723	0.0	0.0	0.0	0.0	1
+15	1	0.6458152089677119	num__tree_discordance_score	Tree discordance score	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.6458152089677119	0.0	0.0	2
+19	1	0.4621869123406722	num__overlap_opportunity_local	Overlap opportunity	0.0	0.0	0.0	0.4621869123406722	0.0	0.0	0.0	0.0	0.0	0.0	3
+18	2	0.3712697537630197	cat__ld_site_M_1417_L_5859_GT	ld site M 1417 L 5859 GT	0.0	0.0	0.0	0.0	0.0	0.3712697537630197	0.0	0.0	0.0	0.0	4
+16	2	0.27957851145867835	cat__ld_site_S_687_L_1911_AT	ld site S 687 L 1911 AT	0.0	0.0	0.0	0.0	0.0	0.27957851145867835	0.0	0.0	0.0	0.0	5
+14	1	0.23007544085240003	num__arha_prev_local	Local host prevalence	0.0	0.0	0.0	0.0	0.23007544085240003	0.0	0.0	0.0	0.0	0.0	6
+1	2	0.22305205171157627	cat__ld_site_M_1306_L_1824_TT	ld site M 1306 L 1824 TT	0.0	0.0	0.0	0.0	0.0	0.22305205171157627	0.0	0.0	0.0	0.0	7
+8	1	0.20668986164220643	cat__ld_site_M_865_L_4824_TA	ld site M 865 L 4824 TA	0.0	0.0	0.0	0.0	0.0	0.20668986164220643	0.0	0.0	0.0	0.0	8
+2	2	0.16406859886320002	cat__ld_site_M_2491_L_1413_CG	ld site M 2491 L 1413 CG	0.0	0.0	0.0	0.0	0.0	0.16406859886320002	0.0	0.0	0.0	0.0	9
+3	1	0.12915290332193993	cat__ld_site_S_531_L_4857_TC	ld site S 531 L 4857 TC	0.0	0.0	0.0	0.0	0.0	0.12915290332193993	0.0	0.0	0.0	0.0	10

@@ -1,0 +1,26 @@
+row_index	species	target	pareto_k	log_likelihood_mean	tip_name	accession	canonical_isolate	host	country	target_source
+129	orthohantavirus_seoulense	0	0.4330705207972056	-1.5774350255023561	93HBQ4|1993-01-01	OQ739694	93hbq4	unknown	China	sequence_true_label
+137	orthohantavirus_seoulense	1	0.4060578184443557	-0.4894333841293832	Fj372_2013|2013-12-17	KP645198	fj372_2013	Suncus murinus	China	sequence_true_label
+124	orthohantavirus_puumalaense	1	0.38999918463022926	-1.6917419788146317	Suo_renal|2017-01-01	MT024593	suo_renal	Myodes glareolus	China	sequence_true_label
+123	orthohantavirus_puumalaense	1	0.38999918463022926	-1.6917419788146317	Suo_lung|2017-01-01	MT024590	suo_lung	Myodes glareolus	China	sequence_true_label
+511	orthohantavirus_dobravaense	0	0.31811427132986003	-1.207808607341246	LT18_RUS_2|2018-01-01	MT580918	lt18_rus_2	Apodemus agrarius	Lithuania	sequence_true_label
+506	orthohantavirus_dobravaense	0	0.278866361418809	-1.6763967329788487	GRW_Aa|2008-01-01	JQ026204	grw_aa	unknown	South Korea	sequence_true_label
+215	orthohantavirus_seoulense	1	0.269946650148774	-0.4623086868135006	SEOV_Russia_Vladivostok_R_6357_15_2015|2015-03-02	PV031654	seov_russia_vladivostok_r_6357_15_2015	unknown	Russia	sequence_true_label
+216	orthohantavirus_seoulense	1	0.2414657268358673	-0.6373972952217324	WSMG_YNSF176|2023-01-01	PQ678290	wsmg_ynsf176	Rattus tanezumi	China	sequence_true_label
+500	orthohantavirus_dobravaense	0	0.23707729532435565	-1.029233507861195	Ap_Sochi_hu|2009-04-01	JF920150	ap_sochi_hu	Homo sapiens	Russia	sequence_true_label
+514	orthohantavirus_dobravaense	1	0.23455878225851456	-0.23389501193173323	Stamforrad_POR|2015-01-01	KT885043	stamforrad_por	Apodemus flavicollis	Portugal	sequence_true_label
+426	orthohantavirus_hantanense	0	0.23255052241789187	-0.045194027864413046	Yanbian_Rn22a_H4103|2022-09-01	PV600349	yanbian_rn22a_h4103	Rattus norvegicus	China	sequence_true_label
+424	orthohantavirus_hantanense	0	0.23255052241789187	-0.045194027864413046	Yanbian_Rn22a_H3954|2022-09-01	PV600350	yanbian_rn22a_h3954	Rattus norvegicus	China	sequence_true_label
+425	orthohantavirus_hantanense	0	0.23255052241789187	-0.045194027864413046	Yanbian_Rn22a_H4086|2022-09-01	PV600348	yanbian_rn22a_h4086	Rattus norvegicus	China	sequence_true_label
+323	orthohantavirus_hantanense	1	0.231978821090647	-2.344823169901185	Aa19_153_MiSeq|2019-10-23	MW796141	aa19_153_miseq	Apodemus agrarius	South Korea	sequence_true_label
+320	orthohantavirus_hantanense	1	0.231978821090647	-2.344823169901185	Aa19_152_MInION|2019-10-23	MW796176	aa19_152_minion	Apodemus agrarius	South Korea	sequence_true_label
+389	orthohantavirus_hantanense	0	0.22391559308627135	-0.057548345402106224	JS3|2013-06-01	KP970574	js3	Rattus norvegicus	China	sequence_true_label
+391	orthohantavirus_hantanense	0	0.22391559308627135	-0.057548345402106224	JS5|2013-06-01	KP970576	js5	Rattus norvegicus	China	sequence_true_label
+42	orthohantavirus_sinnombreense	1	0.21067276924733047	-0.24263745849545712	CC107_POR|2015-01-01	KT885046	cc107_por	Peromyscus maniculatus	Portugal	sequence_true_label
+501	orthohantavirus_dobravaense	1	0.20109305781087486	-0.4914028616047669	clone_A35|2009-01-01	GU904030	clone_a35	unknown	Slovenia	sequence_true_label
+502	orthohantavirus_dobravaense	1	0.20109305781087486	-0.4914028616047669	clone_A36|2009-01-01	GU904031	clone_a36	unknown	Slovenia	sequence_true_label
+503	orthohantavirus_dobravaense	1	0.20109305781087486	-0.4914028616047669	clone_A6|2009-01-01	GU904027	clone_a6	unknown	Slovenia	sequence_true_label
+504	orthohantavirus_dobravaense	1	0.20109305781087486	-0.4914028616047669	clone_B13|2009-01-01	GU904028	clone_b13	unknown	Slovenia	sequence_true_label
+505	orthohantavirus_dobravaense	1	0.20109305781087486	-0.4914028616047669	clone_B5|2009-01-01	GU904032	clone_b5	unknown	Slovenia	sequence_true_label
+4	orthohantavirus_andesense	0	0.17777511638683846	-0.005072833306930954	AREB14_P2|2014-01-01	MN850084	areb14_p2	Homo sapiens	Argentina	sequence_true_label
+18	orthohantavirus_andesense	0	0.17437375429568458	-0.004997402489249347	Epilink_96_2_6_19|1996-01-01	MN258223	epilink_96_2_6_19	Homo sapiens	Argentina	sequence_true_label

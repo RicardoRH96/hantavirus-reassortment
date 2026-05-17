@@ -1,0 +1,7 @@
+feature_set	model	species	n_clades	spearman_obs_vs_pred_prob	spearman_obs_vs_pred_call	exact_rank_match_pred_prob	exact_rank_match_pred_call
+ecology_molecular	xgboost	orthohantavirus_dobravaense	2	0.9999999999999999	0.9999999999999999	1	1
+ecology_molecular	xgboost	orthohantavirus_hantanense	4	-0.7999999999999999	-0.2581988897471611	0	0
+ecology_molecular	xgboost	orthohantavirus_puumalaense	4	-0.39999999999999997	-0.316227766016838	0	0
+ecology_molecular	xgboost	orthohantavirus_seoulense	3	-0.8660254037844387	-0.8660254037844387	0	0
+ecology_molecular	xgboost	orthohantavirus_sinnombreense	3	0.5	1.0	0	1
+ecology_molecular	xgboost	orthohantavirus_tulaense	4	0.7999999999999999	0.9486832980505139	0	0

@@ -1,0 +1,3 @@
+model	fallback_method	regularization_strength_c	comparison	species_levels_compared	species_only_l2_norm	integrated_l2_norm	l2_reduction_fraction	species_only_mean_abs	integrated_mean_abs	mean_abs_reduction_fraction	species_only_max_abs	integrated_max_abs	max_abs_reduction_fraction
+logistic_l2	regularized_fixed_effect_logistic	0.1	species_only_vs_integrated_taxon_mechanism	6	1.1705888962168216	0.032167131793957686	0.9725205561936241	0.42797085423441755	0.009140332444746258	0.9786426286876543	0.811902101657405	0.029299746626401037	0.9639122172900045
+logistic_elasticnet	regularized_fixed_effect_logistic	0.1	species_only_vs_integrated_taxon_mechanism	6	1.0143048431621795	0.0	1.0	0.233822055178558	0.0	1.0	0.9805012421185644	0.0	1.0

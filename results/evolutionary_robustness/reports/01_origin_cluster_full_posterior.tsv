@@ -1,0 +1,6 @@
+model	term	mean	sd	hdi_3%	hdi_97%	posterior_prob_positive	replicate
+full_tip_model	overlap_opportunity_local_z	0.295	0.126	0.074	0.531	0.9885714285714285	0
+full_tip_model	arha_prev_local_z	-0.172	0.154	-0.427	0.139	0.11714285714285715	0
+full_tip_model	species_feat_hostdiv_faith_pd_z	-0.218	0.671	-1.425	1.155	0.3485714285714286	0
+full_tip_model	species_feat_mean_cramers_v_overall_z	-0.525	0.664	-1.691	0.718	0.21	0
+full_tip_model	tree_discordance_score_z	0.128	0.153	-0.146	0.427	0.8214285714285714	0

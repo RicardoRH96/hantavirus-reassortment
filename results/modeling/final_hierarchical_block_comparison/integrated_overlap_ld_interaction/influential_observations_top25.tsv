@@ -1,0 +1,26 @@
+row_index	species	target	pareto_k	log_likelihood_mean	tip_name	accession	canonical_isolate	host	country	target_source
+137	orthohantavirus_seoulense	1	0.5918992467615591	-0.2810984997256225	Fj372_2013|2013-12-17	KP645198	fj372_2013	Suncus murinus	China	sequence_true_label
+129	orthohantavirus_seoulense	0	0.5875389145608043	-1.6044373963262817	93HBQ4|1993-01-01	OQ739694	93hbq4	unknown	China	sequence_true_label
+14	orthohantavirus_andesense	0	0.4213502645563338	-0.0018447161163568872	BA18_RR1620|2018-01-01	OR908897	ba18_rr1620	Homo sapiens	Argentina	sequence_true_label
+5	orthohantavirus_andesense	0	0.4213502645563338	-0.0018447161163568872	BA02_AOA490|2002-01-01	OR908888	ba02_aoa490	Homo sapiens	Argentina	sequence_true_label
+6	orthohantavirus_andesense	0	0.4213502645563338	-0.0018447161163568872	BA02_RJF487|2002-01-01	OR908886	ba02_rjf487	Homo sapiens	Argentina	sequence_true_label
+7	orthohantavirus_andesense	0	0.4213502645563338	-0.0018447161163568872	BA02_ROM495|2002-01-01	OR908889	ba02_rom495	Homo sapiens	Argentina	sequence_true_label
+8	orthohantavirus_andesense	0	0.4213502645563338	-0.0018447161163568872	BA02_SMM484|2002-01-01	OR875982	ba02_smm484	Homo sapiens	Argentina	sequence_true_label
+9	orthohantavirus_andesense	0	0.4213502645563338	-0.0018447161163568872	BA02_VO483|2002-01-01	OR908887	ba02_vo483	Homo sapiens	Argentina	sequence_true_label
+10	orthohantavirus_andesense	0	0.4213502645563338	-0.0018447161163568872	BA02_VVD480|2002-01-01	OR908885	ba02_vvd480	Homo sapiens	Argentina	sequence_true_label
+11	orthohantavirus_andesense	0	0.4213502645563338	-0.0018447161163568872	BA02_VVN481|2002-01-01	OR908884	ba02_vvn481	Homo sapiens	Argentina	sequence_true_label
+12	orthohantavirus_andesense	0	0.4213502645563338	-0.0018447161163568872	BA16_LJC1557|2016-01-01	OR908890	ba16_ljc1557	Homo sapiens	Argentina	sequence_true_label
+13	orthohantavirus_andesense	0	0.4213502645563338	-0.0018447161163568872	BA18_LD1633|2018-01-01	OR908898	ba18_ld1633	Homo sapiens	Argentina	sequence_true_label
+216	orthohantavirus_seoulense	1	0.36365425389260064	-0.7815526850645329	WSMG_YNSF176|2023-01-01	PQ678290	wsmg_ynsf176	Rattus tanezumi	China	sequence_true_label
+123	orthohantavirus_puumalaense	1	0.3353289652170663	-1.6006086860935547	Suo_lung|2017-01-01	MT024590	suo_lung	Myodes glareolus	China	sequence_true_label
+124	orthohantavirus_puumalaense	1	0.3353289652170663	-1.6006086860935547	Suo_renal|2017-01-01	MT024593	suo_renal	Myodes glareolus	China	sequence_true_label
+26	orthohantavirus_sinnombreense	1	0.334276677988619	-0.39917008405676857	201300571|2013-05-19	OQ999125	201300571	Homo sapiens	Germany	sequence_true_label
+28	orthohantavirus_sinnombreense	1	0.334276677988619	-0.39917008405676857	2018_0628|2018-03-01	OQ999131	2018_0628	Homo sapiens	Germany	sequence_true_label
+509	orthohantavirus_dobravaense	1	0.29392967752938925	-1.073523808439753	LT16_BR_42|2016-01-01	MT580922	lt16_br_42	Apodemus agrarius	Lithuania	sequence_true_label
+506	orthohantavirus_dobravaense	0	0.27162415213361385	-1.7561456646275861	GRW_Aa|2008-01-01	JQ026204	grw_aa	unknown	South Korea	sequence_true_label
+513	orthohantavirus_dobravaense	0	0.27156547843766676	-0.9438440137047572	Slo_Af_BER|2009-01-01	GU904029	slo_af_ber	Apodemus flavicollis	Slovenia	sequence_true_label
+425	orthohantavirus_hantanense	0	0.2657600698525764	-0.029179668203997186	Yanbian_Rn22a_H4086|2022-09-01	PV600348	yanbian_rn22a_h4086	Rattus norvegicus	China	sequence_true_label
+426	orthohantavirus_hantanense	0	0.2657600698525764	-0.029179668203997186	Yanbian_Rn22a_H4103|2022-09-01	PV600349	yanbian_rn22a_h4103	Rattus norvegicus	China	sequence_true_label
+424	orthohantavirus_hantanense	0	0.2657600698525764	-0.029179668203997186	Yanbian_Rn22a_H3954|2022-09-01	PV600350	yanbian_rn22a_h3954	Rattus norvegicus	China	sequence_true_label
+52	orthohantavirus_sinnombreense	1	0.2624507306686065	-0.2810142177122799	Pt011WB|2020-08-01	MZ851455	pt011wb	unknown	Poland	sequence_true_label
+20	orthohantavirus_andesense	0	0.2530803308251247	-0.142228625059143	ER19_SP1693|2019-01-01	OR908896	er19_sp1693	Homo sapiens	Argentina	sequence_true_label

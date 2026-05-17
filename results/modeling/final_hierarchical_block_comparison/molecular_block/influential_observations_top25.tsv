@@ -1,0 +1,26 @@
+row_index	species	target	pareto_k	log_likelihood_mean	tip_name	accession	canonical_isolate	host	country	target_source
+498	orthohantavirus_dobravaense	0	0.2575728328185053	-1.058885756782942	21RS2853_23|2021-07-20	OM677636	21rs2853_23	Apodemus flavicollis	Italy	sequence_true_label
+513	orthohantavirus_dobravaense	0	0.2575728328185053	-1.058885756782942	Slo_Af_BER|2009-01-01	GU904029	slo_af_ber	Apodemus flavicollis	Slovenia	sequence_true_label
+511	orthohantavirus_dobravaense	0	0.2575728328185053	-1.058885756782942	LT18_RUS_2|2018-01-01	MT580918	lt18_rus_2	Apodemus agrarius	Lithuania	sequence_true_label
+506	orthohantavirus_dobravaense	0	0.2575728328185053	-1.058885756782942	GRW_Aa|2008-01-01	JQ026204	grw_aa	unknown	South Korea	sequence_true_label
+499	orthohantavirus_dobravaense	0	0.2575728328185053	-1.058885756782942	21RS2853_24|2021-07-20	OM677639	21rs2853_24	Apodemus flavicollis	Italy	sequence_true_label
+500	orthohantavirus_dobravaense	0	0.15998603780438425	-1.1066757114433965	Ap_Sochi_hu|2009-04-01	JF920150	ap_sochi_hu	Homo sapiens	Russia	sequence_true_label
+53	orthohantavirus_sinnombreense	1	0.13007465740862117	-0.560853192390001	T2060|2020-08-19	MZ851473	t2060	Peromyscus maniculatus	USA	sequence_true_label
+47	orthohantavirus_sinnombreense	1	0.13007465740862117	-0.560853192390001	PESO196|2023-06-22	PX401031	peso196	Peromyscus sonoriensis	USA	sequence_true_label
+56	orthohantavirus_sinnombreense	1	0.13007465740862117	-0.560853192390001	TR057|2020-08-19	MZ851467	tr057	Tamias minimus	USA	sequence_true_label
+55	orthohantavirus_sinnombreense	1	0.13007465740862117	-0.560853192390001	TR016|2020-08-19	MZ851461	tr016	Peromyscus maniculatus	USA	sequence_true_label
+42	orthohantavirus_sinnombreense	1	0.13007465740862117	-0.560853192390001	CC107_POR|2015-01-01	KT885046	cc107_por	Peromyscus maniculatus	Portugal	sequence_true_label
+41	orthohantavirus_sinnombreense	1	0.13007465740862117	-0.560853192390001	BV121|2017-08-31	MZ400486	bv121	Peromyscus maniculatus	USA	sequence_true_label
+50	orthohantavirus_sinnombreense	1	0.13007465740862117	-0.560853192390001	PESO261|2023-07-12	PX401035	peso261	Peromyscus sonoriensis	USA	sequence_true_label
+54	orthohantavirus_sinnombreense	1	0.13007465740862117	-0.560853192390001	TR008|2020-08-19	MZ851458	tr008	Peromyscus maniculatus	USA	sequence_true_label
+52	orthohantavirus_sinnombreense	1	0.13007465740862117	-0.560853192390001	Pt011WB|2020-08-01	MZ851455	pt011wb	unknown	Poland	sequence_true_label
+48	orthohantavirus_sinnombreense	0	0.10145070246827986	-0.8879252185785904	PESO229|2023-06-28	PX401032	peso229	Peromyscus sonoriensis	USA	sequence_true_label
+51	orthohantavirus_sinnombreense	0	0.10145070246827986	-0.8879252185785904	PESO295|2023-07-17	PX401037	peso295	Peromyscus sonoriensis	USA	sequence_true_label
+43	orthohantavirus_sinnombreense	0	0.10145070246827986	-0.8879252185785904	MIMO223|2023-06-28	PX401034	mimo223	Microtus montanus	USA	sequence_true_label
+44	orthohantavirus_sinnombreense	0	0.10145070246827986	-0.8879252185785904	New|1994-10-01	MG717391	new	Peromyscus leucopus	USA	sequence_true_label
+45	orthohantavirus_sinnombreense	0	0.10145070246827986	-0.8879252185785904	PESO165|2023-06-12	PX401029	peso165	Peromyscus sonoriensis	USA	sequence_true_label
+46	orthohantavirus_sinnombreense	0	0.10145070246827986	-0.8879252185785904	PESO180|2023-06-18	PX401030	peso180	Peromyscus sonoriensis	USA	sequence_true_label
+49	orthohantavirus_sinnombreense	0	0.10145070246827986	-0.8879252185785904	PESO230|2023-06-28	PX401033	peso230	Peromyscus sonoriensis	USA	sequence_true_label
+23	orthohantavirus_andesense	0	0.097689250759165	-0.02656389500648966	NRC_6_18_05_21_18|2018-01-01	MN258228	nrc_6_18_05_21_18	Homo sapiens	Argentina	sequence_true_label
+0	orthohantavirus_andesense	0	0.097689250759165	-0.02656389500648966	136|2024-06-27	PV796316	136	Homo sapiens	Chile	sequence_true_label
+22	orthohantavirus_andesense	0	0.097689250759165	-0.02656389500648966	NRC_4_18_06_01_2018|2018-01-01	MN258226	nrc_4_18_06_01_2018	Homo sapiens	Argentina	sequence_true_label

@@ -1,0 +1,26 @@
+row_index	species	target	pareto_k	log_likelihood_mean	tip_name	accession	canonical_isolate	host	country	target_source
+137	orthohantavirus_seoulense	1	0.4947920991836798	-0.4827869558770694	Fj372_2013|2013-12-17	KP645198	fj372_2013	Suncus murinus	China	sequence_true_label
+129	orthohantavirus_seoulense	0	0.42424765924900126	-1.6357892178716378	93HBQ4|1993-01-01	OQ739694	93hbq4	unknown	China	sequence_true_label
+216	orthohantavirus_seoulense	1	0.3687001007895276	-0.6436219378588643	WSMG_YNSF176|2023-01-01	PQ678290	wsmg_ynsf176	Rattus tanezumi	China	sequence_true_label
+514	orthohantavirus_dobravaense	1	0.330979242328061	-0.25718171776451665	Stamforrad_POR|2015-01-01	KT885043	stamforrad_por	Apodemus flavicollis	Portugal	sequence_true_label
+123	orthohantavirus_puumalaense	1	0.32134913745812155	-1.7527416973769783	Suo_lung|2017-01-01	MT024590	suo_lung	Myodes glareolus	China	sequence_true_label
+124	orthohantavirus_puumalaense	1	0.32134913745812155	-1.7527416973769783	Suo_renal|2017-01-01	MT024593	suo_renal	Myodes glareolus	China	sequence_true_label
+103	orthohantavirus_puumalaense	0	0.2765331070394361	-0.8965485084600233	H46_Ufa|1986-01-01	MK496162	h46_ufa	Homo sapiens	Russia	sequence_true_label
+20	orthohantavirus_andesense	0	0.2672378329524274	-0.022290510832356746	ER19_SP1693|2019-01-01	OR908896	er19_sp1693	Homo sapiens	Argentina	sequence_true_label
+414	orthohantavirus_hantanense	0	0.24683163544601297	-0.43395118435083674	SH01|2020-12-01	OK079096	sh01	Homo sapiens	China	sequence_true_label
+239	orthohantavirus_hantanense	1	0.24558979463329111	-2.081579133415548	Aa05_775|2005-09-08	KT935032	aa05_775	unknown	South Korea	sequence_true_label
+238	orthohantavirus_hantanense	1	0.24558979463329111	-2.081579133415548	Aa05_771|2005-09-08	KT935031	aa05_771	unknown	South Korea	sequence_true_label
+236	orthohantavirus_hantanense	1	0.24427833026395668	-1.749119092190882	Aa05_249|2005-03-25	KT935029	aa05_249	unknown	South Korea	sequence_true_label
+245	orthohantavirus_hantanense	1	0.24110529008782094	-1.748874037476033	Aa10_123|2010-03-25	KT935036	aa10_123	unknown	South Korea	sequence_true_label
+111	orthohantavirus_puumalaense	0	0.2386007936636132	-0.9398449671802342	P_360|1987-01-01	MK496159	p_360	Homo sapiens	Russia	sequence_true_label
+228	orthohantavirus_hantanense	1	0.2368746233436718	-1.296464264491266	76_118_POR|2015-01-01	KT885049	76_118_por	Apodemus agrarius	Portugal	sequence_true_label
+215	orthohantavirus_seoulense	1	0.21940095803903173	-0.4386813537258955	SEOV_Russia_Vladivostok_R_6357_15_2015|2015-03-02	PV031654	seov_russia_vladivostok_r_6357_15_2015	unknown	Russia	sequence_true_label
+360	orthohantavirus_hantanense	1	0.2048268247062391	-1.9768690859228422	Ac20_30|2020-02-04	MW219771	ac20_30	Apodemus chejuensis	South Korea	sequence_true_label
+515	orthohantavirus_dobravaense	1	0.2005336077287213	-0.6053632797679745	Turkey_Igneada_13Af_2009|2009-01-01	MW055919	turkey_igneada_13af_2009	Apodemus flavicollis	Turkey	sequence_true_label
+506	orthohantavirus_dobravaense	0	0.1987487563533044	-1.5220791121236776	GRW_Aa|2008-01-01	JQ026204	grw_aa	unknown	South Korea	sequence_true_label
+500	orthohantavirus_dobravaense	0	0.19686930936314215	-0.948512387886068	Ap_Sochi_hu|2009-04-01	JF920150	ap_sochi_hu	Homo sapiens	Russia	sequence_true_label
+133	orthohantavirus_seoulense	1	0.19044198937418164	-0.6037329474290787	Benin_1368|2018-04-01	MW561221	benin_1368	Rattus norvegicus	Benin	sequence_true_label
+38	orthohantavirus_sinnombreense	0	0.18059491776380396	-0.8866805904373842	202101564|2021-03-21	OQ999166	202101564	Homo sapiens	USA	sequence_true_label
+351	orthohantavirus_hantanense	1	0.17315948692022048	-2.1067045452625095	Aa23_115|2023-04-20	PQ247683	aa23_115	Apodemus agrarius	South Korea	sequence_true_label
+352	orthohantavirus_hantanense	1	0.17310865566815084	-2.1067144041369867	Aa23_117|2023-04-20	PQ247684	aa23_117	Apodemus agrarius	South Korea	sequence_true_label
+34	orthohantavirus_sinnombreense	1	0.1699776619950287	-0.6177021919589033	202000016|2020-01-21	OQ999157	202000016	Homo sapiens	USA	sequence_true_label

@@ -1,0 +1,103 @@
+feature	feature_label	family	mean_rank	median_rank	mean_abs_contribution
+num__species_feat_utr5_L_retention_rate	UTR5 L retention rate	UTR structure	2.0717054263565893	2.0	0.63809725100496
+num__species_feat_utr5_M_structdist_std	UTR5 M structural distance SD	UTR structure	6.395348837209302	5.0	0.2919142731924967
+num__species_feat_utr3_M_length_mean	species feat utr3 M length mean	UTR structure	17.25581395348837	12.0	0.0833401864892235
+num__species_feat_utr5_L_length_mean	species feat utr5 L length mean	UTR structure	33.713178294573645	28.0	0.02809848159375
+num__species_feat_utr3_L_seqdist_mean	species feat utr3 L seqdist mean	UTR structure	33.498062015503876	31.0	0.0222792369243623
+num__species_feat_utr3_L_structdist_mean	UTR3 L structural distance	UTR structure	40.23255813953488	39.0	0.0156341621667376
+num__species_feat_utr5_L_seqdist_std	species feat utr5 L seqdist std	UTR structure	45.39728682170543	42.0	0.014635769091866
+num__species_feat_utr5_M_length_mean	species feat utr5 M length mean	UTR structure	43.5	41.0	0.0123580259944051
+num__species_feat_utr5_L_length_median	species feat utr5 L length median	UTR structure	49.52325581395349	49.0	0.0113157725929152
+num__species_feat_utr5_S_seqdist_std	species feat utr5 S seqdist std	UTR structure	66.6937984496124	78.0	0.0079828888869193
+num__species_feat_utr5_L_manifest_n	species feat utr5 L manifest n	UTR structure	52.798449612403104	53.0	0.0077517656191258
+num__species_feat_utr3_M_structdist_std	UTR3 M structural distance SD	UTR structure	59.49418604651163	51.5	0.0065180880614054
+num__species_feat_utr3_M_retained_n	species feat utr3 M retained n	UTR structure	66.48449612403101	70.0	0.0053081841255358
+num__species_feat_utr3_M_retention_rate	UTR3 M retention rate	UTR structure	67.8062015503876	74.0	0.0048795463088156
+num__species_feat_utr5_M_manifest_n	species feat utr5 M manifest n	UTR structure	80.96511627906976	83.5	0.0045488761456742
+num__species_feat_utr5_M_length_median	species feat utr5 M length median	UTR structure	77.24031007751938	83.0	0.0038380370067028
+num__species_feat_utr5_L_seqdist_mean	species feat utr5 L seqdist mean	UTR structure	72.34883720930233	73.0	0.0035931257467824
+num__species_feat_utr3_L_length_mean	species feat utr3 L length mean	UTR structure	75.8624031007752	81.0	0.0035338000021138
+num__species_feat_utr5_M_structdist_median	species feat utr5 M structdist median	UTR structure	79.79069767441861	78.5	0.0034680224144302
+num__species_feat_utr5_S_seqdist_max	species feat utr5 S seqdist max	UTR structure	81.10271317829458	89.0	0.003410776294725
+num__species_feat_utr5_M_structdist_mean	UTR5 M structural distance	UTR structure	80.07751937984496	79.0	0.0030757156544595
+num__species_feat_utr5_L_seqdist_median	species feat utr5 L seqdist median	UTR structure	81.39147286821705	83.5	0.0029866049511954
+num__species_feat_utr5_L_seqdist_max	species feat utr5 L seqdist max	UTR structure	82.32364341085271	80.0	0.0021080157887513
+num__species_feat_utr5_M_retention_rate	UTR5 M retention rate	UTR structure	102.71124031007751	118.0	0.0019449476794082
+num__species_feat_utr3_L_length_median	species feat utr3 L length median	UTR structure	95.7577519379845	99.0	0.0017715577404116
+num__species_feat_utr5_M_seqdist_median	species feat utr5 M seqdist median	UTR structure	96.82751937984496	95.0	0.0015787348329644
+num__species_feat_utr5_S_structdist_median	species feat utr5 S structdist median	UTR structure	94.56782945736434	94.0	0.0014597489696347
+num__species_feat_utr5_S_length_mean	species feat utr5 S length mean	UTR structure	112.45348837209302	118.0	0.0008208211365407
+num__species_feat_utr5_L_retained_n	species feat utr5 L retained n	UTR structure	122.3217054263566	126.0	0.0003337748905454
+num__species_feat_utr3_S_length_median	species feat utr3 S length median	UTR structure	127.4108527131783	129.0	0.0001115764999747
+num__species_feat_utr3_S_length_mean	species feat utr3 S length mean	UTR structure	128.60658914728683	130.0	0.0001037757221905
+num__species_feat_utr5_overall_structdist_mean	species feat utr5 overall structdist mean	UTR structure	233.0	233.0	0.0
+num__species_feat_utr5_overall_seqdist_mean	species feat utr5 overall seqdist mean	UTR structure	234.0	234.0	0.0
+num__species_feat_utr5_overall_length_mean	species feat utr5 overall length mean	UTR structure	235.0	235.0	0.0
+num__species_feat_utr5_overall_retention_rate	species feat utr5 overall retention rate	UTR structure	236.0	236.0	0.0
+num__species_feat_utr5_S_structdist_max	species feat utr5 S structdist max	UTR structure	237.0	237.0	0.0
+num__species_feat_utr5_S_structdist_std	UTR5 S structural distance SD	UTR structure	238.0	238.0	0.0
+num__species_feat_utr5_S_structdist_mean	UTR5 S structural distance	UTR structure	239.0	239.0	0.0
+num__species_feat_utr5_S_structdist_matrix_n	species feat utr5 S structdist matrix n	UTR structure	240.0	240.0	0.0
+num__species_feat_utr5_S_seqdist_median	species feat utr5 S seqdist median	UTR structure	241.0	241.0	0.0
+num__species_feat_utr5_S_seqdist_mean	species feat utr5 S seqdist mean	UTR structure	242.0	242.0	0.0
+num__species_feat_utr5_S_seqdist_matrix_n	species feat utr5 S seqdist matrix n	UTR structure	243.0	243.0	0.0
+num__species_feat_utr5_S_length_median	species feat utr5 S length median	UTR structure	244.0	244.0	0.0
+num__species_feat_utr5_S_retention_rate	UTR5 S retention rate	UTR structure	245.0	245.0	0.0
+num__species_feat_utr5_S_retained_n	species feat utr5 S retained n	UTR structure	246.0	246.0	0.0
+num__species_feat_utr5_S_manifest_n	species feat utr5 S manifest n	UTR structure	247.0	247.0	0.0
+num__species_feat_utr5_overall_seqdist_std	species feat utr5 overall seqdist std	UTR structure	248.0	248.0	0.0
+num__species_feat_utr5_overall_structdist_std	species feat utr5 overall structdist std	UTR structure	249.0	249.0	0.0
+num__species_feat_utr5_M_structdist_max	species feat utr5 M structdist max	UTR structure	259.0	259.0	0.0
+num__species_feat_utr5_M_structdist_matrix_n	species feat utr5 M structdist matrix n	UTR structure	270.0	270.0	0.0
+num__species_feat_utr5_M_seqdist_std	species feat utr5 M seqdist std	UTR structure	271.0	271.0	0.0
+num__species_feat_utr5_M_seqdist_mean	species feat utr5 M seqdist mean	UTR structure	291.0	291.0	0.0
+num__species_feat_utr5_M_seqdist_matrix_n	species feat utr5 M seqdist matrix n	UTR structure	292.0	292.0	0.0
+num__species_feat_utr5_M_retained_n	species feat utr5 M retained n	UTR structure	293.0	293.0	0.0
+num__species_feat_utr5_L_structdist_max	species feat utr5 L structdist max	UTR structure	294.0	294.0	0.0
+num__species_feat_utr5_L_structdist_std	UTR5 L structural distance SD	UTR structure	295.0	295.0	0.0
+num__species_feat_utr5_L_structdist_median	species feat utr5 L structdist median	UTR structure	296.0	296.0	0.0
+num__species_feat_utr5_L_structdist_mean	UTR5 L structural distance	UTR structure	297.0	297.0	0.0
+num__species_feat_utr5_M_seqdist_max	species feat utr5 M seqdist max	UTR structure	298.0	298.0	0.0
+num__species_feat_utr5_L_structdist_matrix_n	species feat utr5 L structdist matrix n	UTR structure	299.0	299.0	0.0
+num__species_feat_utr5_L_seqdist_matrix_n	species feat utr5 L seqdist matrix n	UTR structure	307.0	307.0	0.0
+num__species_feat_utr3_L_manifest_n	species feat utr3 L manifest n	UTR structure	308.0	308.0	0.0
+num__species_feat_utr3_L_retained_n	species feat utr3 L retained n	UTR structure	309.0	309.0	0.0
+num__species_feat_utr3_L_retention_rate	UTR3 L retention rate	UTR structure	310.0	310.0	0.0
+num__species_feat_utr3_overall_structdist_std	species feat utr3 overall structdist std	UTR structure	348.0	348.0	0.0
+num__species_feat_utr3_overall_seqdist_std	species feat utr3 overall seqdist std	UTR structure	349.0	349.0	0.0
+num__species_feat_utr3_M_structdist_matrix_n	species feat utr3 M structdist matrix n	UTR structure	350.0	350.0	0.0
+num__species_feat_utr3_M_seqdist_max	species feat utr3 M seqdist max	UTR structure	351.0	351.0	0.0
+num__species_feat_utr3_M_seqdist_std	species feat utr3 M seqdist std	UTR structure	352.0	352.0	0.0
+num__species_feat_utr3_M_seqdist_median	species feat utr3 M seqdist median	UTR structure	353.0	353.0	0.0
+num__species_feat_utr3_M_seqdist_mean	species feat utr3 M seqdist mean	UTR structure	354.0	354.0	0.0
+num__species_feat_utr3_M_seqdist_matrix_n	species feat utr3 M seqdist matrix n	UTR structure	355.0	355.0	0.0
+num__species_feat_utr3_M_length_median	species feat utr3 M length median	UTR structure	356.0	356.0	0.0
+num__species_feat_utr3_M_structdist_mean	UTR3 M structural distance	UTR structure	357.0	357.0	0.0
+num__species_feat_utr3_M_manifest_n	species feat utr3 M manifest n	UTR structure	358.0	358.0	0.0
+num__species_feat_utr3_L_structdist_std	UTR3 L structural distance SD	UTR structure	359.0	359.0	0.0
+num__species_feat_utr3_L_structdist_median	species feat utr3 L structdist median	UTR structure	360.0	360.0	0.0
+num__species_feat_utr3_L_structdist_matrix_n	species feat utr3 L structdist matrix n	UTR structure	361.0	361.0	0.0
+num__species_feat_utr3_L_seqdist_max	species feat utr3 L seqdist max	UTR structure	362.0	362.0	0.0
+num__species_feat_utr3_L_seqdist_std	species feat utr3 L seqdist std	UTR structure	363.0	363.0	0.0
+num__species_feat_utr3_L_seqdist_median	species feat utr3 L seqdist median	UTR structure	364.0	364.0	0.0
+num__species_feat_utr3_L_seqdist_matrix_n	species feat utr3 L seqdist matrix n	UTR structure	365.0	365.0	0.0
+num__species_feat_utr3_L_structdist_max	species feat utr3 L structdist max	UTR structure	366.0	366.0	0.0
+num__species_feat_utr3_M_structdist_median	species feat utr3 M structdist median	UTR structure	368.0	368.0	0.0
+num__species_feat_utr3_S_manifest_n	species feat utr3 S manifest n	UTR structure	369.0	369.0	0.0
+num__species_feat_utr3_overall_structdist_mean	species feat utr3 overall structdist mean	UTR structure	370.0	370.0	0.0
+num__species_feat_utr3_overall_seqdist_mean	species feat utr3 overall seqdist mean	UTR structure	371.0	371.0	0.0
+num__species_feat_utr3_overall_length_mean	species feat utr3 overall length mean	UTR structure	372.0	372.0	0.0
+num__species_feat_utr3_overall_retention_rate	species feat utr3 overall retention rate	UTR structure	373.0	373.0	0.0
+num__species_feat_utr3_S_structdist_max	species feat utr3 S structdist max	UTR structure	374.0	374.0	0.0
+num__species_feat_utr3_S_structdist_std	UTR3 S structural distance SD	UTR structure	375.0	375.0	0.0
+num__species_feat_utr3_S_structdist_median	species feat utr3 S structdist median	UTR structure	376.0	376.0	0.0
+num__species_feat_utr3_M_structdist_max	species feat utr3 M structdist max	UTR structure	377.0	377.0	0.0
+num__species_feat_utr3_S_structdist_mean	UTR3 S structural distance	UTR structure	378.0	378.0	0.0
+num__species_feat_utr3_S_seqdist_max	species feat utr3 S seqdist max	UTR structure	379.0	379.0	0.0
+num__species_feat_utr3_S_seqdist_std	species feat utr3 S seqdist std	UTR structure	380.0	380.0	0.0
+num__species_feat_utr3_S_seqdist_median	species feat utr3 S seqdist median	UTR structure	381.0	381.0	0.0
+num__species_feat_utr3_S_seqdist_mean	species feat utr3 S seqdist mean	UTR structure	382.0	382.0	0.0
+num__species_feat_utr3_S_seqdist_matrix_n	species feat utr3 S seqdist matrix n	UTR structure	383.0	383.0	0.0
+num__species_feat_utr3_S_retention_rate	UTR3 S retention rate	UTR structure	384.0	384.0	0.0
+num__species_feat_utr3_S_retained_n	species feat utr3 S retained n	UTR structure	385.0	385.0	0.0
+num__species_feat_utr3_S_structdist_matrix_n	species feat utr3 S structdist matrix n	UTR structure	386.0	386.0	0.0

@@ -1,0 +1,26 @@
+row_index	species	target	pareto_k	log_likelihood_mean	tip_name	accession	canonical_isolate	host	country	target_source
+500	orthohantavirus_dobravaense	0	0.18189964119523525	-1.0608338065634646	Ap_Sochi_hu|2009-04-01	JF920150	ap_sochi_hu	Homo sapiens	Russia	sequence_true_label
+499	orthohantavirus_dobravaense	0	0.1694640330025562	-1.0448528138687347	21RS2853_24|2021-07-20	OM677639	21rs2853_24	Apodemus flavicollis	Italy	sequence_true_label
+511	orthohantavirus_dobravaense	0	0.1694640330025562	-1.0448528138687347	LT18_RUS_2|2018-01-01	MT580918	lt18_rus_2	Apodemus agrarius	Lithuania	sequence_true_label
+498	orthohantavirus_dobravaense	0	0.1694640330025562	-1.0448528138687347	21RS2853_23|2021-07-20	OM677636	21rs2853_23	Apodemus flavicollis	Italy	sequence_true_label
+506	orthohantavirus_dobravaense	0	0.1694640330025562	-1.0448528138687347	GRW_Aa|2008-01-01	JQ026204	grw_aa	unknown	South Korea	sequence_true_label
+513	orthohantavirus_dobravaense	0	0.1694640330025562	-1.0448528138687347	Slo_Af_BER|2009-01-01	GU904029	slo_af_ber	Apodemus flavicollis	Slovenia	sequence_true_label
+400	orthohantavirus_hantanense	1	0.1678468889728475	-1.9271588653779268	JXGAHu124_2021|2021-01-01	OL961336	jxgahu124_2021	Homo sapiens	China	sequence_true_label
+402	orthohantavirus_hantanense	1	0.1678468889728475	-1.9271588653779268	JXGAHu129_2021|2021-01-01	OL961338	jxgahu129_2021	Homo sapiens	China	sequence_true_label
+397	orthohantavirus_hantanense	1	0.1678468889728475	-1.9271588653779268	JXGAHu111_2021|2021-01-01	OL961333	jxgahu111_2021	Homo sapiens	China	sequence_true_label
+431	orthohantavirus_tulaense	1	0.1434014639233787	-0.9905350956012531	21_Mi_Sivas|2019-07-01	OR453255	21_mi_sivas	Microtus irani	Turkey	sequence_true_label
+430	orthohantavirus_tulaense	1	0.1434014639233787	-0.9905350956012531	12_Mi_Sivas|2019-07-01	OR453256	12_mi_sivas	Microtus irani	Turkey	sequence_true_label
+428	orthohantavirus_tulaense	1	0.1434014639233787	-0.9905350956012531	107_Mi_Sivas|2019-07-01	OR453258	107_mi_sivas	Microtus irani	Turkey	sequence_true_label
+427	orthohantavirus_tulaense	1	0.1434014639233787	-0.9905350956012531	08_Mi_Sivas|2019-07-01	OR453254	08_mi_sivas	Microtus irani	Turkey	sequence_true_label
+429	orthohantavirus_tulaense	0	0.12456611330737877	-0.4943536243450669	110_Mi_Kars|2019-07-01	OR453257	110_mi_kars	Microtus obscurus	Turkey	sequence_true_label
+45	orthohantavirus_sinnombreense	0	0.09637655348287398	-0.8713550460039693	PESO165|2023-06-12	PX401029	peso165	Peromyscus sonoriensis	USA	sequence_true_label
+46	orthohantavirus_sinnombreense	0	0.09637655348287398	-0.8713550460039693	PESO180|2023-06-18	PX401030	peso180	Peromyscus sonoriensis	USA	sequence_true_label
+48	orthohantavirus_sinnombreense	0	0.09637655348287398	-0.8713550460039693	PESO229|2023-06-28	PX401032	peso229	Peromyscus sonoriensis	USA	sequence_true_label
+49	orthohantavirus_sinnombreense	0	0.09637655348287398	-0.8713550460039693	PESO230|2023-06-28	PX401033	peso230	Peromyscus sonoriensis	USA	sequence_true_label
+51	orthohantavirus_sinnombreense	0	0.09637655348287398	-0.8713550460039693	PESO295|2023-07-17	PX401037	peso295	Peromyscus sonoriensis	USA	sequence_true_label
+44	orthohantavirus_sinnombreense	0	0.09637655348287398	-0.8713550460039693	New|1994-10-01	MG717391	new	Peromyscus leucopus	USA	sequence_true_label
+43	orthohantavirus_sinnombreense	0	0.09637655348287398	-0.8713550460039693	MIMO223|2023-06-28	PX401034	mimo223	Microtus montanus	USA	sequence_true_label
+501	orthohantavirus_dobravaense	1	0.09170100105510214	-0.47627965096991154	clone_A35|2009-01-01	GU904030	clone_a35	unknown	Slovenia	sequence_true_label
+502	orthohantavirus_dobravaense	1	0.09170100105510214	-0.47627965096991154	clone_A36|2009-01-01	GU904031	clone_a36	unknown	Slovenia	sequence_true_label
+503	orthohantavirus_dobravaense	1	0.09170100105510214	-0.47627965096991154	clone_A6|2009-01-01	GU904027	clone_a6	unknown	Slovenia	sequence_true_label
+504	orthohantavirus_dobravaense	1	0.09170100105510214	-0.47627965096991154	clone_B13|2009-01-01	GU904028	clone_b13	unknown	Slovenia	sequence_true_label

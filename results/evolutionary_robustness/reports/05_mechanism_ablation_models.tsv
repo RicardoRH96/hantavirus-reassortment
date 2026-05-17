@@ -1,0 +1,6 @@
+model	formula	elpd_loo	p_loo	se	delta_elpd_vs_lineage
+intercept_only	response ~ 1	-322.7147172305454	0.8674262253828147	8.152379563948562	
+lineage_only	response ~ (1|lineage_id)	-227.50433001448238	60.37192336342517	11.3333413426573	0.0
+ecology_over_lineage	response ~ overlap_opportunity_local_z + arha_prev_local_z + arha_prev_local_missing + species_feat_hostdiv_faith_pd_z + (1|lineage_id)	-227.14243968215163	61.32301031075187	11.246692065493233	0.36189033233074497
+molecular_over_lineage	response ~ species_feat_mean_cramers_v_overall_z + species_feat_prop_significant_overall_z + species_feat_utr5_M_structdist_mean_z + species_feat_utr5_L_structdist_mean_z + tree_discordance_score_z + (1|lineage_id)	-225.76584066927865	60.548950351801636	11.430083029967584	1.7384893452037318
+integrated_over_lineage	response ~ overlap_opportunity_local_z + arha_prev_local_z + arha_prev_local_missing + species_feat_hostdiv_faith_pd_z + species_feat_mean_cramers_v_overall_z + species_feat_prop_significant_overall_z + species_feat_utr5_M_structdist_mean_z + species_feat_utr5_L_structdist_mean_z + tree_discordance_score_z + (1|lineage_id)	-227.0213201788485	62.492977053692016	11.671957473738276	0.48300983563387945

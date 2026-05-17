@@ -1,0 +1,129 @@
+# Hierarchical Block Comparison
+
+## Model Ranking
+- Best primary-model expected out-of-sample fit by LOO: `molecular_plus_utr3_block`
+- Species sigma reduction vs species-only: `0.253`
+
+## Block Comparison
+- `integrated_overlap_utrL_interaction` [sensitivity]: loo_elpd=-281.782, species_sigma_mean=2.663, sigma_reduction=-0.604
+- `integrated_overlap_ld_interaction` [sensitivity]: loo_elpd=-281.806, species_sigma_mean=2.547, sigma_reduction=-0.534
+- `molecular_plus_utr3_block`: loo_elpd=-287.914, species_sigma_mean=1.240, sigma_reduction=0.253
+- `molecular_block`: loo_elpd=-288.327, species_sigma_mean=2.233, sigma_reduction=-0.345
+- `species_only`: loo_elpd=-289.064, species_sigma_mean=1.660, sigma_reduction=0.000
+- `integrated_plus_utr3_block`: loo_elpd=-289.155, species_sigma_mean=1.364, sigma_reduction=0.178
+- `integrated_block`: loo_elpd=-289.355, species_sigma_mean=2.307, sigma_reduction=-0.390
+- `integrated_hostpd_ld_interaction` [sensitivity]: loo_elpd=-289.382, species_sigma_mean=2.254, sigma_reduction=-0.357
+- `ecology_block`: loo_elpd=-289.597, species_sigma_mean=2.089, sigma_reduction=-0.258
+- `ecology_interaction_block`: loo_elpd=-290.155, species_sigma_mean=2.042, sigma_reduction=-0.230
+- `integrated_tree_sensitivity` [sensitivity]: loo_elpd=-290.737, species_sigma_mean=2.128, sigma_reduction=-0.281
+
+## Diagnostics
+- `ecology_block`: divergences=0, max Pareto-k=0.516, n(Pareto-k>0.7)=0
+- `ecology_interaction_block`: divergences=0, max Pareto-k=0.484, n(Pareto-k>0.7)=0
+- `integrated_block`: divergences=0, max Pareto-k=0.555, n(Pareto-k>0.7)=0
+- `integrated_hostpd_ld_interaction`: divergences=0, max Pareto-k=0.496, n(Pareto-k>0.7)=0
+- `integrated_overlap_ld_interaction`: divergences=0, max Pareto-k=0.592, n(Pareto-k>0.7)=0
+- `integrated_overlap_utrL_interaction`: divergences=0, max Pareto-k=0.430, n(Pareto-k>0.7)=0
+- `integrated_plus_utr3_block`: divergences=0, max Pareto-k=0.433, n(Pareto-k>0.7)=0
+- `integrated_tree_sensitivity`: divergences=0, max Pareto-k=0.495, n(Pareto-k>0.7)=0
+- `molecular_block`: divergences=0, max Pareto-k=0.258, n(Pareto-k>0.7)=0
+- `molecular_plus_utr3_block`: divergences=0, max Pareto-k=0.239, n(Pareto-k>0.7)=0
+- `species_only`: divergences=0, max Pareto-k=0.182, n(Pareto-k>0.7)=0
+
+## Main Fixed Effects
+- `ecology_block` / `arha_prev_local_z`: mean=-0.215, 94% HDI=(-0.527, 0.086), P(>0)=0.091
+- `ecology_block` / `hosttrait_combine_dispersal_km_z`: mean=-0.484, 94% HDI=(-1.832, 0.826), P(>0)=0.242
+- `ecology_block` / `hosttrait_combine_gestation_length_d_z`: mean=0.046, 94% HDI=(-0.223, 0.309), P(>0)=0.627
+- `ecology_block` / `hosttrait_combine_litter_size_n_z`: mean=0.316, 94% HDI=(-0.728, 1.385), P(>0)=0.715
+- `ecology_block` / `overlap_opportunity_local_z`: mean=0.284, 94% HDI=(0.015, 0.535), P(>0)=0.981
+- `ecology_block` / `species_feat_hostdiv_faith_pd_z`: mean=-0.170, 94% HDI=(-1.274, 0.938), P(>0)=0.377
+- `ecology_interaction_block` / `arha_prev_local_z`: mean=-0.217, 94% HDI=(-0.506, 0.110), P(>0)=0.089
+- `ecology_interaction_block` / `hosttrait_combine_dispersal_km_z`: mean=-0.497, 94% HDI=(-1.845, 0.829), P(>0)=0.240
+- `ecology_interaction_block` / `hosttrait_combine_gestation_length_d_z`: mean=0.024, 94% HDI=(-0.243, 0.303), P(>0)=0.570
+- `ecology_interaction_block` / `hosttrait_combine_litter_size_n_z`: mean=0.311, 94% HDI=(-0.776, 1.375), P(>0)=0.714
+- `ecology_interaction_block` / `overlap_opportunity_local_z`: mean=0.285, 94% HDI=(0.018, 0.548), P(>0)=0.981
+- `ecology_interaction_block` / `overlap_opportunity_local_z:species_feat_hostdiv_faith_pd_z`: mean=-0.130, 94% HDI=(-0.359, 0.112), P(>0)=0.154
+- `ecology_interaction_block` / `species_feat_hostdiv_faith_pd_z`: mean=-0.197, 94% HDI=(-1.296, 0.870), P(>0)=0.358
+- `integrated_block` / `arha_prev_local_z`: mean=-0.211, 94% HDI=(-0.507, 0.102), P(>0)=0.092
+- `integrated_block` / `hosttrait_combine_dispersal_km_z`: mean=-0.548, 94% HDI=(-1.908, 0.749), P(>0)=0.216
+- `integrated_block` / `hosttrait_combine_gestation_length_d_z`: mean=0.037, 94% HDI=(-0.229, 0.322), P(>0)=0.598
+- `integrated_block` / `hosttrait_combine_litter_size_n_z`: mean=0.325, 94% HDI=(-0.733, 1.409), P(>0)=0.716
+- `integrated_block` / `overlap_opportunity_local_z`: mean=0.297, 94% HDI=(0.039, 0.561), P(>0)=0.985
+- `integrated_block` / `species_feat_hostdiv_faith_pd_z`: mean=-0.333, 94% HDI=(-1.628, 1.094), P(>0)=0.307
+- `integrated_block` / `species_feat_mean_cramers_v_overall_z`: mean=-0.570, 94% HDI=(-1.876, 0.853), P(>0)=0.211
+- `integrated_block` / `species_feat_prop_significant_overall_z`: mean=-0.076, 94% HDI=(-1.585, 1.525), P(>0)=0.467
+- `integrated_block` / `species_feat_utr5_L_structdist_mean_z`: mean=-0.032, 94% HDI=(-1.217, 1.260), P(>0)=0.468
+- `integrated_block` / `species_feat_utr5_M_structdist_mean_z`: mean=0.400, 94% HDI=(-0.934, 1.689), P(>0)=0.720
+- `integrated_block` / `species_feat_utr5_S_structdist_mean_z`: mean=-0.149, 94% HDI=(-1.616, 1.282), P(>0)=0.420
+- `integrated_hostpd_ld_interaction` / `arha_prev_local_z`: mean=-0.211, 94% HDI=(-0.516, 0.100), P(>0)=0.096
+- `integrated_hostpd_ld_interaction` / `hosttrait_combine_dispersal_km_z`: mean=-0.543, 94% HDI=(-1.889, 0.818), P(>0)=0.223
+- `integrated_hostpd_ld_interaction` / `hosttrait_combine_gestation_length_d_z`: mean=0.039, 94% HDI=(-0.236, 0.311), P(>0)=0.601
+- `integrated_hostpd_ld_interaction` / `hosttrait_combine_litter_size_n_z`: mean=0.332, 94% HDI=(-0.780, 1.431), P(>0)=0.713
+- `integrated_hostpd_ld_interaction` / `overlap_opportunity_local_z`: mean=0.297, 94% HDI=(0.041, 0.558), P(>0)=0.985
+- `integrated_hostpd_ld_interaction` / `species_feat_hostdiv_faith_pd_z`: mean=-0.301, 94% HDI=(-1.627, 1.022), P(>0)=0.325
+- `integrated_hostpd_ld_interaction` / `species_feat_mean_cramers_v_overall_z`: mean=-0.583, 94% HDI=(-1.900, 0.787), P(>0)=0.202
+- `integrated_hostpd_ld_interaction` / `species_feat_prop_significant_overall_z`: mean=-0.132, 94% HDI=(-1.604, 1.438), P(>0)=0.439
+- `integrated_hostpd_ld_interaction` / `species_feat_utr5_L_structdist_mean_z`: mean=-0.092, 94% HDI=(-1.316, 1.237), P(>0)=0.434
+- `integrated_hostpd_ld_interaction` / `species_feat_utr5_M_structdist_mean_z`: mean=0.450, 94% HDI=(-0.886, 1.804), P(>0)=0.747
+- `integrated_hostpd_ld_interaction` / `species_feat_utr5_S_structdist_mean_z`: mean=-0.035, 94% HDI=(-1.474, 1.511), P(>0)=0.488
+- `integrated_overlap_ld_interaction` / `arha_prev_local_z`: mean=-0.217, 94% HDI=(-0.518, 0.092), P(>0)=0.086
+- `integrated_overlap_ld_interaction` / `hosttrait_combine_dispersal_km_z`: mean=-0.693, 94% HDI=(-2.025, 0.655), P(>0)=0.165
+- `integrated_overlap_ld_interaction` / `hosttrait_combine_gestation_length_d_z`: mean=-0.029, 94% HDI=(-0.312, 0.248), P(>0)=0.423
+- `integrated_overlap_ld_interaction` / `hosttrait_combine_litter_size_n_z`: mean=0.373, 94% HDI=(-0.761, 1.468), P(>0)=0.732
+- `integrated_overlap_ld_interaction` / `overlap_opportunity_local_z`: mean=0.250, 94% HDI=(-0.015, 0.533), P(>0)=0.958
+- `integrated_overlap_ld_interaction` / `species_feat_hostdiv_faith_pd_z`: mean=-0.312, 94% HDI=(-1.696, 1.057), P(>0)=0.324
+- `integrated_overlap_ld_interaction` / `species_feat_mean_cramers_v_overall_z`: mean=-0.768, 94% HDI=(-2.241, 0.565), P(>0)=0.150
+- `integrated_overlap_ld_interaction` / `species_feat_prop_significant_overall_z`: mean=-0.183, 94% HDI=(-1.732, 1.344), P(>0)=0.415
+- `integrated_overlap_ld_interaction` / `species_feat_utr5_L_structdist_mean_z`: mean=0.074, 94% HDI=(-1.152, 1.415), P(>0)=0.529
+- `integrated_overlap_ld_interaction` / `species_feat_utr5_M_structdist_mean_z`: mean=0.286, 94% HDI=(-1.076, 1.604), P(>0)=0.670
+- `integrated_overlap_ld_interaction` / `species_feat_utr5_S_structdist_mean_z`: mean=-0.094, 94% HDI=(-1.533, 1.404), P(>0)=0.454
+- `integrated_overlap_utrL_interaction` / `arha_prev_local_z`: mean=-0.099, 94% HDI=(-0.400, 0.203), P(>0)=0.271
+- `integrated_overlap_utrL_interaction` / `hosttrait_combine_dispersal_km_z`: mean=-0.650, 94% HDI=(-2.026, 0.679), P(>0)=0.184
+- `integrated_overlap_utrL_interaction` / `hosttrait_combine_gestation_length_d_z`: mean=0.050, 94% HDI=(-0.233, 0.327), P(>0)=0.632
+- `integrated_overlap_utrL_interaction` / `hosttrait_combine_litter_size_n_z`: mean=0.397, 94% HDI=(-0.747, 1.541), P(>0)=0.743
+- `integrated_overlap_utrL_interaction` / `overlap_opportunity_local_z`: mean=0.461, 94% HDI=(0.176, 0.767), P(>0)=0.998
+- `integrated_overlap_utrL_interaction` / `species_feat_hostdiv_faith_pd_z`: mean=-0.303, 94% HDI=(-1.721, 1.103), P(>0)=0.332
+- `integrated_overlap_utrL_interaction` / `species_feat_mean_cramers_v_overall_z`: mean=-0.639, 94% HDI=(-2.014, 0.757), P(>0)=0.194
+- `integrated_overlap_utrL_interaction` / `species_feat_prop_significant_overall_z`: mean=-0.120, 94% HDI=(-1.631, 1.438), P(>0)=0.447
+- `integrated_overlap_utrL_interaction` / `species_feat_utr5_L_structdist_mean_z`: mean=0.042, 94% HDI=(-1.234, 1.389), P(>0)=0.520
+- `integrated_overlap_utrL_interaction` / `species_feat_utr5_M_structdist_mean_z`: mean=0.281, 94% HDI=(-1.068, 1.651), P(>0)=0.656
+- `integrated_overlap_utrL_interaction` / `species_feat_utr5_S_structdist_mean_z`: mean=-0.146, 94% HDI=(-1.685, 1.365), P(>0)=0.419
+- `integrated_plus_utr3_block` / `arha_prev_local_z`: mean=-0.201, 94% HDI=(-0.500, 0.127), P(>0)=0.111
+- `integrated_plus_utr3_block` / `hosttrait_combine_dispersal_km_z`: mean=-0.513, 94% HDI=(-1.871, 0.837), P(>0)=0.234
+- `integrated_plus_utr3_block` / `hosttrait_combine_gestation_length_d_z`: mean=0.032, 94% HDI=(-0.248, 0.306), P(>0)=0.587
+- `integrated_plus_utr3_block` / `hosttrait_combine_litter_size_n_z`: mean=0.278, 94% HDI=(-0.801, 1.393), P(>0)=0.679
+- `integrated_plus_utr3_block` / `overlap_opportunity_local_z`: mean=0.301, 94% HDI=(0.039, 0.558), P(>0)=0.985
+- `integrated_plus_utr3_block` / `species_feat_hostdiv_faith_pd_z`: mean=-0.463, 94% HDI=(-1.675, 0.767), P(>0)=0.225
+- `integrated_plus_utr3_block` / `species_feat_mean_cramers_v_overall_z`: mean=-0.276, 94% HDI=(-1.633, 1.185), P(>0)=0.360
+- `integrated_plus_utr3_block` / `species_feat_prop_significant_overall_z`: mean=-0.137, 94% HDI=(-1.741, 1.427), P(>0)=0.439
+- `integrated_plus_utr3_block` / `species_feat_utr3_L_structdist_mean_z`: mean=-0.800, 94% HDI=(-2.118, 0.489), P(>0)=0.120
+- `integrated_plus_utr3_block` / `species_feat_utr3_M_structdist_mean_z`: mean=0.553, 94% HDI=(-0.785, 1.919), P(>0)=0.783
+- `integrated_plus_utr3_block` / `species_feat_utr3_S_structdist_mean_z`: mean=-0.501, 94% HDI=(-1.914, 0.846), P(>0)=0.247
+- `integrated_plus_utr3_block` / `species_feat_utr5_L_structdist_mean_z`: mean=0.074, 94% HDI=(-0.976, 1.232), P(>0)=0.541
+- `integrated_plus_utr3_block` / `species_feat_utr5_M_structdist_mean_z`: mean=0.679, 94% HDI=(-0.697, 1.957), P(>0)=0.838
+- `integrated_plus_utr3_block` / `species_feat_utr5_S_structdist_mean_z`: mean=0.531, 94% HDI=(-0.964, 1.973), P(>0)=0.762
+- `integrated_tree_sensitivity` / `arha_prev_local_z`: mean=-0.204, 94% HDI=(-0.507, 0.113), P(>0)=0.103
+- `integrated_tree_sensitivity` / `hosttrait_combine_dispersal_km_z`: mean=-0.552, 94% HDI=(-1.901, 0.781), P(>0)=0.223
+- `integrated_tree_sensitivity` / `hosttrait_combine_gestation_length_d_z`: mean=0.038, 94% HDI=(-0.237, 0.315), P(>0)=0.603
+- `integrated_tree_sensitivity` / `hosttrait_combine_litter_size_n_z`: mean=0.324, 94% HDI=(-0.822, 1.435), P(>0)=0.710
+- `integrated_tree_sensitivity` / `overlap_opportunity_local_z`: mean=0.307, 94% HDI=(0.047, 0.561), P(>0)=0.989
+- `integrated_tree_sensitivity` / `species_feat_hostdiv_faith_pd_z`: mean=-0.358, 94% HDI=(-1.634, 1.007), P(>0)=0.290
+- `integrated_tree_sensitivity` / `species_feat_mean_cramers_v_overall_z`: mean=-0.608, 94% HDI=(-1.952, 0.703), P(>0)=0.189
+- `integrated_tree_sensitivity` / `species_feat_prop_significant_overall_z`: mean=-0.089, 94% HDI=(-1.539, 1.471), P(>0)=0.456
+- `integrated_tree_sensitivity` / `species_feat_utr5_L_structdist_mean_z`: mean=-0.015, 94% HDI=(-1.179, 1.238), P(>0)=0.476
+- `integrated_tree_sensitivity` / `species_feat_utr5_M_structdist_mean_z`: mean=0.446, 94% HDI=(-0.871, 1.649), P(>0)=0.757
+- `integrated_tree_sensitivity` / `species_feat_utr5_S_structdist_mean_z`: mean=-0.105, 94% HDI=(-1.578, 1.261), P(>0)=0.444
+- `integrated_tree_sensitivity` / `tree_discordance_score_z`: mean=0.137, 94% HDI=(-0.159, 0.445), P(>0)=0.809
+- `molecular_block` / `species_feat_mean_cramers_v_overall_z`: mean=-0.474, 94% HDI=(-1.825, 0.885), P(>0)=0.253
+- `molecular_block` / `species_feat_prop_significant_overall_z`: mean=0.066, 94% HDI=(-1.481, 1.524), P(>0)=0.539
+- `molecular_block` / `species_feat_utr5_L_structdist_mean_z`: mean=0.132, 94% HDI=(-1.065, 1.284), P(>0)=0.586
+- `molecular_block` / `species_feat_utr5_M_structdist_mean_z`: mean=0.209, 94% HDI=(-0.919, 1.334), P(>0)=0.650
+- `molecular_block` / `species_feat_utr5_S_structdist_mean_z`: mean=-0.259, 94% HDI=(-1.580, 1.172), P(>0)=0.358
+- `molecular_plus_utr3_block` / `species_feat_mean_cramers_v_overall_z`: mean=-0.004, 94% HDI=(-1.373, 1.328), P(>0)=0.520
+- `molecular_plus_utr3_block` / `species_feat_prop_significant_overall_z`: mean=-0.016, 94% HDI=(-1.619, 1.496), P(>0)=0.494
+- `molecular_plus_utr3_block` / `species_feat_utr3_L_structdist_mean_z`: mean=-0.947, 94% HDI=(-2.253, 0.308), P(>0)=0.085
+- `molecular_plus_utr3_block` / `species_feat_utr3_M_structdist_mean_z`: mean=0.486, 94% HDI=(-0.742, 1.700), P(>0)=0.774
+- `molecular_plus_utr3_block` / `species_feat_utr3_S_structdist_mean_z`: mean=-0.553, 94% HDI=(-1.853, 0.757), P(>0)=0.206
+- `molecular_plus_utr3_block` / `species_feat_utr5_L_structdist_mean_z`: mean=0.349, 94% HDI=(-0.628, 1.313), P(>0)=0.784
+- `molecular_plus_utr3_block` / `species_feat_utr5_M_structdist_mean_z`: mean=0.485, 94% HDI=(-0.757, 1.728), P(>0)=0.774
+- `molecular_plus_utr3_block` / `species_feat_utr5_S_structdist_mean_z`: mean=0.515, 94% HDI=(-0.896, 1.932), P(>0)=0.761

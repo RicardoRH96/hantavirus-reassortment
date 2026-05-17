@@ -1,0 +1,28 @@
+# Core scientific computing
+numpy
+pandas
+scipy
+
+# Bioinformatics
+biopython
+ete3
+
+# Machine learning
+scikit-learn
+xgboost
+lightgbm
+
+# Visualization
+matplotlib
+seaborn
+
+# Geospatial (for SDM)
+geopandas
+rasterio
+pyimpute
+
+# RNA structure
+ViennaRNA
+
+# Utilities
+tqdm

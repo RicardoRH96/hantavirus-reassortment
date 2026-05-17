@@ -1,0 +1,6 @@
+model	term	mean	sd	hdi_3%	hdi_97%	posterior_prob_positive
+count_expansion_negative_binomial	ecological_opportunity_z	-0.165	0.202	-0.529	0.235	0.20944444444444443
+count_expansion_negative_binomial	molecular_permissiveness_z	-0.165	0.164	-0.48	0.138	0.1525
+count_expansion_negative_binomial	ecology_x_molecular_permissiveness_z	0.192	0.181	-0.161	0.52	0.8563888888888889
+count_expansion_negative_binomial	tree_discordance_score_z	-0.065	0.093	-0.246	0.097	0.24722222222222223
+count_expansion_negative_binomial	graph_neighbor_overlap_z	-0.076	0.203	-0.437	0.321	0.3625
