@@ -1,2 +1,0 @@
-feature_set	description	blocks	numeric_features	categorical_features	n_numeric	n_categorical
-species_only	Taxon-only baseline using the held-out species label.	species		species	0	1

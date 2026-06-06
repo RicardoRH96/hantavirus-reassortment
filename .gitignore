@@ -1,4 +1,7 @@
 .DS_Store
+.Rhistory
+.RData
+.Rproj.user/
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
@@ -8,9 +11,11 @@ __pycache__/
 venv/
 env/
 
-data/raw/
-data/external/
-results/cache/
+data/
+results/
+figures/
+intermediates/
+outputs/
 results/**/posterior.nc
 *.joblib
 *.pkl
@@ -25,3 +30,5 @@ tmp/
 logs/
 AGENTS.md
 PROJECT_STATE.md
+src/99_validate_candidate.py
+src/pipeline_runner.py

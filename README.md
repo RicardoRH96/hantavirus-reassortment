@@ -6,12 +6,44 @@ Ricardo Rivero, David Simons, Lambodhar Damodaran, Irene Karegi, Sarah Gurev, Da
 
 ## Layout
 
-- `data/processed/final_sequence_dataset.tsv`: final sequence-level analysis table.
-- `data/processed/labels/`: Reassortment label tables.
-- `data/processed/trees/` and `data/processed/arg/`: compact tree and ARG inputs used in the analyses.
-- `data/processed/sdm/`: compact SDM validation and host-list inputs used by the notebooks.
-- `scripts/modeling/`: final model, benchmark, and hierarchical analysis scripts.
-- `scripts/figures/`: manuscript and supplement figure-rendering scripts.
-- `scripts/evolutionary_robustness/`: robustness analyses for label definitions, lineage dependence, phylogenetic nulls, and sampling sensitivity.
-- `notebooks/`: Notebooks for figure development.
-- `results/`: "compact" form outputs
+This repository contains the analysis code only. Input data, generated figures,
+model outputs, and intermediate files are intentionally kept outside version
+control.
+
+```text
+.
+├── README.md
+├── Scripts/
+│   ├── buildFinalModelDataset.py
+│   │   └── Builds the sequence-level table linking viral metadata, host taxonomy,
+│   │       ecological predictors, and molecular features.
+│   ├── TaxonomyReconciler/
+│   │   └── Standardizes host and viral taxonomy, including hantavirus and
+│   │       arenavirus classification utilities.
+│   ├── ReassortmentInference/
+│   │   └── Infers segment-tree discordance and reassortment histories from
+│   │       S, M, and L segment phylogenies.
+│   ├── SDM/
+│   │   └── Builds and evaluates host species distribution models, habitat
+│   │       overlap rasters, environmental predictors, and host occurrence checks.
+│   ├── UTR/
+│   │   └── Retrieves untranslated-region sequences and derives UTR-linked
+│   │       molecular features for the viral segments.
+│   ├── LinkageDissequilibrium/
+│   │   └── Estimates intersegment linkage disequilibrium and extracts
+│   │       segment-pair compatibility features.
+│   ├── Epistasis/
+│   │   └── Constructs and models intersegment epistatic features, including
+│   │       comparisons with linkage disequilibrium signals.
+│   └── EvolutionaryAnalysis/
+│       └── Runs evolutionary robustness analyses for reassortment origins,
+│           label uncertainty, lineage structure, phylogenetic nulls, sampling
+│           sensitivity, establishment, and selection scans.
+└── Notebooks/
+    ├── Fig1.ipynb
+    ├── Fig2.ipynb
+    ├── Fig3.ipynb
+    ├── Fig4.ipynb
+    ├── Fig5.ipynb
+    └── SDM_PDP_CircularPhylo.ipynb
+```

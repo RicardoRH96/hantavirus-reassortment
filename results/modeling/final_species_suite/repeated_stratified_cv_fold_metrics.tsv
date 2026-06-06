@@ -1,1 +1,0 @@
-cv_scheme	feature_set	model	fold_id	train_rows	test_rows	train_positives	test_positives	test_groups	heldout_group	roc_auc	average_precision	balanced_accuracy	brier	tuning_status	tuning_method	tuning_metric	tuning_inner_cv	tuning_n_iter	tuning_n_inner_splits	tuning_best_score	tuning_best_params_json

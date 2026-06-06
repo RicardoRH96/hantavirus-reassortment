@@ -1,8 +1,0 @@
-cv_scheme	feature_set	model	heldout_group	species	n_rows	target_rate	probability_min	probability_max	probability_std	n_unique_probabilities_6dp	is_flat_probability
-grouped_species	species_only	random_forest_shallow	orthohantavirus_andesense	orthohantavirus_andesense	24	0.0	0.7800810787513315	0.7800810787513315	1.1102230246251565e-16	1	1
-grouped_species	species_only	random_forest_shallow	orthohantavirus_dobravaense	orthohantavirus_dobravaense	18	0.6666666666666666	0.807884687961251	0.807884687961251	1.1102230246251565e-16	1	1
-grouped_species	species_only	random_forest_shallow	orthohantavirus_hantanense	orthohantavirus_hantanense	199	0.1457286432160804	0.6129322945985085	0.6129322945985085	1.1102230246251565e-16	1	1
-grouped_species	species_only	random_forest_shallow	orthohantavirus_puumalaense	orthohantavirus_puumalaense	69	0.4057971014492754	0.8518624555357813	0.8518624555357813	1.1102230246251565e-16	1	1
-grouped_species	species_only	random_forest_shallow	orthohantavirus_seoulense	orthohantavirus_seoulense	101	0.46534653465346537	0.8580079318370367	0.8580079318370367	0.0	1	1
-grouped_species	species_only	random_forest_shallow	orthohantavirus_sinnombreense	orthohantavirus_sinnombreense	34	0.5882352941176471	0.8139334523600581	0.8139334523600581	0.0	1	1
-grouped_species	species_only	random_forest_shallow	orthohantavirus_tulaense	orthohantavirus_tulaense	71	0.38028169014084506	0.8392637783081258	0.8392637783081258	1.1102230246251565e-16	1	1

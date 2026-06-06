@@ -1,5 +1,0 @@
-actual_label,predicted_label,count_weighted,count_records
-absence,absence,0.0,1433
-absence,presence,0.0,1305
-presence,absence,124134.0,4278
-presence,presence,376620.0,29679

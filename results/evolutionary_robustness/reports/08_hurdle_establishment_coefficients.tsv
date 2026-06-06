@@ -1,7 +1,0 @@
-model	term	mean	sd	hdi_3%	hdi_97%	posterior_prob_positive
-hurdle_establishment_bernoulli	ecological_opportunity_z	0.509	0.471	-0.334	1.43	0.8663888888888889
-hurdle_establishment_bernoulli	molecular_permissiveness_z	0.631	0.655	-0.577	1.867	0.8325
-hurdle_establishment_bernoulli	ecology_x_molecular_permissiveness_z	0.866	0.483	0.004	1.826	0.9655555555555555
-hurdle_establishment_bernoulli	tree_discordance_score_z	0.741	0.435	-0.08	1.544	0.9602777777777778
-hurdle_establishment_bernoulli	graph_neighbor_overlap_z	-0.482	0.647	-1.719	0.753	0.21777777777777776
-hurdle_establishment_bernoulli	log_sampling_effort_z	-0.67	0.419	-1.44	0.109	0.05361111111111111

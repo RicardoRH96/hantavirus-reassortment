@@ -1,6 +1,0 @@
-term	posterior_mean_min	posterior_mean_max	posterior_mean_median	posterior_prob_positive_min	posterior_prob_positive_max	scenario_n	sign_consistency
-overlap_opportunity_local	0.069	0.536	0.2875	0.6863636363636364	1.0	16	1.0
-arha_prev_local	-0.42	0.049	-0.1855	0.006818181818181818	0.615909090909091	16	0.9375
-species_feat_hostdiv_faith_pd	-0.517	-0.009	-0.182	0.11818181818181818	0.4909090909090909	16	1.0
-species_feat_mean_cramers_v_overall	-0.911	0.149	-0.552	0.1	0.5886363636363636	16	0.9375
-tree_discordance_score	-0.06	0.398	0.11349999999999999	0.3931818181818182	0.990909090909091	16	0.75

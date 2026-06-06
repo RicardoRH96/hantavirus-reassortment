@@ -1,2 +1,0 @@
-feature_set	model	n_tips	tip_accuracy_overall	tip_accuracy_mean_fold	rank_species_n	rank_spearman_prob_mean	rank_spearman_call_mean	rank_exact_prob_fraction	rank_exact_call_fraction	clade_mae_pred_prob	clade_rmse_pred_prob	clade_mae_pred_call	clade_rmse_pred_call
-ecology_molecular	xgboost	512	0.669921875	0.6993606629795811	7	-0.6333333333333333	-0.41553380315684446	0.0	0.14285714285714285	0.23625467549028675	0.26452347100473733	0.30341814023308966	0.3430574930980219
