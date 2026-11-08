@@ -32,3 +32,15 @@ AGENTS.md
 PROJECT_STATE.md
 src/99_validate_candidate.py
 src/pipeline_runner.py
+
+# Local data/output symlinks and generated figure folders
+Data
+Manuscript
+ZenodoFiles
+final_model
+model_test
+output
+results
+specific_evolutionary_analyses
+src
+Notebooks/figures/

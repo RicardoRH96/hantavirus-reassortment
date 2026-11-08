@@ -50,7 +50,6 @@ def select_lineage_ancestor(row: Dict[str, str]) -> Optional[Dict[str, object]]:
     lineage = list(zip(names, taxids, ranks))
     if not lineage:
         return None
-    # remove the terminal node and iterate ancestors from nearest to farthest
     for name, taxid, rank in reversed(lineage[:-1]):
         lname = name.lower()
         if "strain" in lname:

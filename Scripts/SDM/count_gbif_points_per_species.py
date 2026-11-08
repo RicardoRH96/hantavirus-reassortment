@@ -6,7 +6,6 @@ import pandas as pd
 
 
 def _count_pattern_in_file(path: Path, pattern: bytes, chunk_size: int = 8 * 1024 * 1024) -> int:
-    """Count byte-pattern occurrences using chunked reads (memory-safe for very large files)."""
     count = 0
     overlap = max(0, len(pattern) - 1)
     tail = b""
@@ -22,7 +21,6 @@ def _count_pattern_in_file(path: Path, pattern: bytes, chunk_size: int = 8 * 102
 
 
 def _count_any_pattern_in_file(path: Path, patterns: list[bytes], chunk_size: int = 8 * 1024 * 1024) -> int:
-    """Count occurrences across multiple byte-pattern variants."""
     return sum(_count_pattern_in_file(path, p, chunk_size=chunk_size) for p in patterns)
 
 

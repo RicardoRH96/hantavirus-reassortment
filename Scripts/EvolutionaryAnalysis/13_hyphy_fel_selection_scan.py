@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -16,18 +17,25 @@ import pandas as pd
 from Bio import Phylo, SeqIO
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_TREE_ROOT = (
-    REPO_ROOT
-    / "model_test"
-    / "runs"
-    / "direct516_plus_pathoplexus_andes_egt"
-    / "tree_roots_common61"
-)
+REPO_ROOT = Path(__file__).resolve().parents[2]
+SCRIPT_DIR = Path(__file__).resolve().parent
+DEFAULT_TREE_ROOT = Path(
+    os.environ.get(
+        "HANTA_EVO_TREE_ROOT",
+        REPO_ROOT
+        / "model_test"
+        / "runs"
+        / "direct516_plus_pathoplexus_andes_egt"
+        / "tree_roots_common61",
+    )
+).expanduser()
 DEFAULT_OUTPUT_DIR = (
-    REPO_ROOT
-    / "specific_evolutionary_analyses"
-    / "outputs_direct516_pathoplexus_andes"
+    Path(
+        os.environ.get(
+            "HANTA_EVO_OUTPUT_DIR",
+            SCRIPT_DIR / "outputs_direct516_pathoplexus_andes",
+        )
+    ).expanduser()
     / "hyphy_fel_selection_scan"
 )
 
@@ -343,7 +351,7 @@ def main() -> int:
                     segment_tree_tips_before_common_filter=len(tips),
                     removed_noncommon_tips=len(noncommon_tips),
                 )
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 prep = PrepStats(
                     species=species,
                     segment=segment,

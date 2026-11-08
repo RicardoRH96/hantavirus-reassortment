@@ -360,8 +360,7 @@ def infer_longest_orf(seq: str) -> OrfSpan:
     if best and (best[1] - best[0]) >= 300:
         return OrfSpan(best[0], best[1], best[2])
 
-    # Fallback is intentionally simple and audited: use the frame with the
-    # longest stop-free run, preserving alignment coordinates.
+    # Fallback: longest stop-free reading frame, preserving alignment coordinates.
     fallback = (0, 3 * (len(seq) // 3), "fallback_frame0")
     for frame in range(3):
         run_start = frame

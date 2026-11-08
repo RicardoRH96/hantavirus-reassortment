@@ -15,14 +15,13 @@ import pandas as pd
 try:
     import rasterio
     from rasterio.warp import transform
-except ImportError:  # pragma: no cover - optional dependency
+except ImportError:
     rasterio = None
     transform = None
 
 
-DEFAULT_RASTER = Path(
-    "/Users/ricardorivero/Documents/GitHub/HantaReassortment/Data/SDM/OverlapRasters/overlap_richness_threshold_0p9.tif"
-)
+REPO_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_RASTER = REPO_ROOT / "Data" / "SDM" / "OverlapRasters" / "overlap_richness_threshold_0p9.tif"
 DEFAULT_INPUT_CRS = "EPSG:4326"
 
 

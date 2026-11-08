@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 from pathlib import Path
 
 import matplotlib as mpl
@@ -14,19 +15,16 @@ import pandas as pd
 from statsmodels.stats.multitest import multipletests
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-SCAN_DIR = (
-    REPO_ROOT
-    / "specific_evolutionary_analyses"
-    / "outputs_direct516_pathoplexus_andes"
-    / "hyphy_fel_selection_scan"
-)
-OUTPUT_DIR = (
-    REPO_ROOT
-    / "specific_evolutionary_analyses"
-    / "outputs_direct516_pathoplexus_andes"
-    / "fel_selection_overview"
-)
+REPO_ROOT = Path(__file__).resolve().parents[2]
+SCRIPT_DIR = Path(__file__).resolve().parent
+_EVO_OUT = Path(
+    os.environ.get(
+        "HANTA_EVO_OUTPUT_DIR",
+        SCRIPT_DIR / "outputs_direct516_pathoplexus_andes",
+    )
+).expanduser()
+SCAN_DIR = _EVO_OUT / "hyphy_fel_selection_scan"
+OUTPUT_DIR = _EVO_OUT / "fel_selection_overview"
 
 SEGMENTS = [
     ("S", "S / NP", "#8DD3C7"),
@@ -53,6 +51,7 @@ def parse_args() -> argparse.Namespace:
         default=["orthohantavirus_andesense"],
         help="Species IDs matching FEL JSON prefixes.",
     )
+    parser.add_argument("--scan-dir", type=Path, default=SCAN_DIR)
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
     return parser.parse_args()
 
@@ -61,8 +60,8 @@ def slug_for_species(species: str) -> str:
     return SPECIES_LABELS.get(species, species.replace("orthohantavirus_", "").replace("ense", ""))
 
 
-def load_fel(species: str, segment: str) -> pd.DataFrame:
-    path = SCAN_DIR / "reports" / f"{species}_{segment}_FEL.json"
+def load_fel(species: str, segment: str, scan_dir: Path = SCAN_DIR) -> pd.DataFrame:
+    path = scan_dir / "reports" / f"{species}_{segment}_FEL.json"
     data = json.loads(path.read_text())
     headers = [h[0] for h in data["MLE"]["headers"]]
     df = pd.DataFrame(data["MLE"]["content"]["0"], columns=headers)
@@ -100,12 +99,12 @@ def add_segment_backgrounds(ax, spans) -> None:
         ax.axvline(start, color="#D7D2A8", lw=1.0, alpha=0.75, zorder=1)
 
 
-def render_species(species: str, output_dir: Path) -> tuple[Path, Path]:
+def render_species(species: str, output_dir: Path, scan_dir: Path = SCAN_DIR) -> tuple[Path, Path]:
     frames = []
     spans = []
     offset = 0
     for segment, label, color in SEGMENTS:
-        df = load_fel(species, segment)
+        df = load_fel(species, segment, scan_dir=scan_dir)
         df["x"] = df["site"] + offset
         frames.append(df)
         spans.append((segment, label, offset + 1, offset + len(df), color))
@@ -284,7 +283,7 @@ def main() -> int:
     mpl.rcParams["svg.fonttype"] = "none"
 
     for species in args.species:
-        png, svg = render_species(species, args.output_dir)
+        png, svg = render_species(species, args.output_dir, scan_dir=args.scan_dir)
         print(png)
         print(svg)
     return 0

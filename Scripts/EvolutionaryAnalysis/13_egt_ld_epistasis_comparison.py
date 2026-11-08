@@ -29,17 +29,22 @@ import numpy as np
 import pandas as pd
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT_DIR = Path(__file__).resolve().parent
-DEFAULT_DATASET = (
-    REPO_ROOT
-    / "model_test"
-    / "runs"
-    / "intersegment_epistasis_final_direct553"
-    / "datasets"
-    / "sequence_level_final_dataset_direct553_epistasis_final.tsv"
-)
-DEFAULT_OUTPUT_DIR = SCRIPT_DIR / "outputs_epistasis_final_direct553_egt"
+DEFAULT_DATASET = Path(
+    os.environ.get(
+        "HANTA_EVO_DATASET",
+        REPO_ROOT
+        / "model_test"
+        / "runs"
+        / "intersegment_epistasis_final_direct553"
+        / "datasets"
+        / "sequence_level_final_dataset_direct553_epistasis_final.tsv",
+    )
+).expanduser()
+DEFAULT_OUTPUT_DIR = Path(
+    os.environ.get("HANTA_EVO_OUTPUT_DIR", SCRIPT_DIR / "outputs_epistasis_final_direct553_egt")
+).expanduser()
 
 BASE_EVENT_MEAN_FEATURES = [
     "overlap_opportunity_local",

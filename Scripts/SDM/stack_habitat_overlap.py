@@ -285,7 +285,6 @@ def main() -> None:
             (threshold, stack.enter_context(rasterio.open(rich_path, "w+", dtype="int32", nodata=int_nodata, **profile)))
             for threshold, rich_path, _ in rich_outputs
         ]
-        # New GeoTIFF blocks read back as zeros by default; avoid full-grid init writes.
 
         for i, rp in enumerate(rasters, 1):
             with rasterio.open(rp) as src:
@@ -314,7 +313,6 @@ def main() -> None:
             _apply_nodata_where_uncovered(rich_ds, uncovered_ds, int_nodata)
 
     print("[INFO] computing mean suitability raster", flush=True)
-    # Mean suitability computed only where at least one species projected.
     with rasterio.open(sum_path) as sum_ds, rasterio.open(count_path) as count_ds:
         mean_profile = sum_ds.profile.copy()
         mean_profile["dtype"] = "float32"

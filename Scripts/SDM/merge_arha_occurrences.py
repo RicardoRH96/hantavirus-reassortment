@@ -44,9 +44,6 @@ def load_arha_occurrences(
     min_hosts: float,
     require_valid_coord: bool,
 ) -> Dict[str, gpd.GeoDataFrame]:
-    """
-    Load ArHa records and index them by species slug.
-    """
     df = pd.read_csv(csv_path)
 
     if require_valid_coord and "coord_status" in df.columns:
@@ -79,9 +76,6 @@ def load_arha_occurrences(
 
 
 def read_geojson(path: Path) -> gpd.GeoDataFrame:
-    """
-    Read a GeoJSON file into a GeoDataFrame, forcing EPSG:4326.
-    """
     try:
         gdf = gpd.read_file(path)
     except ValueError as exc:
@@ -99,10 +93,6 @@ def read_geojson(path: Path) -> gpd.GeoDataFrame:
 
 
 def harmonize_columns(gdf: gpd.GeoDataFrame, columns: Iterable[str]) -> gpd.GeoDataFrame:
-    """
-    Ensure the GeoDataFrame contains the requested columns, adding
-    as needed with NA values.
-    """
     for col in columns:
         if col not in gdf.columns:
             gdf[col] = pd.NA
@@ -114,9 +104,6 @@ def merge_species_records(
     arha_gdf: gpd.GeoDataFrame | None,
     drop_duplicate_coords: bool,
 ) -> gpd.GeoDataFrame:
-    """
-    Combine GBIF and ArHa GeoDataFrames for a single species.
-    """
     records: List[gpd.GeoDataFrame] = []
     if not gbif_gdf.empty:
         gbif = gbif_gdf.copy()
@@ -163,9 +150,6 @@ def process_species_files(
     include_arha_only: bool,
     drop_duplicate_coords: bool,
 ) -> Dict[str, Dict[str, int]]:
-    """
-    Merge GBIF GeoJSONs with ArHa occurrences and write outputs.
-    """
     output_dir.mkdir(parents=True, exist_ok=True)
     summary: Dict[str, Dict[str, int]] = {}
 

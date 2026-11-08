@@ -45,7 +45,6 @@ from sklearn.metrics import (
     confusion_matrix, classification_report
 )
 
-#Bayesian search
 from skopt import BayesSearchCV
 from skopt.space import Real, Integer
 
@@ -53,11 +52,10 @@ import time
 import json
 from contextlib import contextmanager
 
-# ----------------------- CONFIG  -----------------------
-THIN_DISTANCE_M = 25_000      # presence thinning radius (meters)
-SPATIAL_BLOCK_KM = 150        # spatial CV block size
-CV_FOLDS = 5                  # number of GroupKFold folds
-RNG_SEED = 72724              # reproducibility for pseudo-absences
+THIN_DISTANCE_M = 25_000
+SPATIAL_BLOCK_KM = 150
+CV_FOLDS = 5
+RNG_SEED = 72724
 IUCN_BUFFER_DEGREES = 0.5
 DEFAULT_IUCN_VECTOR = Path(__file__).resolve().parents[1] / "IUCN_mammals" / "MAMMALS_TERRESTRIAL_ONLY.shp"
 PD_GRID_RESOLUTION = 20
@@ -69,7 +67,6 @@ DEFAULT_FEATURE_MIN_FEATURES = 10
 DEFAULT_THIN_MIN_PRES = 30
 DEFAULT_THIN_MIN_DISTANCE_M = 1_000
 DEFAULT_THIN_ADAPT_ITERS = 6
-# --------------------------------------------------------
 
 
 class IdentityCalibrator:
@@ -174,23 +171,19 @@ def build_probability_calibrator(y_true, oof_prob):
 
 
 def safe_filename(value: str) -> str:
-    """Sanitize a string for safe filesystem usage while retaining readability."""
     return "".join(c if c.isalnum() or c in "-._" else "_" for c in value)
 
 def load_rasters(covariate_dir):
-    """Return sorted .tif paths; without copying to output_dir""" 
     raster_files = sorted(Path(covariate_dir).glob('*.tif'))
     if not raster_files:
         raise FileNotFoundError(f"No .tif files found in directory: {covariate_dir}")
     return [str(p) for p in raster_files]
 
 def short_name(path_str: str) -> str:
-    """Stable, readable column name per raster band set"""
     p = Path(path_str)
-    return p.stem #e.g., "bio1" from "/path/to/bio1.tif"
+    return p.stem
 
 def get_cpus_per_task(default: int = 1) -> int:
-    """Best-effort CPU count for thread control inside SLURM/containers."""
     for key in ("SLURM_CPUS_PER_TASK", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS"):
         val = os.environ.get(key)
         if val:
@@ -203,7 +196,6 @@ def get_cpus_per_task(default: int = 1) -> int:
     return default
 
 def _window_from_bounds_clipped(bounds, dataset) -> Window:
-    """Convert bounds (in dataset CRS) to an integer Window clipped to dataset extent."""
     left, bottom, right, top = bounds
     win_f = window_from_bounds(left, bottom, right, top, transform=dataset.transform)
     col_off = int(np.floor(win_f.col_off))
@@ -249,7 +241,7 @@ def _select_projection_bounds(
     elif project_mode == "pres_bbox":
         bbox = box(*pres_pts.to_crs(raster_crs).total_bounds)
         geom = bbox
-    else:  # domain_bbox
+    else:
         geom = _reproject_geom(domain_geom, pres_pts.crs, raster_crs)
 
     if geom is None:
@@ -266,7 +258,6 @@ def _select_projection_bounds(
         maxx += project_buffer_deg
         maxy += project_buffer_deg
 
-    # Clip to dataset bounds
     left, bottom, right, top = raster_bounds
     minx = max(left, minx)
     maxx = min(right, maxx)
@@ -275,7 +266,6 @@ def _select_projection_bounds(
     return (minx, miny, maxx, maxy)
 
 def _align_raster_stack(raster_files: Sequence[str]) -> Tuple[dict, List[float]]:
-    """Ensure rasters share grid/CRS; return reference profile and nodata list."""
     if not raster_files:
         raise ValueError("No rasters provided.")
     with rasterio.open(raster_files[0]) as ref:
@@ -302,7 +292,6 @@ def _align_raster_stack(raster_files: Sequence[str]) -> Tuple[dict, List[float]]
     return ref_profile, nodatas
 
 def _stack_features_for_window(datasets, window: Window) -> Tuple[np.ndarray, np.ndarray]:
-    """Read all rasters for a window into (H, W, F) float32 and valid mask (H, W)."""
     bands = []
     valid_mask = None
     for ds in datasets:
@@ -313,7 +302,7 @@ def _stack_features_for_window(datasets, window: Window) -> Tuple[np.ndarray, np
         m &= np.isfinite(data)
         valid_mask = m if valid_mask is None else (valid_mask & m)
         bands.append(data)
-    feat = np.stack(bands, axis=-1)  # (H, W, F)
+    feat = np.stack(bands, axis=-1)
     if valid_mask is None:
         valid_mask = np.zeros(feat.shape[:2], dtype=bool)
     return feat, valid_mask
@@ -564,34 +553,24 @@ def thin_points_distance(gdf: gpd.GeoDataFrame, min_dist_m: float, randomize: bo
 
 
 def sample_rasters_at_points(gdf, raster_files, resampling=Resampling.bilinear):
-    """
-    Vectorized: for each raster, sample all points at once. Before it was sampling each point one by one.
-    Handles CRS differences via WarpedVRT
-    Returns a Dataframe of features aligned to gdf.index
-    """
     if gdf.crs is None:
         raise ValueError("Input GeoDataFrame must have a defined CRS.")
     
-    #Collect coordinates once
     xs = gdf.geometry.x.values
     ys = gdf.geometry.y.values
-    coords = np.vstack([xs,ys]).T # shape (n_points, 2)
+    coords = np.vstack([xs,ys]).T
 
     features = []
     colnames = []
 
     for rp in raster_files:
         with rasterio.open(rp) as src:
-            #Reproject-on-the-fly so we can always pass point CRS
             with WarpedVRT(src, crs=gdf.crs, resampling=resampling) as vrt:
-                # Sample yields arrays per point; use masked sampling so nodata becomes NaN.
-                # Materialize the generator because numpy.ma.vstack iterates the input multiple times.
                 samples = list(vrt.sample(coords, masked=True))
                 if not samples:
                     raise ValueError(f"No samples returned for raster {rp}; check CRS/coords.")
                 vals_ma = np.ma.vstack(samples)
                 vals = vals_ma.astype("float32", copy=False).filled(np.nan)
-                #if multiband, name them stem_b1, stem_b2, ...
                 if vals.ndim == 1:
                     vals = vals[:, None]
                 bnames = ([short_name(rp)] if vals.shape[1]==1
@@ -599,16 +578,11 @@ def sample_rasters_at_points(gdf, raster_files, resampling=Resampling.bilinear):
                 features.append(vals)
                 colnames.extend(bnames)
 
-    X = np.hstack(features) #[N, sum(bands)]
+    X = np.hstack(features)
     df = pd.DataFrame(X, columns=colnames, index=gdf.index)
     return df
 
 def make_valid_bbox_mask(raster_files, dst_crs):
-    """
-    Robust raster coverage mask in dst_crs: returns a single box covering
-    all rasters. Avoids any union of many geometries (which can fail).
-    """
-    # Initialize with infinities
     minx = miny = float("+inf")
     maxx = maxy = float("-inf")
 
@@ -618,7 +592,6 @@ def make_valid_bbox_mask(raster_files, dst_crs):
                 left, bottom, right, top = vrt.bounds
                 if not np.isfinite([left, bottom, right, top]).all():
                     continue
-                # expand global bounds
                 if left   < minx: minx = left
                 if bottom < miny: miny = bottom
                 if right  > maxx: maxx = right
@@ -906,7 +879,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
     cache_dir = Path(output_dir) / "cache"
     cache_dir.mkdir(parents=True, exist_ok=True)
 
-    # Determine IUCN range dataset to use
     iucn_candidate = None
     if iucn_path:
         iucn_candidate = Path(iucn_path)
@@ -930,12 +902,10 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
         except Exception as exc:
             print(f"[WARN] Failed to load IUCN range from {iucn_candidate}: {exc}; proceeding without range constraint.")
 
-    # Load data and rasters
     data = gpd.read_file(input_file)
     raster_files = load_rasters(covariate_dir)
     print(f"There are {len(raster_files)} raster files in the folder")
 
-    # Valid presences & thin
     pres_all = data[data.geometry.notnull() & data.geometry.is_valid].copy()
     if pres_all.empty:
         raise ValueError("No valid presence points found.")
@@ -956,13 +926,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
             raise ValueError("All presence points fell outside the buffered IUCN range.")
 
     if thin:
-        # Adaptive thinning: avoid collapsing small datasets to too few points.
-        # Controls:
-        #   SDM_THIN_DISTANCE_M (float, meters)
-        #   SDM_THIN_MIN_PRES (int)
-        #   SDM_THIN_MIN_FRAC (float in (0,1], optional)
-        #   SDM_THIN_MIN_DISTANCE_M (float, meters)
-        #   SDM_THIN_ADAPT_ITERS (int)
         try:
             thin_dist_m = float(os.environ.get("SDM_THIN_DISTANCE_M", str(THIN_DISTANCE_M)))
         except ValueError:
@@ -997,7 +960,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
         else:
             dist = max(thin_min_dist_m, thin_dist_m)
             pres_thin = thin_points_distance(pres_all, dist)
-            # If too aggressive, progressively reduce distance until we keep enough points.
             if len(pres_thin) < min_keep and thin_adapt_iters > 0:
                 best = pres_thin
                 best_dist = dist
@@ -1030,7 +992,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
         else:
             species_range_geom_pres = species_range_gdf.geometry.iloc[0]
 
-    # ---- Region for pseudo-absences from bounds (robust, no union_all) ----
     pres_pts = pres.loc[
         pres.geometry.notnull()
         & pres.geometry.is_valid
@@ -1047,17 +1008,15 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
         region_poly = species_range_geom_pres
         print(f"[INFO] Using buffered IUCN range to bound pseudo-absence sampling.")
     elif pres_pts.crs and pres_pts.crs.to_epsg() == 4326:
-        region_poly = env.buffer(0.5)  # ~0.5° pad
+        region_poly = env.buffer(0.5)
     else:
         env_gdf = gpd.GeoDataFrame(geometry=[env], crs=pres_pts.crs)
         env_m = to_local_meters(env_gdf).geometry.iloc[0]
         region_poly = gpd.GeoSeries([env_m.buffer(50_000)],
                                     crs=to_local_meters(pres_pts).crs).to_crs(pres_pts.crs).iloc[0]
 
-    # Raster coverage mask (same CRS)
     raster_mask = make_valid_bbox_mask(raster_files, pres_pts.crs)
 
-    # Tolerant sampling domain with fallbacks
     domain = region_poly.intersection(raster_mask)
     if domain.is_empty:
         domain = raster_mask
@@ -1072,7 +1031,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
         if domain.is_empty:
             raise ValueError("Sampling domain is empty after fallbacks (check CRS & extents).")
 
-    # Pseudo-absences strictly inside the domain
     n_abs = len(pres_pts)
     min_valid_abs_frac = float(os.environ.get("SDM_ABSENCE_MIN_VALID_FRAC", "0") or 0.0)
     if min_valid_abs_frac > 0:
@@ -1093,7 +1051,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
         pseudo_abs = sample_pseudo_absences(n_abs, domain, domain, crs=pres_pts.crs)
         X_abs = None
 
-    # Feature sampling cache signature
     bbox = np.array(pres.total_bounds)
     crs_epsg = pres.crs.to_epsg() if pres.crs is not None else 0
     sig = _hash_signature(raster_files, bbox, species_name, crs_epsg, len(pres), range_digest=species_range_digest)
@@ -1124,7 +1081,7 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
         X_pres = pd.read_parquet(pres_cache)
         X_abs  = pd.read_parquet(abs_cache)
         if not (_looks_ok(X_pres) and _looks_ok(X_abs) and (X_pres.shape[1] == X_abs.shape[1])):
-            print("Cache failed integrity check — resampling features.")
+            print("Cache failed integrity check; resampling features.")
             X_pres = sample_rasters_at_points(pres, raster_files)
             X_abs  = sample_rasters_at_points(pseudo_abs, raster_files)
             X_pres.to_parquet(pres_cache, index=True)
@@ -1140,17 +1097,14 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
         X_abs.to_parquet(abs_cache, index=True)
         print("Sampled features and cached.")
 
-    # Prepare combined dataset
     pres_df = pd.concat([X_pres, pd.Series(1, index=X_pres.index, name="presence")], axis=1)
     abs_df  = pd.concat([X_abs,  pd.Series(0, index=X_abs.index,  name="presence")], axis=1)
     combined = pd.concat([pres_df, abs_df], axis=0, ignore_index=True)
 
-    # Geometry for spatial CV (kept for grouping)
     pres_coords = pres.geometry.reset_index(drop=True)
     abs_coords  = pseudo_abs.geometry.reset_index(drop=True)
     combined_geom = gpd.GeoDataFrame(geometry=pd.concat([pres_coords, abs_coords], ignore_index=True), crs=pres.crs)
 
-    # Clean feature matrix: drop columns/rows that are entirely NaN/inf
     feature_cols = [c for c in combined.columns if c != "presence"]
     feature_matrix = combined[feature_cols].apply(pd.to_numeric, errors="coerce")
     feature_matrix.replace([np.inf, -np.inf], np.nan, inplace=True)
@@ -1175,7 +1129,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
     if combined["presence"].sum() == 0 or combined["presence"].sum() == len(combined):
         raise ValueError("Class imbalance after filtering removed all presences or pseudo-absences.")
 
-    # Optional per-species feature selection
     feature_selection_report: Dict[str, object] = {"enabled": False}
     if os.environ.get("SDM_FEATURE_SELECT", "1") != "0":
         corr_thr = float(os.environ.get("SDM_FEATURE_CORR_THRESHOLD", str(DEFAULT_FEATURE_CORR_THRESHOLD)))
@@ -1191,20 +1144,17 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
             )
             print(f"[INFO] Feature selection kept {len(feature_cols)}/{len([c for c in combined.columns if c != 'presence'])} covariates.")
             if feature_selection_report.get("dropped_correlated"):
-                dropped_n = len(feature_selection_report["dropped_correlated"])  # type: ignore[index]
+                dropped_n = len(feature_selection_report["dropped_correlated"])
                 print(f"[INFO] Dropped {dropped_n} covariates due to correlation >= {corr_thr:.2f}.")
         except Exception as exc:
             print(f"[WARN] Feature selection failed ({exc}); proceeding with all covariates.")
             feature_selection_report = {"enabled": False, "error": str(exc)}
 
-    # Train matrices (single build; use NumPy for consistency)
     train_xs = feature_matrix.to_numpy(dtype="float32", copy=False)
     train_y  = combined["presence"].to_numpy(dtype=int)
 
-    # CV with spatial groups
     cv, groups = make_spatial_cv(CV_FOLDS, combined_geom, SPATIAL_BLOCK_KM, y=train_y)
 
-    # Models (quiet)
     n_jobs = get_cpus_per_task(default=1)
     xgb_base = XGBClassifier(
         objective='binary:logistic', eval_metric='auc',
@@ -1213,7 +1163,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
     lgbm_base = LGBMClassifier(class_weight='balanced', n_jobs=n_jobs, random_state=RNG_SEED, verbosity=-1)
 
     def cv_score(estimator, X, y, cv, groups, scorer_name):
-        # Keep folds serial to avoid duplicating models/data in memory; models use threads via n_jobs.
         y_prob = cross_val_predict(estimator, X, y, cv=cv, groups=groups, method='predict_proba', n_jobs=1)[:, 1]
         if scorer_name == 'roc_auc':
             return roc_auc_score(y, y_prob), y_prob
@@ -1221,7 +1170,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
             return -brier_score_loss(y, y_prob), y_prob
 
     def fold_class_health(cv, y, groups):
-        """Return (train_ok, test_ok) booleans for class presence in each fold."""
         train_ok = True
         test_ok = True
         for train_idx, test_idx in cv.split(np.zeros_like(y), y, groups=groups):
@@ -1240,7 +1188,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
 
     if cv is not None and not train_ok:
         # Spatial grouping can yield single-class training folds for small/clustered ranges.
-        # Fall back to standard stratified CV so model fitting doesn't crash (e.g., XGBoost base_score).
         from sklearn.model_selection import StratifiedKFold
 
         n_pos = int(train_y.sum())
@@ -1268,7 +1215,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
     y_prob_lgb = None
     ensemble_members: List[Tuple[str, BaseEstimator]] = []
 
-    # ---- tuning vs no-tuning ----
     if tune and cv is None:
         print("[WARN] Tuning requested but CV is disabled; proceeding without tuning.")
         tune = False
@@ -1390,8 +1336,7 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
     feature_importance_df = None
     model_step = None
     if hasattr(best_pipeline, "named_steps"):
-        model_step = best_pipeline.named_steps.get('model')  # type: ignore[attr-defined]
-    # Feature importances: for ensembles, average member importances when available.
+        model_step = best_pipeline.named_steps.get('model')
     importances_list = []
     if model_step is not None and hasattr(model_step, "fitted_estimators_"):
         for member_name, member in getattr(model_step, "fitted_estimators_", []):
@@ -1409,7 +1354,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
     else:
         print(f"[WARN] Feature importances unavailable for {winner_name}; skipping export.")
 
-    # --- Probability calibration ---
     calibrator = IdentityCalibrator()
     if best_oof_probs is None:
         print("[WARN] Skipping probability calibration because no out-of-fold predictions were collected.")
@@ -1426,7 +1370,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
 
     projection_estimator = ProbabilityCalibratedEstimator(best_pipeline, calibrator)
 
-    # --- Make per-species output dir to avoid cross-task collisions ---
     safe_species = safe_filename(species_name)
     model_output_dir = Path(output_dir) / f"{winner_name}-images" / safe_species
     model_output_dir.mkdir(parents=True, exist_ok=True)
@@ -1438,7 +1381,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
         out_csv=spearman_path,
     )
 
-    # Persist trained models in repo-local Models/ (not scratch), so they survive scratch expiry.
     models_root = Path(__file__).resolve().parents[1] / "Models"
     models_dir = models_root / winner_name / safe_species
     models_dir.mkdir(parents=True, exist_ok=True)
@@ -1561,8 +1503,6 @@ def main(input_file, covariate_dir, output_dir, species_name, thin=False, tune=F
         except Exception as exc:
             print(f"[WARN] Failed to write feature importances ({exc}).")
 
-    # -------- Projection (windowed; avoids OOM on 30-arcsec globals) --------
-    # Use only the rasters that correspond to the training feature columns, in the same order.
     name_to_path = {short_name(p): p for p in raster_files}
     missing = [f for f in feature_cols if f not in name_to_path]
     if missing:
@@ -1764,14 +1704,7 @@ def pdp_from_saved_model(
     iucn_path: Optional[str] = None,
     thin: bool = False,
 ):
-    """
-    Generate PDP CSV/PNGs using an already-trained model artifact (no training, no projection).
-
-    Requires the original presence GeoJSON + covariate rasters to rebuild (or reuse cached)
-    the feature matrix. This will typically hit the existing feature parquet cache under
-    `<output_dir>/cache/` and will not refit any model.
-    """
-    # Load model bundle (trained pipeline + calibrator + feature list)
+    """Generate PDP CSV/PNGs from a saved model artifact without retraining or projection."""
     safe_species = safe_filename(species_name)
     models_root = Path(__file__).resolve().parents[1] / "Models" / "ensemble" / safe_species
     default_artifact = models_root / f"{safe_species}_model.joblib"
@@ -1791,8 +1724,6 @@ def pdp_from_saved_model(
     pd_estimator = projection_estimator if os.environ.get("SDM_PDP_CALIBRATED", "1") == "1" else best_pipeline
     pd_label = "calibrated p" if pd_estimator is projection_estimator else None
 
-    # Determine where to write analysis outputs.
-    # Default to current output_dir; optionally allow model metadata path if requested.
     meta_path = models_root / f"{safe_species}_model.json"
     model_output_dir = Path(output_dir) / "ensemble-images" / safe_species
     use_metadata_out = os.environ.get("SDM_PDP_USE_METADATA_OUT", "0") == "1"
@@ -1814,7 +1745,6 @@ def pdp_from_saved_model(
     analysis_dir = model_output_dir / "analysis"
     print(f"[INFO] PDP output directory: {model_output_dir} (source={'metadata' if using_metadata_out else 'output_dir'})")
 
-    # Rebuild feature matrix (cached) from the original inputs/rasters
     cache_dir = Path(output_dir) / "cache"
     cache_dir.mkdir(parents=True, exist_ok=True)
 

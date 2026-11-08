@@ -43,7 +43,6 @@ def find_probability_raster(outputs_dir: Path, safe_species: str) -> Optional[Pa
     for path in candidates:
         if path.exists():
             return path
-    # broader search as fallback
     matches = list(outputs_dir.glob(f"**/{safe_species}/probability_1_{safe_species}.tif"))
     if matches:
         return matches[0]
@@ -74,7 +73,6 @@ def evaluate(csv_path: Path, outputs_dir: Path, threshold: float) -> Tuple[pd.Da
     results: List[EvalResult] = []
     skipped: List[str] = []
 
-    # Precompute safe species names and collect rows per species
     captures['species_clean'] = captures['host_species'].astype(str).str.strip()
     captures['safe_species'] = captures['species_clean'].apply(safe_name)
 

@@ -287,7 +287,7 @@ class FoldBackend:
         self.backend = ""
         self.rna_module = None
         try:
-            import RNA  # type: ignore
+            import RNA
         except Exception:
             RNA = None
         if RNA is not None:
@@ -431,7 +431,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
                     fasta_cache / f"{accession}.fasta",
                     args.throttle_seconds,
                 )
-            except Exception as exc:  # pragma: no cover - network failure
+            except Exception as exc:
                 row["skip_reason"] = f"fasta_fetch_failed:{exc}"
                 metadata_rows.append(row)
                 n_skipped += 1
@@ -450,7 +450,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
                     throttle_seconds=args.throttle_seconds,
                 )
                 cds_info, fallback_reason = choose_primary_cds(parse_gff3_cds(gff_text), "gff3")
-            except Exception as exc:  # pragma: no cover - network failure
+            except Exception as exc:
                 fallback_reason = f"gff3_fetch_failed:{exc}"
                 cds_info = None
 
@@ -469,7 +469,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
                     cds_info, gb_reason = choose_primary_cds(parse_genbank_cds(gb_record), "genbank")
                     if cds_info is None and not fallback_reason:
                         fallback_reason = gb_reason
-                except Exception as exc:  # pragma: no cover - network failure
+                except Exception as exc:
                     if not fallback_reason:
                         fallback_reason = f"genbank_fetch_failed:{exc}"
                     cds_info = None

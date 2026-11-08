@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 import math
 import os
@@ -217,12 +218,15 @@ def mean_available_columns(df: pd.DataFrame, columns: Sequence[str]) -> float:
 def add_workhorse_terminal_utr_features(df: pd.DataFrame) -> pd.DataFrame:
     if set(TERMINAL_UTR_WORKHORSE_COLUMNS).issubset(df.columns):
         return df
-    scripts_dir = Path(__file__).resolve().parents[1] / "model_test" / "scripts"
-    if str(scripts_dir) not in sys.path:
-        sys.path.insert(0, str(scripts_dir))
+    for candidate_dir in (
+        Path(__file__).resolve().parents[1],
+        Path(__file__).resolve().parents[2] / "model_test" / "scripts",
+    ):
+        if candidate_dir.exists() and str(candidate_dir) not in sys.path:
+            sys.path.insert(0, str(candidate_dir))
     try:
         from benchmark_sequence_model_suite import add_direct_utr_terminal_features
-    except ImportError as exc:  # pragma: no cover - environment guard
+    except ImportError as exc:
         raise RuntimeError(
             "Could not import the direct terminal UTR feature generator used by "
             "ecology_molecular_lineage_plus_context / lightgbm."
@@ -1248,6 +1252,10 @@ def render_report(
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Fit the two-stage Bayesian hurdle establishment and clade-expansion model."
+    )
+    parser.parse_args()
     DATASET_DIR.mkdir(parents=True, exist_ok=True)
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)

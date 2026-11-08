@@ -29,17 +29,23 @@ import numpy as np
 import pandas as pd
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT_DIR = Path(__file__).resolve().parent
-DEFAULT_DATASET = (
-    REPO_ROOT
-    / "model_test"
-    / "runs"
-    / "intersegment_epistasis_final_direct553"
-    / "datasets"
-    / "sequence_level_final_dataset_direct553_epistasis_final.tsv"
-)
-DEFAULT_OUTPUT_DIR = SCRIPT_DIR / "outputs_epistasis_final_direct553_egt"
+EVO_DIR = REPO_ROOT / "Scripts" / "EvolutionaryAnalysis"
+DEFAULT_DATASET = Path(
+    os.environ.get(
+        "HANTA_EVO_DATASET",
+        REPO_ROOT
+        / "model_test"
+        / "runs"
+        / "intersegment_epistasis_final_direct553"
+        / "datasets"
+        / "sequence_level_final_dataset_direct553_epistasis_final.tsv",
+    )
+).expanduser()
+DEFAULT_OUTPUT_DIR = Path(
+    os.environ.get("HANTA_EVO_OUTPUT_DIR", EVO_DIR / "outputs_epistasis_final_direct553_egt")
+).expanduser()
 
 BASE_EVENT_MEAN_FEATURES = [
     "overlap_opportunity_local",
@@ -125,9 +131,12 @@ def load_model08(args: argparse.Namespace):
         os.environ["HANTA_EVO_TREE_ROOT"] = str(args.tree_root)
     if args.labels is not None:
         os.environ["HANTA_EVO_MAIN_LABELS"] = str(args.labels)
-    if str(SCRIPT_DIR) not in sys.path:
-        sys.path.insert(0, str(SCRIPT_DIR))
-    path = SCRIPT_DIR / "08_fixation_establishment_model.py"
+    for search_dir in (EVO_DIR, SCRIPT_DIR):
+        if str(search_dir) not in sys.path:
+            sys.path.insert(0, str(search_dir))
+    path = EVO_DIR / "08_fixation_establishment_model.py"
+    if not path.exists():
+        path = SCRIPT_DIR / "08_fixation_establishment_model.py"
     spec = importlib.util.spec_from_file_location("egt_model08_for_epistasis", path)
     if spec is None or spec.loader is None:
         raise RuntimeError(f"Could not load {path}")

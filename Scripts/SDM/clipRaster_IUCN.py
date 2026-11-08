@@ -1,44 +1,4 @@
-"""Clip environmental raster layers by an IUCN (or any) species range polygon.
-
-Features
---------
-* Iterates over all rasters in an input directory (default: ../Covariates)
-* Reads a vector layer (GeoJSON/Shapefile/any format supported by GeoPandas)
-* Optional attribute filter (--where) to subset features
-* Optional buffer in kilometers applied in projected space (EPSG:3857)
-* Reprojects geometries to match each raster automatically
-* Writes out masked rasters with updated metadata
-* Skips rasters if an already clipped version exists unless --overwrite
-* Optional parallel execution (--workers)
-
-Usage (examples)
----------------
-python clipRaster_IUCN.py \
-	--vector ../Inputs/Abrothrix_longipilis.geojson \
-	--rasters-dir ../Covariates \
-	--out-dir ../Outputs/Abrothrix_longipilis/clipped \
-	--buffer-km 50
-
-Filter a single species out of a multi-species file:
-python clipRaster_IUCN.py \
-	--vector ranges_all_species.geojson \
-	--where "binomial == 'Abrothrix longipilis'" \
-	--out-dir ../Outputs/Abrothrix_longipilis/clipped
-
-Dependencies
-------------
-Required: geopandas, rasterio, shapely, pyproj
-Optional: tqdm (for nice progress bar)
-
-Install (if needed):
-pip install geopandas rasterio shapely pyproj tqdm
-
-Notes
------
-Buffering on geographic CRS is handled by temporarily reprojecting to EPSG:3857
-(Web Mercator). For large areas or polar regions you may prefer a custom equal-
-area projection; adapt `BUFFER_CRS` constant accordingly.
-"""
+"""Clip environmental raster layers by an IUCN (or any) species range polygon."""
 
 from __future__ import annotations
 
@@ -59,13 +19,13 @@ from shapely.geometry.base import BaseGeometry
 import shapely
 from pyproj import Transformer
 
-try:  # optional
-	from tqdm import tqdm  # type: ignore
-except Exception:  # pragma: no cover - optional dependency
-	tqdm = None  # type: ignore
+try:
+	from tqdm import tqdm
+except Exception:
+	tqdm = None
 
 
-BUFFER_CRS = "EPSG:3857"  # used for buffering in meters
+BUFFER_CRS = "EPSG:3857"
 
 
 @dataclass
@@ -85,14 +45,13 @@ def read_vector(vector_path: Path, where: Optional[str] = None) -> gpd.GeoDataFr
 	if where:
 		try:
 			gdf = gdf.query(where)
-		except Exception as e:  # provide clearer error
+		except Exception as e:
 			raise ValueError(f"Failed evaluating --where expression '{where}': {e}")
 		if gdf.empty:
 			raise ValueError(f"Attribute filter produced empty selection: {where}")
 	gdf = gdf[~gdf.geometry.is_empty & gdf.geometry.notnull()]
 	if gdf.empty:
 		raise ValueError("All geometries empty or null after filtering.")
-	# Dissolve into a single geometry (unary_union) to speed up masking
 	union_geom = unary_union(gdf.geometry.tolist())
 	return gpd.GeoDataFrame(index=[0], geometry=[union_geom], crs=gdf.crs)
 
@@ -108,10 +67,9 @@ def buffer_km(gdf: gpd.GeoDataFrame, buffer_km: float) -> gpd.GeoDataFrame:
 	for geom in gdf.geometry:
 		if geom.is_empty:
 			continue
-		# project to buffer CRS
-		projected = shapely.ops.transform(lambda x, y, z=None: transformer_to.transform(x, y), geom)  # type: ignore
+		projected = shapely.ops.transform(lambda x, y, z=None: transformer_to.transform(x, y), geom)
 		buffered = projected.buffer(buffer_km * 1000.0)
-		restored = shapely.ops.transform(lambda x, y, z=None: transformer_back.transform(x, y), buffered)  # type: ignore
+		restored = shapely.ops.transform(lambda x, y, z=None: transformer_back.transform(x, y), buffered)
 		buffered_geoms.append(restored)
 	if not buffered_geoms:
 		raise ValueError("No geometries remained after buffering.")
@@ -120,11 +78,7 @@ def buffer_km(gdf: gpd.GeoDataFrame, buffer_km: float) -> gpd.GeoDataFrame:
 
 
 def buffer_degrees(gdf: gpd.GeoDataFrame, buffer_deg: float, work_crs: str = BUFFER_CRS) -> gpd.GeoDataFrame:
-	"""
-	Buffer the geometry by an approximate degree distance.
-	The geometries are reprojected to `work_crs` (default: metric), buffered by
-	buffer_deg converted to meters, then reprojected back.
-	"""
+	"""Buffer geometry by an approximate degree distance via metric reprojection (`work_crs`)."""
 	if buffer_deg <= 0:
 		return gdf
 	if gdf.crs is None:
@@ -139,29 +93,7 @@ def buffer_degrees(gdf: gpd.GeoDataFrame, buffer_deg: float, work_crs: str = BUF
 
 
 def load_species_range(vector_path: Path, species_name: str, buffer_deg: float = 0.0) -> gpd.GeoDataFrame:
-	"""
-	Load and dissolve the IUCN range for the requested species name.
-
-	Parameters
-	----------
-	vector_path : Path
-		Path to the vector dataset (shapefile/GeoPackage/etc).
-	species_name : str
-		Species name. Underscores are converted to spaces for matching `sci_name`.
-	buffer_deg : float
-		Optional buffer (in degrees) applied in a geographic CRS (default EPSG:4326).
-
-	Returns
-	-------
-	GeoDataFrame with a single, dissolved geometry representing the species range.
-
-	Raises
-	------
-	FileNotFoundError
-		If the vector_path does not exist.
-	ValueError
-		If the species cannot be found in the dataset.
-	"""
+	"""Load and dissolve the IUCN range for `species_name` with an optional buffer in degrees."""
 	vector_path = Path(vector_path)
 	if not vector_path.exists():
 		raise FileNotFoundError(f"IUCN vector dataset not found: {vector_path}")
@@ -178,7 +110,7 @@ def load_species_range(vector_path: Path, species_name: str, buffer_deg: float =
 	if matches.empty:
 		raise ValueError(f"Species '{target_name}' not found in {vector_path.name}")
 
-	matches.geometry = matches.geometry.buffer(0)  # fix minor topology issues
+	matches.geometry = matches.geometry.buffer(0)
 	union_geom = unary_union([geom for geom in matches.geometry if geom and not geom.is_empty])
 	if union_geom.is_empty:
 		raise ValueError(f"Species '{target_name}' range geometry is empty after union.")
@@ -186,7 +118,7 @@ def load_species_range(vector_path: Path, species_name: str, buffer_deg: float =
 	out = gpd.GeoDataFrame(index=[0], geometry=[union_geom], crs=gdf.crs)
 	if buffer_deg > 0:
 		out = buffer_degrees(out, buffer_deg)
-	out.geometry = out.geometry.buffer(0)  # clean up self-intersections
+	out.geometry = out.geometry.buffer(0)
 	return out
 
 
@@ -233,7 +165,7 @@ def clip_single_raster(raster_path: Path, geom_gdf: gpd.GeoDataFrame, out_dir: P
 		return ClipJobResult(raster_path, out_path, True, "clipped")
 	except RasterioIOError as e:
 		return ClipJobResult(raster_path, out_path, False, f"RasterioIOError: {e}")
-	except Exception as e:  # broad catch to continue other rasters
+	except Exception as e:
 		return ClipJobResult(raster_path, out_path, False, f"Error: {e}")
 
 
@@ -253,7 +185,7 @@ def clip_rasters(
 			for fut in progress_wrapper(futures.as_completed(fut_map)):
 				try:
 					results.append(fut.result())
-				except Exception as e:  # improbable due to internal catching
+				except Exception as e:
 					r = fut_map[fut]
 					results.append(ClipJobResult(r, out_dir / r.name, False, f"Unhandled future exception: {e}"))
 	else:
@@ -298,7 +230,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 		overwrite=args.overwrite,
 		workers=max(1, args.workers),
 	)
-	# Summary
 	success = sum(1 for r in results if r.success)
 	skipped = sum(1 for r in results if r.message.startswith("exists"))
 	failed = [r for r in results if not r.success and not r.message.startswith("exists")]
@@ -310,5 +241,5 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 	return 0 if not failed else 1
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == "__main__":
 	raise SystemExit(main())

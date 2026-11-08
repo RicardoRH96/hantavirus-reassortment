@@ -1,24 +1,7 @@
 #!/usr/bin/env python3
 """
-Batch linkage disequilibrium runner using matched isolates from the
-puumala_espalier_pipeline outputs.
-
-By default, this script takes the conservative route: it loads the
-per-species alignments that have already been pruned to the common tip
-set (espalier/alignments/*_aligned_common.fasta) and restricts LD
-calculations to taxa present in every segment. If those common
-alignments are missing, it falls back to the Augur alignments built
-from matched isolates. An optional "allow-missing" strategy lets you
-compute LD without enforcing identical taxon sets.
-
-When alignments don't exist, this script can generate them from raw
-species input directories (as produced by split_hanta_master.py) by:
-1. Filtering sequences by length and metadata completeness
-2. Matching isolates across segments by canonical isolate name
-3. Running augur align on matched sequences
-
-LD is calculated ONLY between segments (S-M, S-L, M-L), not within
-segments, as within-segment LD is not relevant for reassortment studies.
+Batch inter-segment linkage disequilibrium (S-M, S-L, M-L) across matched
+hantavirus isolates from the Espalier + Augur pipeline.
 """
 
 from __future__ import annotations
@@ -43,23 +26,17 @@ from extened_ld_calculator import compute_ld_segment_pair
 
 LOGGER = logging.getLogger("batch_ld")
 
-
-# =============================================================================
-# Constants for segment inference and sequence filtering
-# =============================================================================
-
 SEGMENT_KEYWORDS = {
     "S": ["nucleocapsid", "n protein", "np protein", "small"],
     "M": ["glycoprotein", "gn", "gc", "gpc", "medium"],
     "L": ["rna-dependent", "polymerase", "rdp", "l segment"],
 }
 
-# Expected segment length ranges (min, max) for hantaviruses
-# Uses lenient ranges to accommodate partial sequences while excluding chimeras
+# Expected segment length bounds (bp) for S (~1.7-2.1 kb), M (~3.5-3.8 kb), and L (~6.4-6.6 kb).
 SEGMENT_LENGTH_RANGES = {
-    "S": (800, 2500),    # Small segment: complete ~1.7-2.1 kb, allow partial down to 800bp
-    "M": (2000, 4500),   # Medium segment: complete ~3.5-3.8 kb, allow partial down to 2000bp
-    "L": (4000, 7000),   # Large segment: complete ~6.4-6.6 kb, allow partial down to 4000bp
+    "S": (800, 2500),
+    "M": (2000, 4500),
+    "L": (4000, 7000),
 }
 
 ACC_PATTERN = re.compile(r"([A-Za-z0-9_]+(?:\.\d+)?)")
@@ -67,14 +44,10 @@ DATE_PATTERN = re.compile(r"^(?P<year>\d{4})(?:[-/](?P<month>\d{1,2})(?:[-/](?P<
 TITLE_ISOLATE_PATTERN = re.compile(r"(?:strain|isolate)\s+([^,;]+)", re.IGNORECASE)
 
 
-# =============================================================================
-# Data classes for sequence/isolate handling
-# =============================================================================
-
 @dataclass(frozen=True)
 class NormalizedDate:
     iso: str
-    precision: str  # year, month, day
+    precision: str
 
 
 @dataclass
@@ -111,12 +84,7 @@ class TipAssignment:
     present_segments: List[str]
 
 
-# =============================================================================
-# Helper functions for sequence processing (adapted from puumala_espalier_pipeline)
-# =============================================================================
-
 def clean_accession(value: str) -> str:
-    """Extract clean accession number from a string."""
     if not value:
         return ""
     match = ACC_PATTERN.search(value)
@@ -127,7 +95,6 @@ def clean_accession(value: str) -> str:
 
 
 def normalize_date(value: Optional[str]) -> Optional[NormalizedDate]:
-    """Parse date string into normalized ISO format with precision."""
     if not value:
         return None
     raw = value.strip()
@@ -151,7 +118,6 @@ def normalize_date(value: Optional[str]) -> Optional[NormalizedDate]:
 
 
 def derive_isolate_name(row: Dict[str, str], header: str) -> Optional[str]:
-    """Extract isolate name from metadata row or FASTA header."""
     candidates: List[str] = []
     for key in ("Isolate", "isolate", "Strain", "strain"):
         val = row.get(key)
@@ -172,7 +138,6 @@ def derive_isolate_name(row: Dict[str, str], header: str) -> Optional[str]:
 
 
 def canonicalize_isolate(value: str) -> str:
-    """Normalize isolate name to a canonical lowercase form for matching."""
     normalized = unicodedata.normalize("NFKD", value)
     ascii_text = normalized.encode("ascii", "ignore").decode("ascii")
     lowered = ascii_text.lower()
@@ -181,7 +146,6 @@ def canonicalize_isolate(value: str) -> str:
 
 
 def slugify_isolate(value: str, fallback: str) -> str:
-    """Create a URL-safe slug from isolate name."""
     normalized = unicodedata.normalize("NFKD", value)
     ascii_text = normalized.encode("ascii", "ignore").decode("ascii")
     cleaned = re.sub(r"[^A-Za-z0-9]+", "_", ascii_text).strip("_")
@@ -191,7 +155,6 @@ def slugify_isolate(value: str, fallback: str) -> str:
 
 
 def slugify_species(name: str) -> str:
-    """Create a URL-safe slug from species name."""
     normalized = unicodedata.normalize("NFKD", name)
     ascii_text = normalized.encode("ascii", "ignore").decode("ascii")
     cleaned = re.sub(r"[^A-Za-z0-9]+", "_", ascii_text).strip("_").lower()
@@ -199,14 +162,12 @@ def slugify_species(name: str) -> str:
 
 
 def read_tsv(path: Path) -> List[Dict[str, str]]:
-    """Read a TSV file into a list of dictionaries."""
     with path.open() as handle:
         reader = csv.DictReader(handle, delimiter="\t")
         return [row for row in reader]
 
 
 def read_fasta(path: Path) -> List[Tuple[str, str]]:
-    """Read a FASTA file into a list of (header, sequence) tuples."""
     records: List[Tuple[str, str]] = []
     header: Optional[str] = None
     seq_chunks: List[str] = []
@@ -228,14 +189,12 @@ def read_fasta(path: Path) -> List[Tuple[str, str]]:
 
 
 def select_longest(existing: Optional[SequenceEntry], incoming: SequenceEntry) -> SequenceEntry:
-    """Return the longer of two sequence entries."""
     if existing is None or incoming.length > existing.length:
         return incoming
     return existing
 
 
 def choose_display(displays: Iterable[str], fallback: str) -> str:
-    """Choose the best display name from candidates."""
     valid = [d for d in displays if d]
     if not valid:
         return fallback
@@ -244,7 +203,6 @@ def choose_display(displays: Iterable[str], fallback: str) -> str:
 
 
 def choose_date(dates: Iterable[NormalizedDate]) -> NormalizedDate:
-    """Choose the most precise date from candidates."""
     order = {"day": 2, "month": 1, "year": 0}
     best = None
     best_score = -1
@@ -260,13 +218,7 @@ def choose_date(dates: Iterable[NormalizedDate]) -> NormalizedDate:
     return best
 
 
-# =============================================================================
-# Augur alignment runner
-# =============================================================================
-
 class AugurRunner:
-    """Run Augur alignment commands."""
-
     def __init__(self, binary: str = "augur", threads: int = 4) -> None:
         self.binary = binary
         self.threads = threads
@@ -291,18 +243,7 @@ class AugurRunner:
         self.run(args)
 
 
-# =============================================================================
-# Segment discovery and processing functions
-# =============================================================================
-
 def discover_segment_files(data_root: Path, segment: str) -> Tuple[Path, Path, Optional[Path]]:
-    """
-    Discover FASTA and metadata files for a segment in a species input directory.
-
-    Expected structure:
-        data_root/<segment>_segment/sequences.fasta
-        data_root/<segment>_segment/metadata.tsv
-    """
     segment_dir = data_root / f"{segment}_segment"
     if not segment_dir.exists():
         raise FileNotFoundError(f"Missing directory for segment {segment}: {segment_dir}")
@@ -336,10 +277,6 @@ def process_segment(
     segment: str,
     length_threshold: float = 0.7,
 ) -> SegmentResult:
-    """
-    Process a segment's raw sequences: filter by length, metadata, and date.
-    Returns a SegmentResult containing kept sequences keyed by canonical isolate.
-    """
     fasta_path, metadata_path, ref_path = discover_segment_files(data_root, segment)
     LOGGER.debug("Processing segment %s (FASTA=%s, metadata=%s)", segment, fasta_path.name, metadata_path.name)
 
@@ -354,13 +291,10 @@ def process_segment(
     if not fasta_records:
         raise ValueError(f"No sequences found in {fasta_path}")
 
-    # Use predefined length ranges for segment filtering
-    # This avoids issues with mislabeled sequences inflating max_length
     length_range = SEGMENT_LENGTH_RANGES.get(segment.upper())
     if length_range:
         min_length, max_length = length_range
     else:
-        # Fallback: use data-derived max with threshold
         max_length = max(len(seq) for _, seq in fasta_records)
         min_length = max_length * length_threshold
 
@@ -415,10 +349,6 @@ def process_segment(
 
 
 def build_tip_assignments(segment_results: Sequence[SegmentResult]) -> Dict[str, TipAssignment]:
-    """
-    Build tip name assignments by matching isolates across segments.
-    Returns a dict mapping canonical isolate -> TipAssignment.
-    """
     isolates: Dict[str, Dict[str, object]] = {}
     for result in segment_results:
         for canonical, entry in result.sequences.items():
@@ -455,10 +385,6 @@ def partition_isolates(
     assignments: Dict[str, TipAssignment],
     required_segments: Sequence[str],
 ) -> Tuple[List[str], List[str]]:
-    """
-    Partition isolates into matched (have all required segments) and partial.
-    Returns (matched_canonical_isolates, partial_canonical_isolates).
-    """
     matched: List[str] = []
     partial: List[str] = []
     required = set(required_segments)
@@ -472,7 +398,6 @@ def partition_isolates(
 
 
 def load_species_label(dataset_root: Path) -> Tuple[str, str]:
-    """Load species label and slug from species_info.json or directory name."""
     info_file = dataset_root / "species_info.json"
     if info_file.exists():
         try:
@@ -494,19 +419,8 @@ def generate_alignments_for_species(
     min_taxa: int,
     threads: int = 4,
 ) -> Dict[str, Path]:
-    """
-    Generate alignments for a species from raw input data.
-
-    1. Process each segment to filter sequences
-    2. Match isolates across segments
-    3. Write matched FASTAs
-    4. Run augur align
-
-    Returns a dict mapping segment -> aligned FASTA path.
-    """
     LOGGER.info("Generating alignments for %s", species_input_dir.name)
 
-    # Process each segment
     segment_results: List[SegmentResult] = []
     for segment in segments:
         try:
@@ -523,7 +437,6 @@ def generate_alignments_for_species(
         LOGGER.warning("Need at least 2 segments for LD; %s has %d.", species_input_dir.name, len(segment_results))
         return {}
 
-    # Build tip assignments and partition isolates
     assignments = build_tip_assignments(segment_results)
     available = [r.segment for r in segment_results]
     matched_isolates, _ = partition_isolates(assignments, available)
@@ -544,7 +457,6 @@ def generate_alignments_for_species(
         ",".join(available),
     )
 
-    # Create output directories
     augur_dir = species_output_dir / "augur"
     augur_dir.mkdir(parents=True, exist_ok=True)
 
@@ -555,7 +467,6 @@ def generate_alignments_for_species(
         seg_augur_dir = augur_dir / result.segment
         seg_augur_dir.mkdir(parents=True, exist_ok=True)
 
-        # Write matched FASTA with harmonized tip names
         matched_fasta = seg_augur_dir / f"{result.segment}_matched.fasta"
         records: List[Tuple[str, str]] = []
         for canonical in sorted(matched_isolates):
@@ -566,7 +477,6 @@ def generate_alignments_for_species(
 
         write_fasta(matched_fasta, records)
 
-        # Run alignment
         aligned_path = seg_augur_dir / f"{result.segment}_aligned.fasta"
         try:
             runner.align(matched_fasta, aligned_path, result.reference_path)
@@ -577,10 +487,6 @@ def generate_alignments_for_species(
 
     return alignments
 
-
-# =============================================================================
-# Argument parsing and main functions
-# =============================================================================
 
 def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Compute LD for all species using matched isolates.")
@@ -726,11 +632,6 @@ def prepare_alignments_for_ld(
     strategy: str,
     min_taxa: int,
 ) -> Tuple[Dict[str, Path], int]:
-    """
-    Normalize alignments into a dedicated ld/inputs folder. When strategy is
-    conservative, we prune to taxa present in every segment; otherwise we
-    copy alignments as-is and allow the LD calculator to pair by order.
-    """
     if len(alignments) < 2:
         return {}, 0
     input_dir = species_dir / "ld" / strategy / "inputs"
@@ -760,7 +661,6 @@ def prepare_alignments_for_ld(
             alignments[seg] = dest
         return alignments, len(common_taxa)
 
-    # allow-missing: copy alignments without pruning
     min_records = None
     for seg, path in alignments.items():
         dest = input_dir / f"{seg}.fasta"
@@ -792,11 +692,9 @@ def compute_ld_for_species(
     output_dir = ld_dir / ("conservative" if enforce_taxa else "allow-missing")
     output_dir.mkdir(parents=True, exist_ok=True)
     input_dir = output_dir / "inputs"
-    # alignments already materialized into input_dir; ensure we point there
     input_dir.mkdir(parents=True, exist_ok=True)
     all_dfs: List[pd.DataFrame] = []
     segs = [s for s in segments if s in alignments]
-    # Only compute LD between segments (not within segments) for reassortment studies
     for idx, segA in enumerate(segs):
         for segB in segs[idx + 1:]:
             df = compute_ld_segment_pair(
@@ -825,10 +723,6 @@ def compute_ld_for_species(
 
 
 def list_species_input_dirs(species_root: Path, allowed: Optional[Iterable[str]]) -> List[Tuple[Path, str, str]]:
-    """
-    List species input directories from the species_root.
-    Returns list of (input_dir, species_label, slug) tuples.
-    """
     requested = {a.lower() for a in allowed} if allowed else None
     dirs: List[Tuple[Path, str, str]] = []
     for child in sorted(species_root.iterdir()):
@@ -842,7 +736,6 @@ def list_species_input_dirs(species_root: Path, allowed: Optional[Iterable[str]]
 
 
 def run(args: argparse.Namespace) -> None:
-    # Mode 1: Generate alignments from species-root if requested
     if args.generate_alignments and args.species_root:
         if not args.species_root.exists():
             raise SystemExit(f"Species root does not exist: {args.species_root}")
@@ -858,7 +751,6 @@ def run(args: argparse.Namespace) -> None:
             species_output_dir = args.pipeline_root / slug
             species_output_dir.mkdir(parents=True, exist_ok=True)
 
-            # Check if alignments already exist (skip check if --force-regenerate)
             if not args.force_regenerate:
                 existing_alignments = collect_alignments(species_output_dir, args.segments, args.use_common_alignments)
                 if len(existing_alignments) >= 2:
@@ -871,7 +763,6 @@ def run(args: argparse.Namespace) -> None:
                 alignments = None
 
             if alignments is None:
-                # Generate alignments from raw inputs
                 alignments = generate_alignments_for_species(
                     species_input_dir=species_input_dir,
                     species_output_dir=species_output_dir,
@@ -883,7 +774,6 @@ def run(args: argparse.Namespace) -> None:
                     LOGGER.warning("Failed to generate alignments for %s; skipping.", slug)
                     continue
 
-            # Prepare alignments for LD and compute
             ready_alignments, n_taxa = prepare_alignments_for_ld(
                 species_dir=species_output_dir,
                 alignments=alignments,
@@ -909,7 +799,6 @@ def run(args: argparse.Namespace) -> None:
             )
         return
 
-    # Mode 2: Use existing alignments from pipeline-root (original behavior)
     species_dirs = list_species_dirs(args.pipeline_root, args.species)
     if not species_dirs:
         raise SystemExit(f"No species directories found under {args.pipeline_root}")
@@ -929,7 +818,6 @@ def run(args: argparse.Namespace) -> None:
         if not ready_alignments:
             continue
         enforce = args.strategy == "conservative"
-        # Alignments were rewritten into ld/<strategy>/inputs during preparation.
         compute_ld_for_species(
             species_dir=species_dir,
             alignments=ready_alignments,

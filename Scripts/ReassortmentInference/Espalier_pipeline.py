@@ -32,13 +32,13 @@ from pathlib import Path
 from typing import Callable, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
 try:
-    import pandas as pd  # type: ignore
-except ImportError:  # pragma: no cover - optional dependency
+    import pandas as pd
+except ImportError:
     pd = None
 
 try:
-    import dendropy  # type: ignore
-except ImportError:  # pragma: no cover - optional dependency
+    import dendropy
+except ImportError:
     dendropy = None
 else:
     DENDROPY_DEFAULTS = {
@@ -81,7 +81,7 @@ LOGGER = logging.getLogger("puumala_pipeline")
 @dataclass(frozen=True)
 class NormalizedDate:
     iso: str
-    precision: str  # year, month, day
+    precision: str
 
 
 @dataclass
@@ -158,7 +158,7 @@ def load_species_label(dataset_root: Path) -> Tuple[str, str]:
             species_label = info.get("species_label") or info.get("species") or dataset_root.name
             slug = info.get("slug") or slugify_species(species_label)
             return species_label, slug
-        except Exception as exc:  # pragma: no cover - best effort
+        except Exception as exc:
             LOGGER.warning("Failed to parse %s (%s); using directory name.", info_file, exc)
     species_label = dataset_root.name
     slug = slugify_species(species_label)
@@ -177,9 +177,6 @@ def pushd(path: Path):
 
 
 def enumerate_dataset_roots(args: argparse.Namespace) -> List[Tuple[str, Path, str]]:
-    """
-    Returns a list of tuples (species_label, dataset_root, slug).
-    """
     dataset_entries: List[Tuple[str, Path, str]] = []
     if args.species_root:
         if not args.species_root.exists():
@@ -334,7 +331,7 @@ def configure_espalier_imports(espalier_path: Optional[Path]) -> None:
             sys.path.insert(0, str(resolved))
         LOGGER.info("Preferring Espalier from %s", resolved)
     try:
-        from Espalier import MAF as maf_mod  # type: ignore
+        from Espalier import MAF as maf_mod
     except ImportError:
         LOGGER.debug("Espalier not available; skipping optional imports.", exc_info=True)
         MAF = None
@@ -373,7 +370,6 @@ def discover_segment_files(data_root: Path, segment: str) -> Tuple[Path, Path, O
     if ref_candidate.exists():
         ref_path = ref_candidate
     else:
-        # fall back to global TreeGrafting/refs if present
         global_ref = Path("Data") / "TreeGrafting" / "refs" / f"Puumala_{segment}_Ref.fasta"
         if global_ref.exists():
             ref_path = global_ref
@@ -796,8 +792,8 @@ def patch_espalier_reconciler_taxon_lookup() -> None:
     We patch the runtime class to accept both the raw FASTA IDs and the
     whitespace-expanded form.
     """
-    import Espalier.Reconciler as Rmod  # type: ignore
-    import Espalier.RAxML as RXmod  # type: ignore
+    import Espalier.Reconciler as Rmod
+    import Espalier.RAxML as RXmod
 
     if getattr(Rmod.Reconciler, "_hanta_taxon_lookup_patched", False) and getattr(RXmod.RAxMLRunner, "_hanta_tree_sanitize_patched", False):
         return
@@ -1243,10 +1239,10 @@ def run_espalier_arg(
     require_module(dendropy, "Espalier ARG reconstruction")
     patch_espalier_reconciler_taxon_lookup()
     try:
-        from Espalier.Reconciler import Reconciler  # type: ignore
-        from Espalier.RAxML import RAxMLRunner  # type: ignore
-        from Espalier.ARGBuilder import ARGBuilder  # type: ignore
-    except ImportError as exc:  # pragma: no cover - requires optional dependency
+        from Espalier.Reconciler import Reconciler
+        from Espalier.RAxML import RAxMLRunner
+        from Espalier.ARGBuilder import ARGBuilder
+    except ImportError as exc:
         raise RuntimeError("Espalier is not available but --run-espalier was requested.") from exc
     segments = sorted(set(binary_trees.keys()) & set(common_alignments.keys()))
     if len(segments) < 2:
@@ -1475,7 +1471,12 @@ class AugurRunner:
     def __init__(self, binary: str = "augur", threads: int = 4) -> None:
         self.binary = binary
         self.threads = threads
-        self.retry_script = Path(__file__).resolve().parents[3] / "model_test" / "scripts" / "retry_augur_tree_dna_safe.py"
+        local_retry = Path(__file__).resolve().parent / "retry_augur_tree_dna_safe.py"
+        self.retry_script = (
+            local_retry
+            if local_retry.exists()
+            else Path(__file__).resolve().parents[2] / "model_test" / "scripts" / "retry_augur_tree_dna_safe.py"
+        )
 
     def run(self, args: Sequence[str], cwd: Optional[Path] = None) -> None:
         cmd = [self.binary, *args]
@@ -1646,12 +1647,8 @@ def run_augur_pipeline(
 
 
 def convert_nexus_to_newick(nexus_path: Path, out_path: Path) -> Path:
-    """
-    Convert Augur's Nexus tree into a Newick file.
-    """
     raw_text = nexus_path.read_text().strip()
     if raw_text.startswith("(") and raw_text.endswith(";"):
-        # Already Newick; just copy/normalize.
         out_path.write_text(raw_text + ("\n" if not raw_text.endswith("\n") else ""))
         return out_path
     if dendropy is not None:
@@ -1696,6 +1693,6 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
 if __name__ == "__main__":
     try:
         main()
-    except Exception as exc:  # pragma: no cover
+    except Exception as exc:
         LOGGER.error("Pipeline failed: %s", exc)
         sys.exit(1)

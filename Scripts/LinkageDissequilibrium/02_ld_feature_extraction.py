@@ -1,16 +1,7 @@
 #!/usr/bin/env python3
 """
-LD Feature Extraction for Reassortment ML Models
-=================================================
-
-Extracts features from linkage disequilibrium analyses for predicting
-reassortment frequency/probability. Supports both species-level summary
-features and sequence-level position-specific features.
-
-Features extracted:
-1. Species-level LD summary statistics (mean r², proportion significant, etc.)
-2. Cross-species conserved LD sites (positions linked in multiple species)
-3. Sequence-level features (NT/AA identity at conserved LD positions)
+Extract species-level LD summaries, cross-species conserved LD site pairs, and
+per-sequence nucleotide/haplotype features for reassortment modeling.
 """
 
 from __future__ import annotations
@@ -28,8 +19,7 @@ from Bio import AlignIO
 
 LOGGER = logging.getLogger("ld_features")
 
-# Significance thresholds
-R2_THRESHOLD = 0.1  # r² threshold for "significant" LD
+R2_THRESHOLD = 0.1
 CRAMERS_V_THRESHOLD = 0.1
 NMI_THRESHOLD = 0.05
 P_VALUE_THRESHOLD = 0.05
@@ -37,7 +27,6 @@ P_VALUE_THRESHOLD = 0.05
 
 @dataclass
 class LDSitePair:
-    """Represents a pair of linked sites between segments."""
     segment_a: str
     segment_b: str
     site_a: int
@@ -53,11 +42,9 @@ class LDSitePair:
 
 @dataclass
 class SpeciesLDSummary:
-    """Summary LD statistics for a species."""
     species: str
     n_isolates: int
 
-    # Per segment-pair statistics
     mean_cramers_v_SM: float = 0.0
     mean_cramers_v_SL: float = 0.0
     mean_cramers_v_ML: float = 0.0
@@ -82,18 +69,15 @@ class SpeciesLDSummary:
     n_significant_SL: int = 0
     n_significant_ML: int = 0
 
-    # Overall statistics
     mean_cramers_v_overall: float = 0.0
     median_cramers_v_overall: float = 0.0
     mean_nmi_overall: float = 0.0
     prop_significant_overall: float = 0.0
 
-    # LD heterogeneity
     cramers_v_variance: float = 0.0
     cramers_v_skewness: float = 0.0
 
     def to_dict(self) -> Dict:
-        """Convert to dictionary for DataFrame construction."""
         return {
             "species": self.species,
             "n_isolates": self.n_isolates,
@@ -126,10 +110,9 @@ class SpeciesLDSummary:
 
 @dataclass
 class ConservedLDSite:
-    """A site pair with LD conserved across multiple species."""
     segment_a: str
     segment_b: str
-    site_a: int  # Position in alignment
+    site_a: int
     site_b: int
     species_with_ld: List[str] = field(default_factory=list)
     mean_cramers_v: float = 0.0
@@ -145,21 +128,13 @@ class ConservedLDSite:
 
 
 def load_ld_results(ld_csv_path: Path) -> pd.DataFrame:
-    """Load LD results from CSV file."""
-    df = pd.read_csv(ld_csv_path)
-    return df
+    return pd.read_csv(ld_csv_path)
 
 
 def load_all_species_ld(
     pipeline_root: Path,
     species_list: Optional[List[str]] = None,
 ) -> Dict[str, Dict[str, pd.DataFrame]]:
-    """
-    Load LD results for all species.
-
-    Returns:
-        Dict mapping species -> segment_pair -> DataFrame
-    """
     results = {}
 
     for species_dir in sorted(pipeline_root.iterdir()):
@@ -193,10 +168,6 @@ def compute_species_summary(
     ld_data: Dict[str, pd.DataFrame],
     cramers_v_threshold: float = CRAMERS_V_THRESHOLD,
 ) -> SpeciesLDSummary:
-    """
-    Compute summary LD statistics for a single species.
-    """
-    # Get sample size from any segment pair
     n_isolates = 0
     for df in ld_data.values():
         if len(df) > 0 and "n_strains" in df.columns:
@@ -220,14 +191,12 @@ def compute_species_summary(
 
         suffix = segment_pair_map[seg_pair][0]
 
-        # Filter valid rows
         cramers_v_col = df["CramerV"].dropna()
         nmi_col = df["NMI"].dropna() if "NMI" in df.columns else pd.Series([])
 
         if len(cramers_v_col) == 0:
             continue
 
-        # Compute statistics
         mean_cv = cramers_v_col.mean()
         median_cv = cramers_v_col.median()
         n_pairs = len(cramers_v_col)
@@ -236,7 +205,6 @@ def compute_species_summary(
 
         mean_nmi = nmi_col.mean() if len(nmi_col) > 0 else 0.0
 
-        # Set attributes dynamically
         setattr(summary, f"mean_cramers_v_{suffix}", mean_cv)
         setattr(summary, f"median_cramers_v_{suffix}", median_cv)
         setattr(summary, f"mean_nmi_{suffix}", mean_nmi)
@@ -247,14 +215,12 @@ def compute_species_summary(
         all_cramers_v.extend(cramers_v_col.tolist())
         all_nmi.extend(nmi_col.tolist())
 
-    # Overall statistics
     if all_cramers_v:
         all_cv = np.array(all_cramers_v)
         summary.mean_cramers_v_overall = float(np.mean(all_cv))
         summary.median_cramers_v_overall = float(np.median(all_cv))
         summary.cramers_v_variance = float(np.var(all_cv))
         if len(all_cv) > 2:
-            # Skewness
             summary.cramers_v_skewness = float(
                 pd.Series(all_cv).skew()
             )
@@ -273,11 +239,6 @@ def extract_species_level_features(
     species_list: Optional[List[str]] = None,
     cramers_v_threshold: float = CRAMERS_V_THRESHOLD,
 ) -> pd.DataFrame:
-    """
-    Extract species-level LD summary features for ML.
-
-    Returns DataFrame with one row per species.
-    """
     ld_data = load_all_species_ld(pipeline_root, species_list)
 
     summaries = []
@@ -285,8 +246,7 @@ def extract_species_level_features(
         summary = compute_species_summary(species, data, cramers_v_threshold)
         summaries.append(summary.to_dict())
 
-    df = pd.DataFrame(summaries)
-    return df
+    return pd.DataFrame(summaries)
 
 
 def find_conserved_ld_sites(
@@ -295,15 +255,8 @@ def find_conserved_ld_sites(
     cramers_v_threshold: float = CRAMERS_V_THRESHOLD,
     species_list: Optional[List[str]] = None,
 ) -> List[ConservedLDSite]:
-    """
-    Find site pairs with significant LD in multiple species.
-
-    These represent potentially functionally constrained co-evolving positions
-    that may resist reassortment.
-    """
     ld_data = load_all_species_ld(pipeline_root, species_list)
 
-    # site_key -> {species: cramers_v}
     site_species_map: Dict[Tuple, Dict[str, float]] = defaultdict(dict)
     site_nmi_map: Dict[Tuple, Dict[str, float]] = defaultdict(dict)
 
@@ -311,7 +264,6 @@ def find_conserved_ld_sites(
         for seg_pair, df in seg_data.items():
             seg_a, seg_b = seg_pair.split("_")
 
-            # Filter to significant LD
             significant = df[df["CramerV"] >= cramers_v_threshold]
 
             for _, row in significant.iterrows():
@@ -320,7 +272,6 @@ def find_conserved_ld_sites(
                 if "NMI" in row and pd.notna(row["NMI"]):
                     site_nmi_map[site_key][species] = row["NMI"]
 
-    # Filter to sites present in multiple species
     conserved_sites = []
     for site_key, species_values in site_species_map.items():
         if len(species_values) >= min_species:
@@ -335,7 +286,6 @@ def find_conserved_ld_sites(
             )
             conserved_sites.append(site)
 
-    # Sort by number of species and then by mean Cramér's V
     conserved_sites.sort(key=lambda x: (-x.n_species, -x.mean_cramers_v))
 
     LOGGER.info("Found %d conserved LD site pairs (in >= %d species)",
@@ -345,7 +295,6 @@ def find_conserved_ld_sites(
 
 
 def conserved_sites_to_dataframe(sites: List[ConservedLDSite]) -> pd.DataFrame:
-    """Convert conserved LD sites to DataFrame."""
     records = []
     for site in sites:
         records.append({
@@ -362,7 +311,6 @@ def conserved_sites_to_dataframe(sites: List[ConservedLDSite]) -> pd.DataFrame:
 
 
 def load_alignment(fasta_path: Path) -> Dict[str, str]:
-    """Load alignment as dict of {sequence_id: sequence}."""
     aln = AlignIO.read(fasta_path, "fasta")
     return {rec.id: str(rec.seq) for rec in aln}
 
@@ -373,17 +321,8 @@ def extract_sequence_features_at_sites(
     top_n: Optional[int] = None,
 ) -> pd.DataFrame:
     """
-    Extract nucleotide/amino acid features at conserved LD positions
-    for each sequence in the alignment.
-
-    Parameters:
-        alignment_dir: Directory containing S.fasta, M.fasta, L.fasta
-        conserved_sites: List of conserved LD sites to extract features from
-        top_n: Only use top N most conserved sites (by n_species, then cramers_v)
-
-    Returns:
-        DataFrame with sequence IDs as index and features as columns.
-        Column names are like "S_15_M_42" for site 15 in S linked to site 42 in M.
+    Extract nucleotide and two-locus haplotype states at conserved LD positions.
+    Column names follow `<seg>_<pos>` and `<segA>_<posA>_<segB>_<posB>`.
     """
     if top_n:
         sites_to_use = conserved_sites[:top_n]
@@ -393,7 +332,6 @@ def extract_sequence_features_at_sites(
     if not sites_to_use:
         return pd.DataFrame()
 
-    # Load alignments
     alignments: Dict[str, Dict[str, str]] = {}
     for seg in ["S", "M", "L"]:
         fasta_path = alignment_dir / f"{seg}.fasta"
@@ -404,7 +342,6 @@ def extract_sequence_features_at_sites(
         LOGGER.warning("No alignments found in %s", alignment_dir)
         return pd.DataFrame()
 
-    # Get common sequence IDs across all segments
     common_ids = set(alignments[list(alignments.keys())[0]].keys())
     for seg_aln in alignments.values():
         common_ids &= set(seg_aln.keys())
@@ -414,8 +351,6 @@ def extract_sequence_features_at_sites(
         return pd.DataFrame()
 
     common_ids = sorted(common_ids)
-
-    # Extract features
     feature_data = {seq_id: {} for seq_id in common_ids}
 
     for site in sites_to_use:
@@ -436,17 +371,14 @@ def extract_sequence_features_at_sites(
             seq_a = aln_a.get(seq_id, "")
             seq_b = aln_b.get(seq_id, "")
 
-            # Get nucleotides at positions (0-indexed in alignment).
-            # Ambiguous N states are treated as missing rather than modeled as a category.
+            # Ambiguous N states are treated as missing rather than a distinct allele category.
             nt_a = seq_a[pos_a] if pos_a < len(seq_a) else "N"
             nt_b = seq_b[pos_b] if pos_b < len(seq_b) else "N"
             nt_a = pd.NA if nt_a == "N" else nt_a
             nt_b = pd.NA if nt_b == "N" else nt_b
 
-            # Store individual position features
             feature_data[seq_id][col_name_a] = nt_a
             feature_data[seq_id][col_name_b] = nt_b
-            # Store haplotype feature only when both positions are resolved.
             feature_data[seq_id][col_name_pair] = (
                 pd.NA if pd.isna(nt_a) or pd.isna(nt_b) else f"{nt_a}{nt_b}"
             )
@@ -462,14 +394,6 @@ def extract_all_sequence_features(
     conserved_sites: List[ConservedLDSite],
     top_n: Optional[int] = 50,
 ) -> pd.DataFrame:
-    """
-    Extract sequence-level features for all species.
-
-    Returns DataFrame with columns:
-    - species: species name
-    - sequence_id: sequence identifier
-    - Feature columns for each conserved LD site
-    """
     all_features = []
 
     for species_dir in sorted(pipeline_root.iterdir()):
@@ -500,21 +424,7 @@ def compute_ld_site_variability(
     pipeline_root: Path,
     species_list: Optional[List[str]] = None,
 ) -> pd.DataFrame:
-    """
-    For each site pair, compute variability of LD across species.
-
-    Sites with HIGH variance in LD across species may indicate:
-    - Species-specific epistasis
-    - Different selection pressures
-    - Different reassortment histories
-
-    Sites with LOW variance:
-    - Conserved functional constraint
-    - Universal epistasis
-    """
     ld_data = load_all_species_ld(pipeline_root, species_list)
-
-    # Collect all site pairs and their LD values across species
     site_values: Dict[Tuple, List[Tuple[str, float]]] = defaultdict(list)
 
     for species, seg_data in ld_data.items():
@@ -527,7 +437,6 @@ def compute_ld_site_variability(
                 site_key = (seg_a, seg_b, int(row["site1"]), int(row["site2"]))
                 site_values[site_key].append((species, row["CramerV"]))
 
-    # Compute variability statistics
     records = []
     for site_key, values in site_values.items():
         if len(values) < 2:
@@ -561,18 +470,7 @@ def encode_nucleotide_features(
     df: pd.DataFrame,
     columns: Optional[List[str]] = None,
 ) -> pd.DataFrame:
-    """
-    One-hot encode nucleotide features.
-
-    Parameters:
-        df: DataFrame with nucleotide columns (A, C, G, T, -)
-        columns: Columns to encode (if None, encode all single-char columns)
-
-    Returns:
-        DataFrame with one-hot encoded features
-    """
     if columns is None:
-        # Find columns with single nucleotide values
         columns = [c for c in df.columns
                    if df[c].dtype == object and
                    df[c].str.len().max() == 1 and
@@ -613,7 +511,7 @@ def parse_args():
         "--cramers-v-threshold",
         type=float,
         default=0.1,
-        help="Cramér's V threshold for significant LD (default: 0.1)",
+        help="Cramer's V threshold for significant LD (default: 0.1)",
     )
     parser.add_argument(
         "--top-n-sites",
@@ -643,7 +541,6 @@ def main():
 
     LOGGER.info("Extracting LD features from %s", args.pipeline_root)
 
-    # 1. Species-level summary features
     LOGGER.info("Computing species-level LD summaries...")
     species_features = extract_species_level_features(
         args.pipeline_root,
@@ -655,7 +552,6 @@ def main():
     print(f"\nSpecies-level features ({len(species_features)} species):")
     print(species_features.to_string())
 
-    # 2. Find conserved LD sites
     LOGGER.info("Finding conserved LD sites...")
     conserved_sites = find_conserved_ld_sites(
         args.pipeline_root,
@@ -671,14 +567,12 @@ def main():
         print(f"\nTop conserved LD sites (n={len(conserved_sites)}):")
         print(conserved_df.head(20).to_string())
 
-    # 3. Site variability across species
     LOGGER.info("Computing site-level LD variability...")
     variability_df = compute_ld_site_variability(args.pipeline_root)
     variability_out = args.output_dir / "ld_site_variability.csv"
     variability_df.to_csv(variability_out, index=False)
     LOGGER.info("Wrote site variability to %s", variability_out)
 
-    # 4. Sequence-level features at conserved sites
     if conserved_sites:
         LOGGER.info("Extracting sequence-level features at top %d conserved sites...",
                    args.top_n_sites)
@@ -694,8 +588,6 @@ def main():
             LOGGER.info("Wrote sequence features for %d sequences to %s",
                        len(seq_features), seq_out)
 
-            # Also save one-hot encoded version
-            # Only encode single-nucleotide columns (not haplotype columns)
             nt_cols = [c for c in seq_features.columns
                       if c not in ["species", "sequence_id"] and
                       "_" in c and c.count("_") <= 1]

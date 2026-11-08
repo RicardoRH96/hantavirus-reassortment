@@ -134,7 +134,7 @@ def make_faceted_ribbons(df: pd.DataFrame, out_dir: Path, max_species: int = 12)
         if feature_df.empty:
             continue
 
-        feature_df = feature_df.sort_values(["species", "feature_value"])  # ensure monotonic lines
+        feature_df = feature_df.sort_values(["species", "feature_value"])
 
         g = sns.FacetGrid(
             feature_df,
@@ -269,7 +269,6 @@ def make_pca(feature_data: Dict[str, Dict[str, np.ndarray]], out_dir: Path, n_co
         else:
             vectors.append(np.concatenate(parts))
             continue
-        # species missing data for some feature: skip
     if not vectors:
         print("[WARN] PCA skipped: no species with complete curve coverage.")
         return

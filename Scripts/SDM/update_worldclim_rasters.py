@@ -23,20 +23,17 @@ WORLDCLIM_URLS = [
 
 
 def download_file(url: str, destination: Path) -> None:
-    """Download a file to the given destination path."""
     destination.parent.mkdir(parents=True, exist_ok=True)
     urllib.request.urlretrieve(url, destination)
 
 
 def extract_zip(archive: Path, destination: Path) -> List[Path]:
-    """Extract a zip archive and return all TIFF files contained within."""
     with zipfile.ZipFile(archive) as zf:
         zf.extractall(destination)
     return list(destination.rglob("*.tif"))
 
 
 def remove_existing_rasters(target_dir: Path, prefix: str = "wc2.1_5m") -> List[str]:
-    """Remove rasters in target_dir that start with the given prefix."""
     removed: List[str] = []
     for raster in target_dir.glob(f"{prefix}*.tif"):
         raster.unlink()
@@ -45,7 +42,6 @@ def remove_existing_rasters(target_dir: Path, prefix: str = "wc2.1_5m") -> List[
 
 
 def move_new_rasters(rasters: Iterable[Path], destination: Path) -> List[str]:
-    """Move rasters into destination, replacing if they already exist."""
     moved: List[str] = []
     for raster in rasters:
         target = destination / raster.name

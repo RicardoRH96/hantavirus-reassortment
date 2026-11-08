@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 
 import baltic as bt
@@ -12,18 +13,25 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_TREE_ROOT = (
-    REPO_ROOT
-    / "model_test"
-    / "runs"
-    / "direct516_plus_pathoplexus_andes_egt"
-    / "tree_roots_common61"
-)
+REPO_ROOT = Path(__file__).resolve().parents[2]
+SCRIPT_DIR = Path(__file__).resolve().parent
+DEFAULT_TREE_ROOT = Path(
+    os.environ.get(
+        "HANTA_EVO_TREE_ROOT",
+        REPO_ROOT
+        / "model_test"
+        / "runs"
+        / "direct516_plus_pathoplexus_andes_egt"
+        / "tree_roots_common61",
+    )
+).expanduser()
 DEFAULT_OUTPUT_DIR = (
-    REPO_ROOT
-    / "specific_evolutionary_analyses"
-    / "outputs_direct516_pathoplexus_andes"
+    Path(
+        os.environ.get(
+            "HANTA_EVO_OUTPUT_DIR",
+            SCRIPT_DIR / "outputs_direct516_pathoplexus_andes",
+        )
+    ).expanduser()
     / "tree_length_diagnostics"
 )
 

@@ -120,7 +120,6 @@ def main() -> None:
     print("[INFO] Top features by univariate AUC (effect size, max(auc,1-auc)):")
     print(summary.head(15).to_string(index=False))
 
-    # Correlation analysis (median-imputed)
     corr_threshold = float(args.corr_threshold)
     X_imp = _impute_median(num)
     corr = X_imp.corr().abs()
@@ -141,7 +140,6 @@ def main() -> None:
     for v, a, b in pairs[: int(args.top_pairs)]:
         print(f"  {v:0.3f}  {a}  ~  {b}")
 
-    # Greedy suggestion: drop one from each correlated pair based on univariate AUC effect.
     auc_map = dict(zip(summary["feature"], summary["auc_effect"]))
     keep = set(features)
     dropped: List[Tuple[str, str, float]] = []

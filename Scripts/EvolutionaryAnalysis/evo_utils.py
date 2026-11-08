@@ -20,7 +20,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import log_loss
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 BASE_DIR = Path(__file__).resolve().parent
 
 
