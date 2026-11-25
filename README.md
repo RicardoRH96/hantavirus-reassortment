@@ -9,6 +9,7 @@ This repository contains the analysis scripts and figure notebooks used in the s
 ```text
 .
 ├── README.md
+├── requirements.txt
 ├── Scripts/
 │   ├── buildFinalModelDataset.py
 │   ├── build_case_study_site_level_dataset.py
@@ -56,14 +57,17 @@ Install via `pip` (or conda). Packages used across the codebase:
 | `joblib`, `tqdm` | Parallelism / progress |
 | `networkx` | Lineage graphs |
 | `adjustText` | Notebook label placement (Fig. 3) |
+| `pillow` | Figure image assembly (Figs. 2 and 4) |
+| `jupyter`, `ipykernel` | Interactive analysis and figure notebooks |
 
-#### Geospatial / SDM stack (`Scripts/SDM/`)
+#### Geospatial / SDM / ML stack (`Scripts/SDM/`, `Scripts/benchmark_sequence_model_suite.py`)
 
 | Package | Role |
 |---------|------|
 | `geopandas`, `shapely`, `pyproj`, `affine` | Vector geometries and projections |
 | `rasterio` | Raster I/O and windowed prediction |
-| `xgboost`, `lightgbm` | Ensemble classifiers |
+| `xgboost`, `lightgbm`, `catboost` | Gradient-boosted ensemble classifiers |
+| `group-lasso` | Group-penalized logistic regression |
 | `scikit-optimize` | Optional Bayesian hyperparameter search (`--tune`) |
 
 #### Phylogenetics / reassortment inference
@@ -96,7 +100,7 @@ Install via `pip` (or conda). Packages used across the codebase:
 | macOS | 26.5.2 (Apple Silicon) |
 | Augur / IQ-TREE / MAFFT / TreeTime / RAxML-NG / HyPhy / Espalier | As installed in the analysis environment used for the manuscript; exact CLI binaries must be on `PATH` |
 
-Python package versions were not locked in this repository at submission. For archival reproduction we recommend installing the packages listed above into a fresh Python 3.13 environment and recording `pip freeze` / `conda env export` alongside any data release.
+Python package versions are not pinned in `requirements.txt`. For archival reproduction we recommend installing the packages listed in `requirements.txt` into a fresh Python 3.13 environment and recording `pip freeze` / `conda env export` alongside any data release.
 
 ### Required non-standard hardware
 
@@ -124,15 +128,21 @@ pip install --upgrade pip
 pip install pandas ete3
 ```
 
-Full analysis environment (approximate):
+Full analysis environment via `requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
+
+Or install the Python packages directly:
 
 ```bash
 pip install pandas numpy matplotlib seaborn scipy scikit-learn statsmodels \
-  biopython joblib tqdm networkx adjustText \
+  biopython joblib tqdm networkx adjustText pillow \
   geopandas shapely pyproj affine rasterio \
-  xgboost lightgbm scikit-optimize \
+  xgboost lightgbm catboost group-lasso scikit-optimize \
   dendropy ete3 tskit baltic \
-  pymc bambi arviz
+  pymc bambi arviz jupyter ipykernel
 ```
 
 Install Espalier following its documentation: https://espalier.readthedocs.io/en/latest/
@@ -170,6 +180,7 @@ Override defaults with CLI flags or environment variables when paths differ:
 | `HANTA_EVO_MAIN_LABELS` | Main reassortment labels |
 | `HANTA_EVO_TREE_ROOT` | Segment / ARG tree root |
 | `HANTA_EVO_TRUE_ROOT` | True-reassortment ARG trees |
+| `HANTA_REPO_ROOT` | Optional repository root override (`Notebooks/Fig2.ipynb`) |
 | `NCBI_API_KEY` | NCBI Entrez rate limits (UTR scripts) |
 
 ### Typical install time
@@ -474,6 +485,6 @@ TaxonomyReconciler
 
 Seeds used in SDM code include `RNG_SEED = 72724`. Bayesian scripts expose `draws` / `chains` / `cores` (and related `HANTA_EGT_*` environment variables for establishment models). Exact posterior draws can differ slightly across platforms; manuscript figures were produced from the archived model outputs associated with the paper's data release.
 
-### Data availability
+### Data and code availability
 
-Sequence metadata, modeling tables, rasters, and posterior objects required for full reproduction should be obtained from the paper's data availability statement / archival deposit (DOI to be inserted upon publication). This git repository intentionally excludes large binaries (`*.tif`, `*.joblib`, `*.nc`, etc.).
+The archived code release is deposited on Zenodo under concept DOI [https://doi.org/10.5281/zenodo.20573222](https://doi.org/10.5281/zenodo.20573222), which always resolves to the latest archived release (including v1.0, `10.5281/zenodo.20573223`, and the revised release). Sequence metadata, modeling tables, environmental rasters, and posterior objects required for full reproduction should be obtained from the sources listed in the manuscript Data Availability statement (GenBank, Pathoplexus, GBIF, ArHa, COMBINE, PanTHERIA, EltonTraits 1.0, and External Supplementary Table 6). This git repository intentionally excludes large binaries (`*.tif`, `*.joblib`, `*.nc`, etc.).

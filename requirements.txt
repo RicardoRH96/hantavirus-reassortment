@@ -1,0 +1,63 @@
+# Python dependencies for:
+# "Molecular and ecological determinants of effective reassortment in orthohantaviruses"
+#
+# Tested with Python 3.13 (notebooks executed on Python 3.13.1).
+# Package versions are intentionally unpinned; record `pip freeze` for exact local reproduction.
+# Install with: pip install -r requirements.txt
+
+# --- Core scientific stack and visualization ---
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+scikit-learn
+statsmodels
+biopython
+joblib
+tqdm
+networkx
+adjustText
+pillow
+
+# --- Machine learning and hyperparameter tuning ---
+xgboost
+lightgbm
+catboost
+group-lasso
+scikit-optimize
+
+# --- Geospatial and species distribution modeling (Scripts/SDM/) ---
+geopandas
+shapely
+pyproj
+affine
+rasterio
+
+# --- Phylogenetics and reassortment utilities ---
+dendropy
+ete3
+tskit
+baltic
+
+# --- Hierarchical Bayesian modeling ---
+pymc
+bambi
+arviz
+
+# --- Interactive notebooks (Notebooks/, Scripts/EvolutionaryAnalysis/08_*.ipynb) ---
+jupyter
+ipykernel
+
+# --- Special Python / non-pip packages (install separately) ---
+# ViennaRNA          # Python bindings (`from ViennaRNA import RNA` / `import RNA`), or use `RNAfold` CLI
+# Espalier           # ARG reconstruction: https://espalier.readthedocs.io/en/latest/
+
+# --- External CLI tools (must be installed separately and available on PATH) ---
+# Nextstrain Augur   # `augur` (typically bundles MAFFT, IQ-TREE, and TreeTime)
+# MAFFT              # `mafft`
+# IQ-TREE            # `iqtree` or `iqtree2`
+# TreeTime           # `treetime`
+# RAxML-NG           # `raxml-ng` (used by Espalier)
+# HyPhy              # `hyphy` (FEL selection scans)
+# RNAfold            # ViennaRNA CLI fallback for UTR folding
